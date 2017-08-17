@@ -1,0 +1,6 @@
+base_locale: en
+locales: [en]
+ignore_unused:
+- "decidim.features.sabarca.name"
+ignore_missing:
+  - decidim.participatory_processes.scopes.global
