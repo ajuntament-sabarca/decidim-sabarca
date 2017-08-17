@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.description = "Customization for Sant Andreu de la Barca"
   s.license     = "AGPLv3"
 
-  s.files = Dir["{app,config,db,lib}/**/*", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt","Rakefile", "README.md"]
 
   s.add_dependency "decidim-core", "0.5.0"
 
