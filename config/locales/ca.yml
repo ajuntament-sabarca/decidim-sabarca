@@ -4,3 +4,17 @@ ca:
     features:
       sabarca:
         name: Sabarca
+    authorization_handlers:
+        decidim/sabarca/dummy_authorization_handler:
+          fields:
+            document_number: Número de document
+            postal_code: Codi Postal
+          name: Autorització de Sabarca
+    authorizations:
+      first_login:
+          actions:
+            decidim/sabarca/dummy_authorization_handler: Verificar contra l'Autorització de Sabarca
+    sabarca:
+      menu:
+        transparency: Transparència
+        city_close_up: La ciutat de prop
