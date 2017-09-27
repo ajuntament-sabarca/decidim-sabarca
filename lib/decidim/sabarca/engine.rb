@@ -55,7 +55,7 @@ module Decidim
       I18n.available_locales = original_locale + [:en] unless original_locale.include?(:en)
 
       Rails.application.railties.to_a.uniq.each do |railtie|
-        next unless railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::")
+        next unless railtie.respond_to?(:load_seed) && railtie.class.name.include?("Decidim::Sabarca")
 
         railtie.load_seed
       end
