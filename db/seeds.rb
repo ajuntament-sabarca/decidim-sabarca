@@ -92,8 +92,8 @@ if !Rails.env.production? || ENV["SEED"]
     locale: I18n.default_locale,
     admin: true,
     tos_agreement: true,
-    comments_notifications: true,
-    replies_notifications: true
+    # comments_notifications: true,
+    #replies_notifications: true
   )
 
   Decidim::User.find_or_initialize_by(email: "user@example.org").update!(
@@ -104,8 +104,8 @@ if !Rails.env.production? || ENV["SEED"]
     locale: I18n.default_locale,
     organization: organization,
     tos_agreement: true,
-    comments_notifications: true,
-    replies_notifications: true
+    # comments_notifications: true,
+    # replies_notifications: true
   )
   user = Decidim::User.find_by(email: "user@example.org")
 
@@ -189,8 +189,8 @@ if !Rails.env.production? || ENV["SEED"]
         confirmed_at: Time.current,
         locale: I18n.default_locale,
         tos_agreement: true,
-        comments_notifications: true,
-        replies_notifications: true
+        # comments_notifications: true,
+        # replies_notifications: true
       )
 
       Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
@@ -214,15 +214,14 @@ if !Rails.env.production? || ENV["SEED"]
       attached_to: process
     )
 
-    2.times do
-      Decidim::Category.create!(
-        name: Decidim::Faker::Localized.sentence(5),
-        description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-          Decidim::Faker::Localized.paragraph(3)
-        end,
-        participatory_process: process
-      )
-    end
+    # 2.times do
+    #   Decidim::Category.create!(
+    #     name: Decidim::Faker::Localized.sentence(5),
+    #     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+    #       Decidim::Faker::Localized.paragraph(3)
+    #     end,
+    #     participatory_process: process
+    #   )
+    # end
   end
 end
-

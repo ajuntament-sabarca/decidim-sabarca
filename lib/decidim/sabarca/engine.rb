@@ -12,9 +12,9 @@ module Decidim
         # Add engine routes here
         # resources :sabarca
         # root to: "sabarca#index"
-        get 'transparency', to: "pages#show", as: :transparency
-        get 'city_close_up', to: "pages#show", as: :city_close_up
-        get 'city_close_up/:scope_id', to: "pages#show", as: :city_close_up_scope
+        get 'transparency', to: "pages#transparency", as: :transparency
+        get 'city_close_up', to: "pages#city_close_up_index", as: :city_close_up
+        get 'city_close_up/:scope_id', to: "pages#city_close_up_show", as: :city_close_up_scope
       end
 
       initializer "decidim_sabarca.assets" do |app|
