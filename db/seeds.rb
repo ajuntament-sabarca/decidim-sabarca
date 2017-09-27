@@ -54,44 +54,34 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales,
     reference_prefix: "sab",
     official_url: "http://sabarca.cat/",
-    homepage_image: File.new(File.join(__dir__, "seeds", "homepage_image-ajsab.jpg")),
-    logo: File.new(File.join(__dir__, "seeds", "logo-header-ajsab.jpg")),
-    favicon: File.new(File.join(__dir__, "seeds", "favicon-ajsab.jpg")),
-    official_img_header: File.new(File.join(__dir__, "seeds", "logo-ajsab.jpg")),
-    official_img_footer: File.new(File.join(__dir__, "seeds", "logo-footer-ajsab.jpg")),
+    homepage_image: File.new(File.join("#{seeds_root}", "homepage_image-ajsab.jpg")),
+    logo: File.new(File.join("#{seeds_root}", "logo-header-ajsab.jpg")),
+    favicon: File.new(File.join("#{seeds_root}", "favicon-ajsab.jpg")),
+    official_img_header: File.new(File.join("#{seeds_root}", "logo-ajsab.jpg")),
+    official_img_footer: File.new(File.join("#{seeds_root}", "logo-footer-ajsab.jpg")),
   )
   organization.update!(available_authorizations: ["Decidim::Sabarca::DummyAuthorizationHandler"])
 
-  province = Decidim::ScopeType.create!(
-    name: Decidim::Faker::Localized.literal("province"),
-    plural: Decidim::Faker::Localized.literal("provinces"),
+  district_scope = Decidim::ScopeType.create!(
+    name: Decidim::Faker::Localized.literal("district_scope"),
+    plural: Decidim::Faker::Localized.literal("districts"),
     organization: organization
   )
 
-  municipality = Decidim::ScopeType.create!(
-    name: Decidim::Faker::Localized.literal("municipality"),
-    plural: Decidim::Faker::Localized.literal("municipalities"),
+  district1 = Decidim::Scope.create!(
+    name: Decidim::Faker::Localized.literal("El Palau"),
+    code: "08740",
+    scope_type: district_scope,
     organization: organization
   )
 
-  3.times.each do
-    parent = Decidim::Scope.create!(
-      name: Decidim::Faker::Localized.literal(Faker::Address.unique.state),
-      code: Faker::Address.unique.country_code,
-      scope_type: province,
-      organization: organization
-    )
+  district2 = Decidim::Scope.create!(
+    name: Decidim::Faker::Localized.literal("Santa Teresa"),
+    code: "08741",
+    scope_type: district_scope,
+    organization: organization
+  )
 
-    5.times.each do
-      Decidim::Scope.create!(
-        name: Decidim::Faker::Localized.literal(Faker::Address.unique.city),
-        code: parent.code + "-" + Faker::Address.unique.state_abbr,
-        scope_type: municipality,
-        organization: organization,
-        parent: parent
-      )
-    end
-  end
 
   Decidim::User.find_or_initialize_by(email: "admin@example.org").update!(
     name: Faker::Name.name,
@@ -117,23 +107,21 @@ if !Rails.env.production? || ENV["SEED"]
     comments_notifications: true,
     replies_notifications: true
   )
+  user = Decidim::User.find_by(email: "user@example.org")
 
-  Decidim::User.find_each do |user|
-    [nil, Time.current].each do |verified_at|
-      user_group = Decidim::UserGroup.create!(
-        name: "UserGroup #{Faker::Company.unique.name}",
-        document_number: Faker::Number.number(10),
-        phone: Faker::PhoneNumber.phone_number,
-        verified_at: verified_at,
-        decidim_organization_id: user.organization.id
-      )
+  user_group = Decidim::UserGroup.create!(
+    name: "Associació de Veins A",
+    document_number: Faker::Number.number(10),
+    phone: Faker::PhoneNumber.phone_number,
+    verified_at: Time.current,
+    decidim_organization_id: organization.id
+  )
 
-      Decidim::UserGroupMembership.create!(
-        user: user,
-        user_group: user_group
-      )
-    end
-  end
+  Decidim::UserGroupMembership.create!(
+    user: user,
+    user_group: user_group
+  )
+
 
   process_groups = []
   3.times do
