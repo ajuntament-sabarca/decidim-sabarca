@@ -7,11 +7,14 @@
     <h1 class="section-heading"><%= t("organization_scopes.scopes", scope: "layouts.decidim") %></h1>
     <ul>
       <% organization_scopes.each do |scope| %>
-        <li><%= translated_attribute scope.name %></li>
+        <li><%= scope.id %> <%= translated_attribute scope.name %></li>
       <% end %>
     </ul>
+    <%= scopes_map_for %>
 
-    <div id="map-polygons" style="width: 100%; height: 400px; background: grey"></div>
+    <%= stylesheet_link_tag "decidim/map" %>
+    <%= javascript_include_tag "decidim/sabarca/sample-geojson" %>
+    <%= javascript_include_tag "decidim/sabarca/pages" %>
     
   </section>
 <% end %>
@@ -23,4 +26,4 @@
   </section>
 <% end %>
 
-<% console %>
+<%# console %>
