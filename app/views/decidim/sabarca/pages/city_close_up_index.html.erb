@@ -1,29 +1,23 @@
-<section class="row">
-  <h1 class="heading1 page-title"><%= t(".title") %></h1>
+<section class="wrapper">
+  <div class="row">
+    <h1 class="heading1 page-title"><%= t(".title") %></h1>
+  </div>
+
+  <% if organization_scopes.any? %>
+    <section id ="organization-scopes" class="row section">
+      <%= map_for_scopes %>
+
+      <%= stylesheet_link_tag "decidim/map" %>
+      <%= javascript_include_tag "decidim/sabarca/scopes-geojson" %>
+      <%= javascript_include_tag "decidim/sabarca/pages" %>
+    </section>
+  <% end %>
+
+  <% if participatory_processes_organization.any? %>
+    <section id ="participatory_processes" class="row section">
+      <h2 class="heading2 section-heading"><%= t("participatory_processes.index.processes", scope: "layouts.decidim") %></h2>
+      <%= render partial: "participatory_process", collection: participatory_processes_organization, as: :participatory_process %>
+    </section>
+  <% end %>
+
 </section>
-
-<% if organization_scopes.any? %>
-  <section id ="organization-scopes" class="row section">
-    <h1 class="section-heading"><%= t("organization_scopes.scopes", scope: "layouts.decidim") %></h1>
-    <ul>
-      <% organization_scopes.each do |scope| %>
-        <li><%= scope.id %> <%= translated_attribute scope.name %></li>
-      <% end %>
-    </ul>
-    <%= scopes_map_for %>
-
-    <%= stylesheet_link_tag "decidim/map" %>
-    <%= javascript_include_tag "decidim/sabarca/sample-geojson" %>
-    <%= javascript_include_tag "decidim/sabarca/pages" %>
-    
-  </section>
-<% end %>
-
-<% if participatory_processes_no_district.any? %>
-  <section id ="participatory_processes" class="row section">
-    <h1 class="section-heading"><%= t("participatory_processes.index.processes", scope: "layouts.decidim") %></h1>
-    <%= render partial: "participatory_process", collection: participatory_processes_no_district, as: :participatory_process %>
-  </section>
-<% end %>
-
-<%# console %>

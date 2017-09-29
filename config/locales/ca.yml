@@ -21,3 +21,7 @@ ca:
       pages:
         transparency:
           title_transparency: Transparència
+        city_close_up_index:
+          title: La ciutat de prop
+        city_close_up_show:
+          title: "Barri"

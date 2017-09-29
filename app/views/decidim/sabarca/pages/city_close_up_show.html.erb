@@ -1,1 +1,21 @@
-City SHow
+<section class="wrapper">
+  <div class="row">
+    <h1 class="heading1 page-title"><%= t(".title") %> <%= translated_attribute @scope.name %></h1>
+  </div>
+  <div class="row section">
+    <div class="map_entities">
+      MAPA de les entitats d'aquest barri
+
+    </div>
+  </div>
+  <% if participatory_processes_organization.any? %>
+    <section id ="participatory_processes" class="row section">
+      <h2 class="heading2 section-heading"><%= t("participatory_processes.index.processes", scope: "layouts.decidim") %></h2>
+      <div class="row">
+        <%= render partial: "participatory_process", collection: participatory_processes_organization, as: :participatory_process %>
+      </div>
+    </section>
+  <% end %>
+
+</section>
+<% console %>
