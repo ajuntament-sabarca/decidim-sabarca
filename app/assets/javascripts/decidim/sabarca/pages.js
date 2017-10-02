@@ -20,8 +20,8 @@ L.tileLayer.here({
 }).addTo(map);
 
 function onclick(e) {
-  var current_url = window.location.href
-  var detail_url = "/"+ e.target.feature.properties.id_scope
+  var current_url = window.location.href;
+  var detail_url = "/"+ e.target.feature.properties.id_scope;
 
   window.location.replace(current_url + detail_url)
 }
@@ -29,7 +29,7 @@ function onclick(e) {
 function onEachFeature(feature, layer) {
 	if (feature.properties && feature.properties.tooltipContent) {
 		var tooltipContent = feature.properties.tooltipContent;
-    layer.bindTooltip(tooltipContent)
+    layer.bindTooltip(tooltipContent);
 	}
   layer.on({click: onclick});
 }
