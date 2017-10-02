@@ -18,7 +18,7 @@ module Decidim
       end
 
       initializer "decidim_sabarca.assets" do |app|
-        app.config.assets.precompile += %w(decidim_sabarca_manifest.js decidim_sabarca_manifest.css)
+        app.config.assets.precompile += %w(decidim_sabarca_manifest.js pages.js scopes-geojson.js decidim_sabarca_manifest.css custom_styles.css)
       end
 
       initializer "decidim_sabarca.i18n_exceptions" do
