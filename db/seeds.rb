@@ -55,10 +55,10 @@ if !Rails.env.production? || ENV["SEED"]
     reference_prefix: "sab",
     official_url: "http://sabarca.cat/",
     homepage_image: File.new(File.join("#{seeds_root}", "homepage_image-ajsab.jpg")),
-    logo: File.new(File.join("#{seeds_root}", "logo-header-ajsab.jpg")),
-    favicon: File.new(File.join("#{seeds_root}", "favicon-ajsab.jpg")),
-    official_img_header: File.new(File.join("#{seeds_root}", "logo-ajsab.jpg")),
-    official_img_footer: File.new(File.join("#{seeds_root}", "logo-footer-ajsab.jpg")),
+    logo: File.new(File.join("#{seeds_root}", "logo_sabarca.png")),
+    favicon: File.new(File.join("#{seeds_root}", "favicon_ajsab.png")),
+    official_img_header: File.new(File.join("#{seeds_root}", "logo-ajsab.png")),
+    official_img_footer: File.new(File.join("#{seeds_root}", "logo-footer-ajsab.png")),
   )
   organization.update!(available_authorizations: ["Decidim::Sabarca::DummyAuthorizationHandler"])
 
@@ -223,5 +223,12 @@ if !Rails.env.production? || ENV["SEED"]
     #     participatory_process: process
     #   )
     # end
+
+    Decidim::StaticPage.create!(
+      title: Decidim::Faker::Localized.sentence(2),
+      slug: "terms-and-conditions",
+      content: Decidim::Faker::Localized.sentence(5),
+      organization: organization,
+    )
   end
 end

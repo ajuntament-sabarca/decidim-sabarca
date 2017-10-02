@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="115px" height="112px" viewBox="0 0 115 112" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.2 (44496) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard" fill-rule="nonzero" fill="#00B5E2">
+            <g id="Group-4" transform="translate(3.000000, 2.000000)">
+                <polygon id="Combined-Shape" points="5.55555556 2.041078e-15 50 2.041078e-15 50 11.1111111 11.1111111 11.1111111 11.1111111 50 0 50 9.86864911e-15 0"></polygon>
+                <polygon id="Combined-Shape-Copy" transform="translate(84.000000, 25.000000) scale(-1, 1) translate(-84.000000, -25.000000) " points="64.5555556 2.041078e-15 109 2.041078e-15 109 11.1111111 70.1111111 11.1111111 70.1111111 50 59 50 59 0"></polygon>
+                <polygon id="Combined-Shape-Copy-2" transform="translate(84.000000, 84.000000) rotate(180.000000) translate(-84.000000, -84.000000) " points="64.5555556 59 109 59 109 70.1111111 70.1111111 70.1111111 70.1111111 109 59 109 59 59"></polygon>
+                <polygon id="Combined-Shape-Copy-3" transform="translate(25.000000, 84.000000) scale(-1, 1) rotate(-180.000000) translate(-25.000000, -84.000000) " points="5.55555556 59 50 59 50 70.1111111 11.1111111 70.1111111 11.1111111 109 0 109 9.86864911e-15 59"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

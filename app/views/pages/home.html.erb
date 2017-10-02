@@ -1,4 +1,3 @@
-<h1>home</h1>
 <% provide(:meta_title, current_organization.name) %>
 
 <%= render partial: 'pages/home/hero' %>
@@ -9,7 +8,7 @@
 
 <%= render partial: 'pages/home/highlighted_processes' %>
 
-<%= render partial: 'pages/home/extended' %>
+<%#= render partial: 'pages/home/extended' %>
 
 <% if current_organization.show_statistics? %>
   <%= render partial: 'pages/home/statistics' %>

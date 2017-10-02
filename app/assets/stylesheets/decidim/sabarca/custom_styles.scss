@@ -1,0 +1,120 @@
+//////////////////////////////
+/////// NEW VARIBLES /////////
+//////////////////////////////
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Titillium+Web:400,700');
+
+$light_grey: #D8D8D8;
+$dark_grey: #787779;
+$yellow: #FFCD00;
+$primary_color: #7C2529;
+$dark: #000000;
+$blue: #00B5E2;
+
+body{
+  font-family: 'Lato', sans-serif;
+}
+h1, h2, h3, h4, h5, h6{
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+}
+a:hover{
+  color: $blue;
+}
+//////////////////////////////
+/////// TOP BAR MENU /////////
+//////////////////////////////
+
+.title-bar{
+  background: $light_grey;
+}
+
+.navbar{
+  background: $primary_color;
+}
+
+.main-nav__link--active a{
+  -webkit-box-shadow: inset 0px -30px 0px -26px $yellow;
+  box-shadow: inset 0px -30px 0px -26px $yellow;
+
+}
+
+.topbar__dropmenu > ul > li > a{
+  color: $dark;
+}
+
+.topbar__dropmenu > ul > li > a:after{
+  border-top-color: $dark !important;
+}
+
+.topbar__user__login a{
+  color: $dark;
+  font-weight: inherit;
+  &:hover{
+    color: $blue;
+  }
+}
+
+.logo-cityhall{
+  background: $primary_color;
+  max-height: 40px;
+  padding: 5px;
+  img{
+    max-height: 30px;
+  }
+}
+
+////////////////////////
+/////HOME SECTION///////
+////////////////////////
+.hero{
+  background-size: cover;
+}
+
+.text-highlight.hero-heading{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+}
+
+.home-section{
+  background: $yellow;
+}
+
+
+/////////////////////////////
+//////////FOOTER/////////////
+/////////////////////////////
+.footer__subhero{
+  background-color: $light_grey;
+}
+
+.main-footer{
+  background: $primary_color;
+}
+.main-footer__badge{
+  left: 10px;
+}
+.section-heading{
+  color: $blue;
+  &:before{
+    background-image: asset-url("decidim/sabarca/icon_headers.svg");
+    width: 20px;
+    background-color: transparent;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 20px;
+  }
+}
+
+/////////////////////////////
+///////////BUTTON////////////
+////////////////////////////
+
+.button{
+  background: $primary_color;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  &:hover, &:focus{
+    background-color: $dark_grey;
+  }
+}
