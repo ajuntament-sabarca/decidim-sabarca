@@ -224,11 +224,11 @@ if !Rails.env.production? || ENV["SEED"]
     #   )
     # end
 
-    Decidim::StaticPage.create!(
-      title: Decidim::Faker::Localized.sentence(2),
-      slug: "terms-and-conditions",
-      content: Decidim::Faker::Localized.sentence(5),
-      organization: organization,
-    )
   end
+  Decidim::StaticPage.create!(
+    title: Decidim::Faker::Localized.sentence(2),
+    slug: "terms-and-conditions",
+    content: Decidim::Faker::Localized.sentence(5),
+    organization: organization,
+  )
 end
