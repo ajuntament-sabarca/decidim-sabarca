@@ -9,6 +9,7 @@ $yellow: #FFCD00;
 $primary_color: #7C2529;
 $dark: #000000;
 $blue: #00B5E2;
+$white: #ffffff;
 
 body{
   font-family: 'Lato', sans-serif;
@@ -91,9 +92,15 @@ a:hover{
 .main-footer{
   background: $primary_color;
 }
+
+.main-footer a, .mini-footer a{
+  color: $white !important;
+}
+
 .main-footer__badge{
   left: 10px;
 }
+
 .section-heading{
   color: $blue;
   &:before{
