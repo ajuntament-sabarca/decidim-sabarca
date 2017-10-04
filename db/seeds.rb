@@ -72,7 +72,7 @@ if !Rails.env.production? || ENV["SEED"]
     name: Decidim::Faker::Localized.literal("El Palau"),
     code: "08740",
     scope_type: district_scope,
-    organization: organization
+    organization: organization,
   )
 
   district2 = Decidim::Scope.create!(
@@ -114,7 +114,10 @@ if !Rails.env.production? || ENV["SEED"]
     document_number: Faker::Number.number(10),
     phone: Faker::PhoneNumber.phone_number,
     verified_at: Time.current,
-    decidim_organization_id: organization.id
+    decidim_organization_id: organization.id,
+    scope_id: 1,
+    address: "Plaça de l'Ajuntament 1, 08740 Sant Andreu de la Barca",
+
   )
 
   Decidim::UserGroupMembership.create!(
