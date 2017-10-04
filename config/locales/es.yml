@@ -1,5 +1,10 @@
 ---
 es:
+  activemodel:
+    attributes:
+      user:
+        user_group_address: Dirección
+        user_group_scope_id: Barrio
   decidim:
     features:
       sabarca:
@@ -25,3 +30,7 @@ es:
           title: La ciudad de cerca
         city_close_up_show:
           title: "Barrio"
+  devise:
+    invitations:
+      user:
+        updated: Usuario actualitzado

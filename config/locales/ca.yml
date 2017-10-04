@@ -1,5 +1,10 @@
 ---
 ca:
+  activemodel:
+    attributes:
+      user:
+        user_group_address: Adreça
+        user_group_scope_id: Barri
   decidim:
     features:
       sabarca:
@@ -25,3 +30,7 @@ ca:
           title: La ciutat de prop
         city_close_up_show:
           title: "Barri"
+  devise:
+    invitations:
+      user:
+        updated: Usuari actualitzat
