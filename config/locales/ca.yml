@@ -28,6 +28,7 @@ ca:
           title_transparency: Transparència
         city_close_up_index:
           title: La ciutat de prop
+          title_processes: Processos
         city_close_up_show:
           title: "Barri"
   devise:

@@ -28,6 +28,7 @@ es:
           title_transparency: Transparencia
         city_close_up_index:
           title: La ciudad de cerca
+          title_processes: Procesos
         city_close_up_show:
           title: "Barrio"
   devise:

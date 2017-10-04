@@ -15,8 +15,12 @@
 
   <% if participatory_processes_organization.any? %>
     <section id ="participatory_processes" class="row section">
-      <h2 class="heading2 section-heading"><%= t("participatory_processes.index.processes", scope: "layouts.decidim") %></h2>
-      <%= render partial: "participatory_process", collection: participatory_processes_organization, as: :participatory_process %>
+      <div class="section">
+        <h2 class="heading2 section-heading"><%= t(".title_processes") %></h2>
+      </div>
+      <div class="row section">
+        <%= render partial: "participatory_process", collection: participatory_processes_organization, as: :participatory_process %>
+      </div>
     </section>
   <% end %>
 
