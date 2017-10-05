@@ -35,3 +35,10 @@ es:
     invitations:
       user:
         updated: Usuario actualitzado
+  pages:
+    home:
+      extended:
+        city_close_up: La ciudad de cerca
+        proposals: Propuestas
+        read_more: Leer más
+        transparency: Transparencia

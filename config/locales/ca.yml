@@ -35,3 +35,10 @@ ca:
     invitations:
       user:
         updated: Usuari actualitzat
+  pages:
+    home:
+      extended:
+        city_close_up: La ciutat d'aprop
+        proposals: Propostes
+        read_more: Llegir més
+        transparency: Transparència
