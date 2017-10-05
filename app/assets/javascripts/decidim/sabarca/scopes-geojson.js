@@ -13,6 +13,9 @@ var sabarcaScopes = {
               fillOpacity: 0.8
           },
           "id_scope" : 1,
+          "center_coordinates":[
+            [1.96576, 41.4498]
+          ]
       },
       "geometry": {
         "type": "Polygon",
@@ -36,6 +39,9 @@ var sabarcaScopes = {
           fillOpacity: 0.8
         },
         "id_scope" : 2,
+        "center_coordinates":[
+          [1.96576, 41.4498]
+        ]
       },
       "geometry": {
         "type": "Polygon",

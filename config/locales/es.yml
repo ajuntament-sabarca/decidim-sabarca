@@ -31,6 +31,7 @@ es:
           title_processes: Procesos
         city_close_up_show:
           title: "Barrio"
+          title_processes: Procesos
   devise:
     invitations:
       user:

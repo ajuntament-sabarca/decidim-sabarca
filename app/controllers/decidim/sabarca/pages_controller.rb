@@ -12,11 +12,13 @@ module Decidim
 
       def transparency
       end
+
       def city_close_up_index
       end
+
       def city_close_up_show
-        #PODER NO CAL#
         @scope = Decidim::Scope.find_by(decidim_organization_id: current_organization.id, id: params[:scope_id])
+        @user_groups = Decidim::UserGroup.where(decidim_organization_id: current_organization.id, scope_id: params[:scope_id])
       end
 
       def participatory_processes_organization
@@ -27,7 +29,7 @@ module Decidim
       def organization_scopes
         @scopes ||= Decidim::Scope.where(decidim_organization_id: current_organization.id)
       end
-
+    
 
     end
   end

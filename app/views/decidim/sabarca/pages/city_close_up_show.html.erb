@@ -2,17 +2,66 @@
   <div class="row">
     <h1 class="heading1 page-title"><%= t(".title") %> <%= translated_attribute @scope.name %></h1>
   </div>
+
   <div class="row section">
-    <div class="map_entities">
+    <div class="map_entities columns small-12 large-9">
       MAPA de les entitats d'aquest barri
+      <%= dynamic_map_for user_groups_data_for_map(@user_groups.select(&:geocoded?)) do %>
+        <!-- <template id="marker-popup">
+          <div class="map-info__content">
+            <h3>${title}</h3>
+            <div id="bodyContent">
+              <p>{{html body}}</p>
+              <div class="map__date-adress">
+                <div class="address card__extra">
+                  <div class="address__icon">{{html icon}}</div>
+                  <div class="address__details">
+                    <span>${address}</span><br />
+                  </div>
+                </div>
+              </div>
+              <div class="map-info__button">
+                <a href="${link}" class="button button--sc">
+                  <%= t('.view_proposal') %>
+                </a>
+              </div>
+            </div>
+          </div>
+        </template> -->
+        <%= stylesheet_link_tag "decidim/map" %>
+        <%= javascript_include_tag "decidim/map" %>
+      <% end %>
+    </div>
+    <div class="columns small-12 large-3">
+      <ul>
+        <% @user_groups.each do |user_group| %>
+          <li>
+            <%= user_group.name %>, <%= user_group.address %>, <%= user_group.latitude %>, <%= user_group.longitude %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
   <% if participatory_processes_organization.any? %>
     <section id ="participatory_processes" class="row section">
-      <h2 class="heading2 section-heading"><%= t("participatory_processes.index.processes", scope: "layouts.decidim") %></h2>
-      <div class="row">
+      <div class="section">
+        <h2 class="heading2 section-heading"><%= t(".title_processes") %></h2>
+      </div>
+      <div class="row section">
         <%= render partial: "participatory_process", collection: participatory_processes_organization, as: :participatory_process %>
       </div>
     </section>
   <% end %>
+  <div class="row section">
+    <h3>Veure altres barris</h3>
+    <ul>
+      <% organization_scopes.each do |scope|%>
+        <li>
+          <%= link_to decidim_sabarca.city_close_up_scope_path(scope) do %>
+            <%= translated_attribute(scope.name) %>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
 </section>

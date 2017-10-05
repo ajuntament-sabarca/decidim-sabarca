@@ -31,6 +31,7 @@ ca:
           title_processes: Processos
         city_close_up_show:
           title: "Barri"
+          title_processes: Processos
   devise:
     invitations:
       user:
