@@ -15,6 +15,9 @@ module Decidim
         get 'transparency', to: "pages#transparency", as: :transparency
         get 'city_close_up', to: "pages#city_close_up_index", as: :city_close_up
         get 'city_close_up/:scope_id', to: "pages#city_close_up_show", as: :city_close_up_scope
+        namespace :admin do
+          resources :mayor_neighborhoods
+        end
       end
 
       initializer "decidim_sabarca.assets" do |app|
@@ -37,12 +40,21 @@ module Decidim
             decidim_sabarca.transparency_path,
             position: 3,
             active: :inclusive
-        end
-        Decidim.menu :menu do |menu|
+
           menu.item I18n.t("menu.city_close_up", scope: "decidim.sabarca"),
             decidim_sabarca.city_close_up_path,
             position: 4,
             active: :inclusive
+        end
+      end
+
+      initializer "decidim_admin.menu" do
+        Decidim.menu :admin_menu do |menu|
+          menu.item I18n.t("menu.mayor_in_the_neighborhood", scope: "decidim.sabarca.admin"),
+                    decidim_sabarca.admin_mayor_neighborhoods_path,
+                    icon_name: "dashboard",
+                    position: 1,
+                    active: :inclusive
         end
       end
 

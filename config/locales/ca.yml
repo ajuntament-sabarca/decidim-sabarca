@@ -20,6 +20,9 @@ ca:
           actions:
             decidim/sabarca/dummy_authorization_handler: Verificar contra l'Autorització de Sabarca
     sabarca:
+      admin:
+        menu:
+          mayor_in_the_neighborhood: Alcalde al barri
       menu:
         transparency: Transparència
         city_close_up: La ciutat de prop
