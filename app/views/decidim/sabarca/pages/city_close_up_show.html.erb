@@ -5,13 +5,12 @@
 
   <div class="row section">
     <div class="map_entities columns small-12 large-9">
-      MAPA de les entitats d'aquest barri
       <%= dynamic_map_for user_groups_data_for_map(@user_groups.select(&:geocoded?)) do %>
-        <!-- <template id="marker-popup">
+        <template id="marker-popup">
           <div class="map-info__content">
-            <h3>${title}</h3>
+            <h3>${name}</h3>
             <div id="bodyContent">
-              <p>{{html body}}</p>
+              <!-- <p>{{html body}}</p> -->
               <div class="map__date-adress">
                 <div class="address card__extra">
                   <div class="address__icon">{{html icon}}</div>
@@ -20,14 +19,9 @@
                   </div>
                 </div>
               </div>
-              <div class="map-info__button">
-                <a href="${link}" class="button button--sc">
-                  <%= t('.view_proposal') %>
-                </a>
-              </div>
             </div>
           </div>
-        </template> -->
+        </template>
         <%= stylesheet_link_tag "decidim/map" %>
         <%= javascript_include_tag "decidim/map" %>
       <% end %>
