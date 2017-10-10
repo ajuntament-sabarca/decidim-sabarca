@@ -1,11 +1,13 @@
-
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      ACLADE NEIGBORG
+      <%= t("mayor_neighborhood.index.mayor_neighborhood_title", scope: "decidim.admin") %>
+      <% if can? :create, Decidim::Sabarca::MayorNeighborhood %>
+        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), "#{}", class: 'button tiny button--title new' %>
+      <% end %>
     </h2>
   </div>
   <div class="card-section">
-    <p><%= t("decidim.admin.scopes.no_scopes") %></p>
+    <p><%= t("mayor_neighborhood.index.no_meetings", scope: "decidim.admin") %></p>
   </div>
 </div>

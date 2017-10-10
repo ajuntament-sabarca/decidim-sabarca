@@ -6,6 +6,11 @@ ca:
         user_group_address: Adreça
         user_group_scope_id: Barri
   decidim:
+    admin:
+      mayor_neighborhood:
+        index:
+          mayor_neighborhood_title: Alcalde al barri
+          no_meetings: No hi ha trobades de l'alcalde
     features:
       sabarca:
         name: Sabarca

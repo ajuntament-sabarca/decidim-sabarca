@@ -1,7 +1,7 @@
 module Decidim
   module Sabarca
     # Abstract class from which all models in this engine inherit.
-    class MayorNeighborhood < Decidim::ApplicationRecord::Base
+    class MayorNeighborhood < Decidim::ApplicationRecord
 
     end
   end
