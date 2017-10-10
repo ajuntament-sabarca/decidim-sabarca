@@ -7,10 +7,11 @@ module Decidim
       #
       # Note that it inherits from `Decidim::Admin::Features::BaseController`, which
       # override its layout and provide all kinds of useful methods.
-      class MayorNeighborhoodsController < Decidim::ApplicationController
+      class MayorNeighborhoodsController < Decidim::Admin::ApplicationController
+        skip_authorization_check
 
         def index
-          
+
         end
         def show
         end

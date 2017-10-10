@@ -7,7 +7,8 @@ module Decidim
       #
       # Note that it inherits from `Decidim::Admin::Features::BaseController`, which
       # override its layout and provide all kinds of useful methods.
-      class ApplicationController < Decidim::Admin::Features::BaseController
+      class ApplicationController < Decidim::Admin::ApplicationController
+        
       end
     end
   end
