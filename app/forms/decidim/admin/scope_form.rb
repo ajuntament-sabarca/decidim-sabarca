@@ -24,13 +24,6 @@ module Decidim
         Decidim::ScopeType.find_by(id: scope_type_id) if scope_type_id
       end
 
-      private
-
-      # def code_uniqueness
-      #   return unless organization && organization.scopes.where(code: code).where.not(id: id).any?
-      #
-      #   errors.add(:code, :taken)
-      # end
     end
   end
 end

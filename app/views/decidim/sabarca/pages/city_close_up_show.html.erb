@@ -1,6 +1,6 @@
 <section class="wrapper">
   <div class="row">
-    <h1 class="heading1 page-title"><%= t(".title") %> <%= translated_attribute @scope.name %></h1>
+    <h1 class="heading1 page-title"><%= translated_attribute @scope.name %></h1>
   </div>
 
   <div class="row section">
@@ -23,7 +23,8 @@
           </div>
         </template>
         <%= stylesheet_link_tag "decidim/map" %>
-        <%= javascript_include_tag "decidim/map" %>
+        <%= javascript_include_tag "decidim/sabarca/scopes/id-#{@scope.id}-geojson" %>
+        <%= javascript_include_tag "decidim/sabarca/scope_map" %>
       <% end %>
     </div>
     <div class="columns small-12 large-3">

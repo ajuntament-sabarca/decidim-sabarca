@@ -69,17 +69,52 @@ if !Rails.env.production? || ENV["SEED"]
   )
 
   district1 = Decidim::Scope.create!(
-    name: Decidim::Faker::Localized.literal("El Palau"),
+    name: Decidim::Faker::Localized.literal("Barri Casc Antic"),
     code: "08740",
     scope_type: district_scope,
     organization: organization,
   )
 
   district2 = Decidim::Scope.create!(
-    name: Decidim::Faker::Localized.literal("Santa Teresa"),
-    code: "08741",
+    name: Decidim::Faker::Localized.literal("Barri La Colònia"),
+    code: "08740",
     scope_type: district_scope,
     organization: organization
+  )
+
+  district3 = Decidim::Scope.create!(
+    name: Decidim::Faker::Localized.literal("Barri de la Plana"),
+    code: "08740",
+    scope_type: district_scope,
+    organization: organization,
+  )
+
+  district4 = Decidim::Scope.create!(
+    name: Decidim::Faker::Localized.literal("Barri del Palau"),
+    code: "08740",
+    scope_type: district_scope,
+    organization: organization
+  )
+
+  district5 = Decidim::Scope.create!(
+    name: Decidim::Faker::Localized.literal("Barri La Solana"),
+    code: "08740",
+    scope_type: district_scope,
+    organization: organization,
+  )
+
+  district6 = Decidim::Scope.create!(
+    name: Decidim::Faker::Localized.literal("Barri La Unió"),
+    code: "08740",
+    scope_type: district_scope,
+    organization: organization
+  )
+
+  district7 = Decidim::Scope.create!(
+    name: Decidim::Faker::Localized.literal("Centre"),
+    code: "08740",
+    scope_type: district_scope,
+    organization: organization,
   )
 
 
@@ -110,7 +145,7 @@ if !Rails.env.production? || ENV["SEED"]
   user = Decidim::User.find_by(email: "user@example.org")
 
   user_group = Decidim::UserGroup.create!(
-    name: "Associació de Veins A",
+    name: Faker::Name.name,
     document_number: Faker::Number.number(10),
     phone: Faker::PhoneNumber.phone_number,
     verified_at: Time.current,
@@ -228,6 +263,7 @@ if !Rails.env.production? || ENV["SEED"]
     # end
 
   end
+  
   Decidim::StaticPage.create!(
     title: Decidim::Faker::Localized.sentence(2),
     slug: "terms-and-conditions",
