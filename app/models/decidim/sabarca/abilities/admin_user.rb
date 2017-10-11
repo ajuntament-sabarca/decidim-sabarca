@@ -6,16 +6,17 @@ module Decidim
       # Intended to be used with `cancancan`.
       class AdminUser
         include CanCan::Ability
-
         attr_reader :user, :context
 
         def initialize(user, context)
-          return unless user && user.role?(:admin)
+          # return unless user && user.role?(:admin)
+          return unless user && user.admin?
 
           @user = user
           @context = context
 
           # can :manage, SomeResource
+          can :manage, Decidim::Sabarca::MayorNeighborhood
         end
 
         private

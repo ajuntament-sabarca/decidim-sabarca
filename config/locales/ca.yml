@@ -11,6 +11,8 @@ ca:
         index:
           mayor_neighborhood_title: Alcalde al barri
           no_meetings: No hi ha trobades de l'alcalde
+      titles:
+        mayor_neighborhoods: Trobades de l'alcalde
     features:
       sabarca:
         name: Sabarca
