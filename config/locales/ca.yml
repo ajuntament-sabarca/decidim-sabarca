@@ -2,6 +2,13 @@
 ca:
   activemodel:
     attributes:
+      mayor_neighborhood:
+        address: Adreça
+        decidim_scope_id: Barri
+        description: Descripció
+        end_time: Hora Fi
+        start_time: Hora Inici
+        title: Títol
       user:
         user_group_address: Adreça
         user_group_scope_id: Barri

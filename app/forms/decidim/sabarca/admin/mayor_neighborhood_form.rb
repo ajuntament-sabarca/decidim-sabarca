@@ -5,52 +5,43 @@ module Decidim
     module Admin
     # A form object to create or update scopes.
       class MayorNeighborhoodForm < Form
-        include Decidim::TranslatableAttributes
+        include TranslatableAttributes
 
         translatable_attribute :title, String
         translatable_attribute :description, String
         translatable_attribute :location, String
-        translatable_attribute :description, String
-        # translatable_attribute :location_hints, String
+
+        attribute :slug, String
         attribute :address, String
         attribute :latitude, Float
         attribute :longitude, Float
         attribute :start_time, Decidim::Attributes::TimeWithZone
         attribute :end_time, Decidim::Attributes::TimeWithZone
         attribute :decidim_scope_id, Integer
-        # attribute :decidim_category_id, Integer
+        attribute :decidim_organization_id, Integer
 
-        validates :title, translatable_presence: true
-        validates :description, translatable_presence: true
-        validates :location, translatable_presence: true
-        validates :address, presence: true
-        validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
-        validates :start_time, presence: true, date: { before: :end_time }
-        validates :end_time, presence: true, date: { after: :start_time }
-
-        # validates :current_feature, presence: true
-        validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
-        validates :category, presence: true, if: ->(form) { form.decidim_category_id.present? }
-
-        # mimic :scope
 
         # validates :title, translatable_presence: true
-        # validates :organization, :code, presence: true
-        # validate :code
+        # validates :description, translatable_presence: true
+        # validates :location, translatable_presence: true
+        # validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
+        # validates :address, presence: true
+        # validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
+        # validates :start_time, presence: true, date: { before: :end_time }
+        # validates :end_time, presence: true, date: { after: :start_time }
         #
-        # alias organization current_organization
-        #
-        # def scope_type
-        #   Decidim::ScopeType.find_by(id: scope_type_id) if scope_type_id
-        # end
-        #
-        # private
+        # validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
 
-        # def code_uniqueness
-        #   return unless organization && organization.scopes.where(code: code).where.not(id: id).any?
+        # validate :slug_uniqueness
+
+        private
+
+        # def slug_uniqueness
+        #   return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: context[:assembly_id]).any?
         #
-        #   errors.add(:code, :taken)
+        #   errors.add(:slug, :taken)
         # end
+
       end
     end
   end

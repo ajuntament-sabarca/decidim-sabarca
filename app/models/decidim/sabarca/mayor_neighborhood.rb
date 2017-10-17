@@ -2,15 +2,15 @@ module Decidim
   module Sabarca
     # Abstract class from which all models in this engine inherit.
     class MayorNeighborhood < Decidim::ApplicationRecord
-      include Decidim::Publicable
+      # include Decidim::Publicable
       belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
-      belongs_to :scope, foreign_key: "scope_id", class_name: "Decidim::Scope"
+      belongs_to :scope, foreign_key: "decidim_scope_id", class_name: "Decidim::Scope"
 
 
-      validates :name, presence: true, uniqueness: { scope: :decidim_organization_id }
-      validates :scope_id, presence: true
+      validates :title, presence: true, uniqueness: { scope: :decidim_organization_id }
+      validates :decidim_scope_id, presence: true
       validates :address, presence: true
-      validates :slug, uniqueness: { scope: :organization }
+      validates :slug, uniqueness: { scope: :decidim_organization_id }
       validates :slug, presence: true
 
       geocoded_by :address

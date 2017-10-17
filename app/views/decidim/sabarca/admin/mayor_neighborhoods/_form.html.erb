@@ -1,6 +1,11 @@
 
 <div class="row column">
+  <%#= form.hidden_field :decidim_organization_id, value: current_organization.id %>
   <%= form.translated :text_field, :title %>
+</div>
+
+<div class="row column">
+    <%= form.text_field :slug %>
 </div>
 
 <div class="row column">
@@ -8,7 +13,7 @@
 </div>
 
 <div class="row column" >
-  <%= form.translated :text_area, :description %>
+  <%= form.translated :editor, :description %>
 </div>
 
 <div class="row" >
@@ -22,7 +27,6 @@
 </div>
 <div class="row" >
   <div class="columns xlarge-6" >
-    <%#= form.scopes_select :scope_id, prompt: t("decidim.scopes.global"), remote_path: decidim.scopes_search_path %>
     <%= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path  %>
   </div>
 
