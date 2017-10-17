@@ -21,26 +21,15 @@ module Decidim
         attribute :decidim_organization_id, Integer
 
 
-        # validates :title, translatable_presence: true
-        # validates :description, translatable_presence: true
-        # validates :location, translatable_presence: true
-        # validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
-        # validates :address, presence: true
-        # validates :address, geocoding: true, if: -> { Decidim.geocoder.present? }
-        # validates :start_time, presence: true, date: { before: :end_time }
-        # validates :end_time, presence: true, date: { after: :start_time }
-        #
-        # validates :scope, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+        validates :title, translatable_presence: true
+        validates :description, translatable_presence: true
+        validates :slug, presence: true
+        validates :address, presence: true
+        validates :start_time, presence: true, date: { before: :end_time }
+        validates :end_time, presence: true, date: { after: :start_time }
 
-        # validate :slug_uniqueness
-
-        private
-
-        # def slug_uniqueness
-        #   return unless OrganizationAssemblies.new(current_organization).query.where(slug: slug).where.not(id: context[:assembly_id]).any?
-        #
-        #   errors.add(:slug, :taken)
-        # end
+        validates :decidim_scope_id, presence: true, if: ->(form) { form.decidim_scope_id.present? }
+        # validates :slug, uniqueness: { scope: :decidim_organization_id }
 
       end
     end

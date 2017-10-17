@@ -8,6 +8,43 @@
     </h2>
   </div>
   <div class="card-section">
-    <p><%= t("mayor_neighborhood.index.no_meetings", scope: "decidim.admin") %></p>
+    <% if @mayor_neighborhoods.any? %>
+      <div class="table-scroll">
+        <table class="table-list">
+        <thead>
+          <tr>
+            <th><%= t("models.scope.fields.title", scope: "decidim.admin") %></th>
+            <th><%#= t("models.scope.fields.scope_type", scope: "decidim.admin") %></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @mayor_neighborhoods.each do |mayor_neighborhood| %>
+            <tr>
+              <td>
+                <%= link_to translated_attribute(mayor_neighborhood.title), decidim_sabarca.admin_mayor_neighborhood_path(mayor_neighborhood) %>
+              </td>
+              <td>
+                <%#= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
+              </td>
+              <td class="table-list__actions">
+                <%= icon_link_to "zoom-in", decidim_sabarca.admin_mayor_neighborhood_path(mayor_neighborhood), t("actions.browse", scope: "decidim.admin"), class: "action-icon--browse", method: :get, data: {} %>
+
+                <% if can? :update, mayor_neighborhood %>
+                  <%= icon_link_to "pencil", decidim_sabarca.edit_admin_mayor_neighborhood_path(mayor_neighborhood), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
+                <% end %>
+
+                <% if can? :destroy, mayor_neighborhood %>
+                  <%#= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+        </table>
+      </div>
+    <% else %>
+      <p><%= t("mayor_neighborhood.index.no_meetings", scope: "decidim.admin") %></p>
+    <% end %>
   </div>
 </div>

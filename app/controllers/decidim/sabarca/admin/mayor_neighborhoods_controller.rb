@@ -7,10 +7,11 @@ module Decidim
 
         def index
           authorize! :index, Decidim::Sabarca::MayorNeighborhood
-          # @scopes = children_scopes.order("name->'#{I18n.locale}' ASC")
+          @mayor_neighborhoods ||= collection
         end
 
         def show
+          authorize! :show, Decidim::Sabarca::MayorNeighborhood
         end
 
         def new
@@ -38,12 +39,15 @@ module Decidim
         end
 
         def edit
+          authorize! :edit, Decidim::Sabarca::MayorNeighborhood
         end
 
         def update
+          authorize! :update, Decidim::Sabarca::MayorNeighborhood
         end
 
         def destroy
+          authorize! :destroy, Decidim::Sabarca::MayorNeighborhood
         end
 
         private
