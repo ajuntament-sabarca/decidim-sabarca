@@ -52,7 +52,7 @@ module Decidim
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.mayor_in_the_neighborhood", scope: "decidim.sabarca.admin"),
                     decidim_sabarca.admin_mayor_neighborhoods_path,
-                    icon_name: "dashboard",
+                    icon_name: "meetings",
                     position: 1,
                     active: :inclusive
         end

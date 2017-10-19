@@ -2,10 +2,43 @@
 es:
   activemodel:
     attributes:
+      mayor_neighborhood:
+        address: Dirección
+        decidim_scope_id: Barrio
+        description: Descripción
+        end_time: Fecha Fin
+        start_time: Fecha Inicio
+        title: Títol
       user:
         user_group_address: Dirección
         user_group_scope_id: Barrio
   decidim:
+    admin:
+      actions:
+        mayor_neighborhoods:
+          create:
+            error: Se ha producido un error al crear este encuentro del alcale.
+            success: Encuentro del alcale creado correctamente.
+          destroy:
+            error: Se ha producido un error en eliminar este encuentro del alcale.
+            success: Encuentro del alcale eliminado correctamente.
+          edit:
+            title: Edita el encuentro del alcale
+            update: Actualizar
+          index:
+            mayor_neighborhoods_title: Encuentros del alcale
+          new:
+            create: Crea un encuentro del alcale
+            title: Nuevo encuentro del alcale
+          update:
+            error: Se ha producido un error al actualizar este encuentro del alcale.
+            success: Encuentro del alcale actualizado correctamente.
+      mayor_neighborhood:
+        index:
+          mayor_neighborhood_title: Alcalde al barri
+          no_meetings: No hi ha trobades de l'alcalde
+      titles:
+        mayor_neighborhoods: Trobades de l'alcalde
     features:
       sabarca:
         name: Sabarca

@@ -1,9 +1,9 @@
 <div class="card">
   <div class="card-divider">
     <h2 class="card-title">
-      <%= t("mayor_neighborhood.index.mayor_neighborhood_title", scope: "decidim.admin") %>
+      <%= t("mayor_neighborhoods.index.mayor_neighborhoods_title", scope: "decidim.admin.actions") %>
       <% if can? :create, Decidim::Sabarca::MayorNeighborhood %>
-        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.category.name", scope: "decidim.admin")), decidim_sabarca.new_admin_mayor_neighborhood_path, class: 'button tiny button--title new' %>
+        <%= link_to t("actions.new", scope: "decidim.admin"), decidim_sabarca.new_admin_mayor_neighborhood_path, class: 'button tiny button--title new' %>
       <% end %>
     </h2>
   </div>
@@ -13,8 +13,10 @@
         <table class="table-list">
         <thead>
           <tr>
-            <th><%= t("models.scope.fields.title", scope: "decidim.admin") %></th>
-            <th><%#= t("models.scope.fields.scope_type", scope: "decidim.admin") %></th>
+            <th><%= t("mayor_neighborhood.title", scope: "activemodel.attributes") %></th>
+            <th><%= t("mayor_neighborhood.start_time", scope: "activemodel.attributes") %></th>
+            <th><%= t("mayor_neighborhood.end_time", scope: "activemodel.attributes") %></th>
+            <th><%= t("mayor_neighborhood.decidim_scope_id", scope: "activemodel.attributes") %></th>
             <th></th>
           </tr>
         </thead>
@@ -25,7 +27,17 @@
                 <%= link_to translated_attribute(mayor_neighborhood.title), decidim_sabarca.admin_mayor_neighborhood_path(mayor_neighborhood) %>
               </td>
               <td>
-                <%#= scope.scope_type ? translated_attribute(scope.scope_type.name) : "-" %>
+                <% if mayor_neighborhood.start_time %>
+                  <%= l mayor_neighborhood.start_time, format: :long %>
+                <%  end%>
+              </td>
+              <td>
+                <% if mayor_neighborhood.end_time %>
+                  <%= l mayor_neighborhood.end_time, format: :long %>
+                <%  end%>
+              </td>
+              <td>
+                <%= translated_attribute(mayor_neighborhood.scope.name) %>
               </td>
               <td class="table-list__actions">
                 <%= icon_link_to "zoom-in", decidim_sabarca.admin_mayor_neighborhood_path(mayor_neighborhood), t("actions.browse", scope: "decidim.admin"), class: "action-icon--browse", method: :get, data: {} %>
@@ -35,7 +47,7 @@
                 <% end %>
 
                 <% if can? :destroy, mayor_neighborhood %>
-                  <%#= icon_link_to "circle-x", scope, t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
+                  <%= icon_link_to "circle-x", decidim_sabarca.admin_mayor_neighborhood_path(mayor_neighborhood), t("actions.destroy", scope: "decidim.admin"), class: "action-icon--remove", method: :delete, data: { confirm: t("actions.confirm_destroy", scope: "decidim.admin") } %>
                 <% end %>
               </td>
             </tr>
