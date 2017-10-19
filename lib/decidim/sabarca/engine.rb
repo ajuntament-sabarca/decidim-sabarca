@@ -16,7 +16,7 @@ module Decidim
         get 'city_close_up', to: "pages#city_close_up_index", as: :city_close_up
         get 'city_close_up/:scope_id', to: "pages#city_close_up_show", as: :city_close_up_scope
         namespace :admin do
-          resources :mayor_neighborhoods
+          resources :mayor_neighborhoods, except: [:show]
         end
       end
 

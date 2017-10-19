@@ -54,8 +54,15 @@ es:
             decidim/sabarca/dummy_authorization_handler: Verificar contra la Autoritzación de Sabarca
     sabarca:
       admin:
+        mayor_neighborhoods:
+          edit:
+            update: Actualizar
+          new:
+            create: Crear
         menu:
           mayor_in_the_neighborhood: Alcalde en el barrio
+      mayor_neighborhoods:
+        read_more: Leer más
       menu:
         transparency: Transparencia
         city_close_up: La ciudad de cerca
@@ -67,6 +74,7 @@ es:
           title_processes: Procesos
         city_close_up_show:
           title: "Barrio"
+          title_mayor_neighborhood: Encuentros del alcalde
           title_processes: Procesos
   devise:
     invitations:

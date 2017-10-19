@@ -54,8 +54,15 @@ ca:
             decidim/sabarca/dummy_authorization_handler: Verificar contra l'Autorització de Sabarca
     sabarca:
       admin:
+        mayor_neighborhoods:
+          edit:
+            update: Actualitzar
+          new:
+            create: Crear
         menu:
           mayor_in_the_neighborhood: Alcalde al barri
+      mayor_neighborhoods:
+        read_more: Llegir més
       menu:
         transparency: Transparència
         city_close_up: La ciutat de prop
@@ -67,6 +74,7 @@ ca:
           title_processes: Processos
         city_close_up_show:
           title: "Barri"
+          title_mayor_neighborhood: Trobades de l'alcalde
           title_processes: Processos
   devise:
     invitations:

@@ -8,11 +8,6 @@ module Decidim
           @mayor_neighborhood = mayor_neighborhood
         end
 
-        # Executes the command. Broadcasts these events:
-        #
-        # - :ok when everything is valid.
-        # - :invalid if the data wasn't valid and we couldn't proceed.
-        #
         # Returns nothing.
         def call
           return broadcast(:invalid) if mayor_neighborhood.nil?
@@ -28,7 +23,7 @@ module Decidim
         def destroy_mayor_neighborhood
           mayor_neighborhood.destroy!
         end
-        
+
       end
     end
   end

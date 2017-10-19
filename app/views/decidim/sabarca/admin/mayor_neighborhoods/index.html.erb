@@ -24,7 +24,7 @@
           <% @mayor_neighborhoods.each do |mayor_neighborhood| %>
             <tr>
               <td>
-                <%= link_to translated_attribute(mayor_neighborhood.title), decidim_sabarca.admin_mayor_neighborhood_path(mayor_neighborhood) %>
+                <%= link_to translated_attribute(mayor_neighborhood.title), decidim_sabarca.edit_admin_mayor_neighborhood_path(mayor_neighborhood) %>
               </td>
               <td>
                 <% if mayor_neighborhood.start_time %>
@@ -40,8 +40,7 @@
                 <%= translated_attribute(mayor_neighborhood.scope.name) %>
               </td>
               <td class="table-list__actions">
-                <%= icon_link_to "zoom-in", decidim_sabarca.admin_mayor_neighborhood_path(mayor_neighborhood), t("actions.browse", scope: "decidim.admin"), class: "action-icon--browse", method: :get, data: {} %>
-
+                
                 <% if can? :update, mayor_neighborhood %>
                   <%= icon_link_to "pencil", decidim_sabarca.edit_admin_mayor_neighborhood_path(mayor_neighborhood), t("actions.edit", scope: "decidim.admin"), class: "action-icon--edit", method: :get, data: {} %>
                 <% end %>

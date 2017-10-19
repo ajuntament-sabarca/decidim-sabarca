@@ -10,11 +10,6 @@ module Decidim
           @mayor_neighborhoods ||= collection
         end
 
-        def show
-          @mayor_neighborhood = collection.find(params[:id])
-          authorize! :read, @mayor_neighborhood
-        end
-
         def new
           authorize! :new, Decidim::Sabarca::MayorNeighborhood
           @form = form(Decidim::Sabarca::Admin::MayorNeighborhoodForm).from_params({})
@@ -54,7 +49,7 @@ module Decidim
           UpdateMayorNeighborhood.call(@mayor_neighborhood, @form) do
             on(:ok) do
               flash[:notice] = I18n.t("mayor_neighborhoods.update.success", scope: "decidim.admin.actions")
-              redirect_to decidim_sabarca.admin_mayor_neighborhood_path(@mayor_neighborhood)
+              redirect_to decidim_sabarca.admin_mayor_neighborhoods_path
             end
 
             on(:invalid) do

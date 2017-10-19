@@ -1,6 +1,7 @@
 module Decidim
   module Sabarca
     module PagesHelper
+
       def map_for_scopes
         return if Decidim.geocoder.blank?
 
@@ -39,6 +40,22 @@ module Decidim
                                                               )
         end
       end
+
+      def mayor_neighborhoods_data_for_map(geocoded_mayor_neighborhoods)
+        geocoded_mayor_neighborhoods.map do |mayor_neighborhood|
+          mayor_neighborhood.slice(:latitude, :longitude, :address).merge(name: translated_attribute(mayor_neighborhood.title),
+                                                                icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
+                                                              )
+        end
+      end
+
+      def mayor_neighborhood_description(mayor_neighborhood, max_length = 120)
+        link = "#"
+        description = translated_attribute(mayor_neighborhood.description)
+        tail = "... #{link_to(t("read_more", scope: "decidim.sabarca.mayor_neighborhoods"), link)}".html_safe
+        CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
+      end
+
     end
   end
 end

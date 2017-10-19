@@ -27,6 +27,8 @@ module Decidim
              class_name: "Decidim::Scope",
              inverse_of: :parent
 
+    has_many :decidim_sabarca_mayor_neighborhoods, class_name: "Decidim::Sabarca::MayorNeighborhood", foreign_key: "decidim_scope_id"
+
     before_validation :update_part_of, on: :update
 
     validates :name, :code, :organization, presence: true
