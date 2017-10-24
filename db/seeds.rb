@@ -168,7 +168,7 @@ if !Rails.env.production? || ENV["SEED"]
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
-      hero_image: File.new(File.join(seeds_root, "city.jpeg")),
+      hero_image: File.new(File.join(seeds_root, "img_sabarca_#{rand(1..6)}.jpg")),
       organization: organization
     )
   end
@@ -185,8 +185,8 @@ if !Rails.env.production? || ENV["SEED"]
       description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
         Decidim::Faker::Localized.paragraph(3)
       end,
-      hero_image: File.new(File.join(seeds_root, "city.jpeg")),
-      banner_image: File.new(File.join(seeds_root, "city2.jpeg")),
+      hero_image: File.new(File.join(seeds_root, "img_sabarca_#{rand(1..6)}.jpg")),
+      banner_image: File.new(File.join(seeds_root, "img_sabarca_#{rand(1..6)}.jpg")),
       promoted: true, published_at: 2.weeks.ago,
       organization: organization,
       meta_scope: Decidim::Faker::Localized.word,
@@ -241,7 +241,7 @@ if !Rails.env.production? || ENV["SEED"]
     Decidim::Attachment.create!(
       title: Decidim::Faker::Localized.sentence(2),
       description: Decidim::Faker::Localized.sentence(5),
-      file: File.new(File.join(seeds_root, "city.jpeg")),
+      file: File.new(File.join(seeds_root, "img_sabarca_#{rand(1..6)}.jpg")),
       attached_to: process
     )
 
@@ -263,7 +263,7 @@ if !Rails.env.production? || ENV["SEED"]
     # end
 
   end
-  
+
   Decidim::StaticPage.create!(
     title: Decidim::Faker::Localized.sentence(2),
     slug: "terms-and-conditions",
