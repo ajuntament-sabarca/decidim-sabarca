@@ -19,7 +19,7 @@ L.DivIcon.SVGIcon.DecidimIcon = L.DivIcon.SVGIcon.extend({
 });
 
 const popupTemplateId = 'marker-popup';
-$.template(popupTemplateId, $('#${popupTemplateId}').html());
+$.template(popupTemplateId, $(`#${popupTemplateId}`).html());
 
 const addMarkers = (markersData, markerClusters, map) => {
   const bounds = new L.LatLngBounds(markersData.map((markerData) => [markerData.latitude, markerData.longitude]));
@@ -107,7 +107,7 @@ window.Decidim.mapConfiguration = {};
 
 $(() => {
   const mapId = 'map';
-  const $map = $('#${mapId}');
+  const $map = $(`#${mapId}`);
 
   const markersData = $map.data('markers-data');
   const hereAppId = $map.data('here-app-id');
