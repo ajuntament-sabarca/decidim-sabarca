@@ -9,6 +9,8 @@ module Decidim
 
         translatable_attribute :title, String
         translatable_attribute :description, String
+        translatable_attribute :councilors, String
+        translatable_attribute :topics, String
 
         attribute :slug, String
         attribute :address, String

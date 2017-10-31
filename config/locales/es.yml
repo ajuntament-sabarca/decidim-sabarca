@@ -4,11 +4,13 @@ es:
     attributes:
       mayor_neighborhood:
         address: Dirección
+        councilors: Concejales que asistirán
         decidim_scope_id: Barrio
         description: Descripción
         end_time: Fecha Fin
         start_time: Fecha Inicio
         title: Títol
+        topics: Temas que se tratarán
       user:
         user_group_address: Dirección
         user_group_scope_id: Barrio

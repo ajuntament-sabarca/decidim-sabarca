@@ -4,11 +4,13 @@ ca:
     attributes:
       mayor_neighborhood:
         address: Adreça
+        councilors: Regidors que assistiran
         decidim_scope_id: Barri
         description: Descripció
         end_time: Data Fi
         start_time: Data Inici
         title: Títol
+        topics: Temes que es tractaran
       user:
         user_group_address: Adreça
         user_group_scope_id: Barri

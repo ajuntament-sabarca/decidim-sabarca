@@ -3,6 +3,8 @@ class CreateDecidimSabarcaMayorNeighborhoods < ActiveRecord::Migration[5.1]
     create_table :decidim_sabarca_mayor_neighborhoods do |t|
       t.jsonb :title
       t.jsonb :description
+      t.jsonb :councilors
+      t.jsonb :topics
       t.string :slug
       t.datetime :start_time
       t.datetime :end_time

@@ -35,6 +35,8 @@ module Decidim
             address: form.address,
             slug: form.slug,
             description: form.description,
+            councilors: form.councilors,
+            topics: form.topics,
             start_time: form.start_time,
             end_time: form.end_time,
             decidim_scope_id: form.decidim_scope_id,
