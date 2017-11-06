@@ -4,12 +4,15 @@
   </div>
   <div class="row section">
     <div class="map_entities columns small-12 large-9">
+
       <%= dynamic_map_for user_groups_data_for_map(@user_groups.select(&:geocoded?)) + mayor_neighborhoods_data_for_map(@scope.decidim_sabarca_mayor_neighborhoods.select(&:geocoded?)) do %>
         <template id="marker-popup">
           <div class="map-info__content">
             <h3>${name}</h3>
             <div id="bodyContent">
               <!-- <p>{{html body}}</p> -->
+              <div class="phone">${phone}</div>
+              <div class="phone">${email}</div>
               <div class="map__date-adress">
                 <div class="address card__extra">
                   <div class="address__icon">{{html icon}}</div>
@@ -30,7 +33,7 @@
       <ul>
         <% @user_groups.each do |user_group| %>
           <li>
-            <%= user_group.name %>, <%= user_group.address %>, <%= user_group.latitude %>, <%= user_group.longitude %>
+            <%= user_group.name %>, <%= user_group.address %>, <%= user_group.phone %>, <%= user_group.users.first.email %>, <%= user_group.latitude %>, <%= user_group.longitude %>
           </li>
         <% end %>
       </ul>

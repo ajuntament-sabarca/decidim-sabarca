@@ -23,7 +23,7 @@ module Decidim
 
       def city_close_up_show
         @scope = Decidim::Scope.find_by(decidim_organization_id: current_organization.id, id: params[:scope_id])
-        @user_groups = Decidim::UserGroup.where(decidim_organization_id: current_organization.id, scope_id: params[:scope_id])
+        @user_groups = Decidim::UserGroup.where(decidim_organization_id: current_organization.id, scope_id: params[:scope_id]).verified
 
         # return unless search.results.empty? && params.dig("filter", "date") != "past"
 

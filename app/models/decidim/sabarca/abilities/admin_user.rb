@@ -17,6 +17,7 @@ module Decidim
 
           # can :manage, SomeResource
           can :manage, Decidim::Sabarca::MayorNeighborhood
+          can :manage, Decidim::Sabarca::TransparencyItem
         end
 
         private

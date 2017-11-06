@@ -37,6 +37,8 @@ module Decidim
         geocoded_user_groups.map do |user_group|
           user_group.slice(:latitude, :longitude, :address).merge(name: user_group.name,
                                                                 icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
+                                                                email: user_group.users.first.email,
+                                                                phone: user_group.phone,
                                                               )
         end
       end

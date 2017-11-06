@@ -11,6 +11,10 @@ ca:
         start_time: Data Inici
         title: Títol
         topics: Temes que es tractaran
+      transparency_item:
+        position: Posició
+        text: Text
+        url: Enllaç
       user:
         user_group_address: Adreça
         user_group_scope_id: Barri
@@ -35,6 +39,18 @@ ca:
           update:
             error: S'ha produït un error en actualitzar aquesta trobada de l'alcale.
             success: Trobada de l'alcale actualitzada correctament.
+        transparency_items:
+          create:
+            error: S'ha produït un error en crear aquest item de transparència.
+            success: Item de transparència creat correctament.
+          destroy:
+            error: S'ha produït un error en eliminar aquest item de transparència.
+            success: Item de transparència eliminat correctament.
+          index:
+            title: Items de transparència
+          update:
+            error: S'ha produït un error en actualitzar aquest item de transparència
+            success: Item de transparència actualitzat correctament.
       mayor_neighborhood:
         index:
           mayor_neighborhood_title: Alcalde al barri
@@ -63,6 +79,17 @@ ca:
             create: Crear
         menu:
           mayor_in_the_neighborhood: Alcalde al barri
+          transparency_items: Items de transparència
+        transparency_items:
+          edit:
+            title: Edita l'item de transparència
+            update: Actualitzar
+          index:
+            transparency_item_title: Items de transparència
+            no_transparency_items: No hi ha items de transparència
+          new:
+            create: Crea
+            title: Nou item de transparència
       mayor_neighborhoods:
         read_more: Llegir més
       menu:

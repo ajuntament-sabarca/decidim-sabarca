@@ -17,6 +17,7 @@ module Decidim
         get 'city_close_up/:scope_id', to: "pages#city_close_up_show", as: :city_close_up_scope
         namespace :admin do
           resources :mayor_neighborhoods, except: [:show]
+          resources :transparency_items, except: [:show]
         end
       end
 
@@ -55,6 +56,13 @@ module Decidim
                     icon_name: "meetings",
                     position: 1,
                     active: :inclusive
+
+          menu.item I18n.t("menu.transparency_items", scope: "decidim.sabarca.admin"),
+                    decidim_sabarca.admin_transparency_items_path,
+                    icon_name: "meetings",
+                    position: 1,
+                    active: :inclusive
+
         end
       end
 

@@ -11,6 +11,10 @@ es:
         start_time: Fecha Inicio
         title: Títol
         topics: Temas que se tratarán
+      transparency_item:
+        position: Posición
+        text: Texto
+        url: Enlace
       user:
         user_group_address: Dirección
         user_group_scope_id: Barrio
@@ -35,6 +39,18 @@ es:
           update:
             error: Se ha producido un error al actualizar este encuentro del alcale.
             success: Encuentro del alcale actualizado correctamente.
+        transparency_items:
+          create:
+            error: Se ha producido un error al crear este item de transparencia.
+            success: Item de transparencia creado correctamente.
+          destroy:
+            error: Se ha producido un error en eliminar este item de transparencia.
+            success: Item de transparencia eliminado correctamente.
+          index:
+            title: Items de transparencia
+          update:
+            error: Se ha producido un error en actualizar este item de transparencia
+            success: Item de transparencia actualitzado correctamente.
       mayor_neighborhood:
         index:
           mayor_neighborhood_title: Alcalde al barri
@@ -63,6 +79,17 @@ es:
             create: Crear
         menu:
           mayor_in_the_neighborhood: Alcalde en el barrio
+          transparency_items: Items de transparencia
+        transparency_item:
+          edit:
+            title: Edita el item de transparencia
+            update: Actualizar
+          index:
+            transparency_item_title: Items de transparencia
+            no_transparency_items: No hay items de transparencia
+          new:
+            create: Crea
+            title: Nuevo item de transparencia
       mayor_neighborhoods:
         read_more: Leer más
       menu:
