@@ -82,7 +82,7 @@ module Decidim
           form_params["transparency_item"] ||= {}
           form_params["transparency_item"]["decidim_organization_id"] = current_organization.id
 
-          return form_params unless transparency_item
+          return form_params
         end
 
         def transparency_item

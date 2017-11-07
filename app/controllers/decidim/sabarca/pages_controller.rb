@@ -16,6 +16,7 @@ module Decidim
       helper_method :participatory_processes_organization, :organization_scopes, :mayor_neighborhoods, :mayor_neighborhood, :geocoded_mayor_neighborhoods
 
       def transparency
+        @transparency_items = Decidim::Sabarca::TransparencyItem.where(decidim_organization_id: current_organization.id)
       end
 
       def city_close_up_index

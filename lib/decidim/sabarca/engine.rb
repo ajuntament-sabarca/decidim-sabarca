@@ -5,6 +5,8 @@ module Decidim
   module Sabarca
     # This is the engine that runs on the public interface of `decidim-sabarca`.
     class Engine < ::Rails::Engine
+      require "acts_as_list"
+
       isolate_namespace Decidim::Sabarca
       engine_name "decidim_sabarca"
 
@@ -59,7 +61,7 @@ module Decidim
 
           menu.item I18n.t("menu.transparency_items", scope: "decidim.sabarca.admin"),
                     decidim_sabarca.admin_transparency_items_path,
-                    icon_name: "meetings",
+                    icon_name: "external-link",
                     position: 1,
                     active: :inclusive
 
