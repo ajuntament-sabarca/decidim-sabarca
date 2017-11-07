@@ -1,6 +1,6 @@
 module Decidim
   module Sabarca
-    module PagesHelper
+    module ScopesHelper
 
       def map_for_scopes
         return if Decidim.geocoder.blank?

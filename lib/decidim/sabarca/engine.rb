@@ -15,12 +15,18 @@ module Decidim
         # resources :sabarca
         # root to: "sabarca#index"
         get 'transparency', to: "pages#transparency", as: :transparency
-        get 'city_close_up', to: "pages#city_close_up_index", as: :city_close_up
-        get 'city_close_up/:scope_id', to: "pages#city_close_up_show", as: :city_close_up_scope
+        # get 'city_close_up', to: "pages#city_close_up_index", as: :city_close_up
+        # get 'city_close_up/:scope_id', to: "pages#city_close_up_show", as: :city_close_up_scope
+
         namespace :admin do
           resources :mayor_neighborhoods, except: [:show]
           resources :transparency_items, except: [:show]
         end
+
+        resources :scopes, only: [:index, :show], as: :city_close_up do
+          resources :mayor_neighborhoods, only: [:show]
+        end
+
       end
 
       initializer "decidim_sabarca.assets" do |app|
@@ -45,7 +51,7 @@ module Decidim
             active: :inclusive
 
           menu.item I18n.t("menu.city_close_up", scope: "decidim.sabarca"),
-            decidim_sabarca.city_close_up_path,
+            decidim_sabarca.city_close_up_index_path,
             position: 4,
             active: :inclusive
         end

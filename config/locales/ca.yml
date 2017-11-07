@@ -98,12 +98,14 @@ ca:
       pages:
         transparency:
           title_transparency: Transparència
-        city_close_up_index:
+      scopes:
+        index:
           title: La ciutat de prop
           title_processes: Processos
-        city_close_up_show:
+        show:
           title: "Barri"
-          title_mayor_neighborhood: Trobades de l'alcalde
+          title_mayor_neighborhood_future: Properes trobades de l'alcalde
+          title_mayor_neighborhood_past: Trobades de l'alcalde passades
           title_processes: Processos
   devise:
     invitations:

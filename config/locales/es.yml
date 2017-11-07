@@ -98,12 +98,15 @@ es:
       pages:
         transparency:
           title_transparency: Transparencia
-        city_close_up_index:
+      scopes:
+        index:
           title: La ciudad de cerca
           title_processes: Procesos
-        city_close_up_show:
+        show:
           title: "Barrio"
           title_mayor_neighborhood: Encuentros del alcalde
+          title_mayor_neighborhood_future: Próximos encuentros del alcalde
+          title_mayor_neighborhood_past: Encuentros del alcalde pasados
           title_processes: Procesos
   devise:
     invitations:
