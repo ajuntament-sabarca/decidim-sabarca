@@ -42,9 +42,7 @@ module Decidim
     end
 
     def organization
-      @organization ||= @resource.try(:feature).try(:organization)
-      return if @organization.present?
-      @organization ||= @resource.organization
+      @organization ||= @resource.try(:feature).try(:organization) || @resource.organization
     end
   end
 end
