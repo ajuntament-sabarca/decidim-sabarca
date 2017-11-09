@@ -16,15 +16,7 @@ module Decidim
 
       scope :upcoming, -> { where("start_time >= ? ", Time.current).order(start_time: :asc) }
       scope :past, -> { where("start_time <= ? ", Time.current).order(start_time: :desc) }
-      
-      # def search_date
-      #   if options[:date] == "upcoming"
-      #     query.where("start_time >= ? ", Time.current).order(start_time: :asc)
-      #   elsif options[:date] == "past"
-      #     query.where("start_time <= ? ", Time.current).order(start_time: :desc)
-      #   end
-      # end
-      #
+
     end
   end
 end

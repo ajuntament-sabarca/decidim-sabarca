@@ -15,16 +15,14 @@ module Decidim
         # resources :sabarca
         # root to: "sabarca#index"
         get 'transparency', to: "pages#transparency", as: :transparency
-        # get 'city_close_up', to: "pages#city_close_up_index", as: :city_close_up
-        # get 'city_close_up/:scope_id', to: "pages#city_close_up_show", as: :city_close_up_scope
-
+      
         namespace :admin do
           resources :mayor_neighborhoods, except: [:show]
           resources :transparency_items, except: [:show]
         end
 
         resources :scopes, only: [:index, :show], as: :city_close_up do
-          resources :mayor_neighborhoods, only: [:show]
+          resources :mayor_neighborhoods, only: [:show], param: :slug
         end
 
       end
