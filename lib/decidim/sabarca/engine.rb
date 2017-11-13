@@ -15,7 +15,7 @@ module Decidim
         # resources :sabarca
         # root to: "sabarca#index"
         get 'transparency', to: "pages#transparency", as: :transparency
-      
+
         namespace :admin do
           resources :mayor_neighborhoods, except: [:show]
           resources :transparency_items, except: [:show]
@@ -61,13 +61,15 @@ module Decidim
                     decidim_sabarca.admin_mayor_neighborhoods_path,
                     icon_name: "meetings",
                     position: 1,
-                    active: :inclusive
+                    active: :inclusive,
+                    if: can?(:index, Decidim::Sabarca::MayorNeighborhood)
 
           menu.item I18n.t("menu.transparency_items", scope: "decidim.sabarca.admin"),
                     decidim_sabarca.admin_transparency_items_path,
                     icon_name: "external-link",
                     position: 1,
-                    active: :inclusive
+                    active: :inclusive,
+                    if: can?(:index, Decidim::Sabarca::TransparencyItem)
 
         end
       end
