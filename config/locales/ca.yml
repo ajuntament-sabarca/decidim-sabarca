@@ -8,6 +8,7 @@ ca:
         decidim_scope_id: Barri
         description: Descripció
         end_time: Data Fi
+        slug: Nom curt d’URL
         start_time: Data Inici
         title: Títol
         topics: Temes que es tractaran
@@ -23,22 +24,22 @@ ca:
       actions:
         mayor_neighborhoods:
           create:
-            error: S'ha produït un error en crear aquesta trobada de l'alcale.
-            success: Trobada de l'alcale creada correctament.
+            error: S'ha produït un error en crear aquesta trobada de l'alcalde.
+            success: Trobada de l'alcalde creada correctament.
           destroy:
-            error: S'ha produït un error en eliminar aquesta trobada de l'alcale.
-            success: Trobada de l'alcale eliminada correctament.
+            error: S'ha produït un error en eliminar aquesta trobada de l'alcalde.
+            success: Trobada de l'alcalde eliminada correctament.
           edit:
-            title: Edita trobada de l'alcale
+            title: Edita trobada de l'alcalde
             update: Actualitzar
           index:
-            mayor_neighborhoods_title: Trobades de l'alcale
+            mayor_neighborhoods_title: Trobades de l'alcalde
           new:
-            create: Crea una trobada de l'alcale
-            title: Nova trobada de l'alcale
+            create: Crea una trobada de l'alcalde
+            title: Nova trobada de l'alcalde
           update:
-            error: S'ha produït un error en actualitzar aquesta trobada de l'alcale.
-            success: Trobada de l'alcale actualitzada correctament.
+            error: S'ha produït un error en actualitzar aquesta trobada de l'alcalde.
+            success: Trobada de l'alcalde actualitzada correctament.
         transparency_items:
           create:
             error: S'ha produït un error en crear aquest item de transparència.
@@ -46,8 +47,14 @@ ca:
           destroy:
             error: S'ha produït un error en eliminar aquest item de transparència.
             success: Item de transparència eliminat correctament.
+          edit:
+            title: Edita l'item de transparència
+            update: Actualitzar
           index:
             title: Items de transparència
+          new:
+            create: Crea un nou item de transparència
+            title: Nou item de transparència
           update:
             error: S'ha produït un error en actualitzar aquest item de transparència
             success: Item de transparència actualitzat correctament.
@@ -74,9 +81,11 @@ ca:
       admin:
         mayor_neighborhoods:
           edit:
+            title: Edita trobada de l'alcalde
             update: Actualitzar
           new:
             create: Crear
+            title: Nova trobada de l'alcalde
         menu:
           mayor_in_the_neighborhood: Alcalde al barri
           transparency_items: Items de transparència

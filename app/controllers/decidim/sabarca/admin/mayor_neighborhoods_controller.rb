@@ -3,8 +3,7 @@ module Decidim
   module Sabarca
     module Admin
       class MayorNeighborhoodsController < Decidim::Admin::ApplicationController
-        layout "decidim/sabarca/admin/mayor_neighborhoods"
-
+        
         def index
           authorize! :index, Decidim::Sabarca::MayorNeighborhood
           @mayor_neighborhoods ||= collection
