@@ -12,19 +12,21 @@ module Decidim
         translatable_attribute :url, String
 
         attribute :position, Integer
-
         attribute :decidim_organization_id, Integer
 
         validates :text, :url, translatable_presence: true
+        validate :valid_url, :validate_text_length
 
-        validate :valid_url
+        def validate_text_length
+          current_organization.available_locales.each do |locale|
+            self.errors.add(:"text_#{locale}", :too_long, { count: 150 }) if self.try("text_#{locale}").size > 150
+          end
+        end
 
         def valid_url
           current_organization.available_locales.each do |locale|
             url = self.try("url_#{locale}")
-            unless uri?(url)
-              errors.add(:url, :invalid)
-            end
+            self.errors.add(:"url_#{locale}", :invalid) unless uri?(url)
           end
         end
 
