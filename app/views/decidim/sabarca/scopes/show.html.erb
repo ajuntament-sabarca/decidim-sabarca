@@ -1,10 +1,8 @@
-<section class="wrapper">
-  <div class="row">
-    <h1 class="heading1 page-title"><%= translated_attribute @scope.name %></h1>
-  </div>
-  <div class="row section">
-    <div class="map_entities columns small-12 large-9">
+<%= render "decidim/sabarca/shared/section_header_sabarca", title: translated_attribute(@scope.name), subtitle: "", center_text: false, icon_name: "location" %>
 
+<section class="wrapper">
+  <div class="row section">
+    <div class="map_entities">
       <%= dynamic_map_for user_groups_data_for_map(@user_groups.select(&:geocoded?)) + mayor_neighborhoods_data_for_map(@scope.decidim_sabarca_mayor_neighborhoods.select(&:geocoded?)) do %>
         <template id="marker-popup">
           <div class="map-info__content">
@@ -28,15 +26,6 @@
         <%= javascript_include_tag "decidim/sabarca/scopes/id-#{@scope.id}-geojson" %>
         <%= javascript_include_tag "decidim/sabarca/scope_map" %>
       <% end %>
-    </div>
-    <div class="columns small-12 large-3">
-      <ul>
-        <% @user_groups.each do |user_group| %>
-          <li>
-            <%= user_group.name %>, <%= user_group.address %>, <%= user_group.phone %>, <%= user_group.users.first.email %>, <%= user_group.latitude %>, <%= user_group.longitude %>
-          </li>
-        <% end %>
-      </ul>
     </div>
   </div>
 
@@ -72,17 +61,14 @@
       </div>
     </section>
   <% end %>
-
-  <div class="row section">
-    <h3>Veure altres barris</h3>
+  <div class="columns small-12 large-3">
     <ul>
-      <% organization_scopes.each do |scope|%>
+      <% @user_groups.each do |user_group| %>
         <li>
-          <%= link_to decidim_sabarca.city_close_up_path(scope) do %>
-            <%= translated_attribute(scope.name) %>
-          <% end %>
+          <%= user_group.name %>, <%= user_group.address %>, <%= user_group.phone %>, <%= user_group.users.first.email %>, <%= user_group.latitude %>, <%= user_group.longitude %>
         </li>
       <% end %>
     </ul>
   </div>
 </section>
+<%= render 'other_scopes' %>

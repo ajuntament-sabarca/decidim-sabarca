@@ -1,44 +1,23 @@
-<%# TODO change the structure, design and content based on design done %>
+<%= render "decidim/sabarca/shared/section_header_sabarca", title: t(".title_transparency"),
+  subtitle: t(".subtitle_transparency"), center_text: false, icon_name: "loupe" %>
+
 <section class="wrapper">
   <div class="row">
-    <h1 class="heading1 page-title"><%= t(".title_transparency") %></h1>
-    <div class="row">
-      <div class="small-12 large-4 columns">
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."</p>
-      </div>
-      <div class="small-12 large-4 columns">
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."</p>
-      </div>
-      <div class="small-12 large-4 columns">
-        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-          nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum."</p>
-      </div>
+    <div class="small-10 small-centered columns">
+      <p class="text-center font-18"><%= t(".text") %><br/><%= t(".text_2") %></p>
+      <p class="text-center font-18"></p>
     </div>
-    <div class="row">
-      <% @transparency_items.each do |transparency_item| %>
-        <%= link_to translated_attribute(transparency_item.url), target: "_blank" do %>
-          <div class="small-4 large-3 columns">
-            <%= translated_attribute(transparency_item.text).html_safe %>
-          </div>
-        <% end %>
+  </div>
+</section>
+
+<section class="wrapper">
+  <div class="row">
+    <% @transparency_items.each do |transparency_item| %>
+      <%= link_to translated_attribute(transparency_item.url), target: "_blank" do %>
+        <div class="small-4 large-3 columns">
+          <%= translated_attribute(transparency_item.text).html_safe %>
+        </div>
       <% end %>
-    </div>
+    <% end %>
   </div>
 </section>

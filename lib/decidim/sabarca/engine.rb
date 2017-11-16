@@ -26,6 +26,11 @@ module Decidim
         end
 
       end
+      initializer "decidim.action_controller" do |_app|
+        ActiveSupport.on_load :action_controller do
+          helper Decidim::Sabarca::LayoutHelper if respond_to?(:helper)
+        end
+      end
 
       initializer "decidim_sabarca.assets" do |app|
         app.config.assets.precompile += %w(decidim_sabarca_manifest.js pages.js scopes-geojson.js)

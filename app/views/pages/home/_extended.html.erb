@@ -1,0 +1,37 @@
+<section class="extended subhero background-white">
+  <div class="row small-up-1 medium-up-3">
+    <div class="column">
+      <div class="card card-link">
+        <%= link_to decidim_participatory_processes.participatory_processes_path, class: "" do %>
+          <div class="card__content">
+            <%= icon_sabarca "process", class: "sabarca--block__icon" %>
+            <h3><%= t(".processes") %></h3>
+            <%= t(".processes_text") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card card-link">
+        <%= link_to decidim_sabarca.city_close_up_path, class: "" do %>
+          <div class="card__content">
+            <%= icon_sabarca "location", class: "sabarca--block__icon" %>
+            <h3><%= t(".city_close_up") %></h3>
+            <%= t(".city_close_up_text") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+    <div class="column">
+      <div class="card card-link">
+        <%= link_to decidim_sabarca.transparency_path, class: "" do %>
+          <div class="card__content">
+            <%= icon_sabarca "loupe", class: "sabarca--block__icon" %>
+            <h3><%= t(".transparency") %></h3>
+            <%= t(".transparency_text") %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -106,9 +106,13 @@ es:
         city_close_up: La ciudad de cerca
       pages:
         transparency:
+          subtitle_transparency: Acceso a la información pública
+          text: Este portal contiene la información pública del Ayuntamiento con la que responde a sus obligaciones legales de transparencia activa.
+          text_2: La normativa, información sobre cómo tramitar una solicitud, consulta de estado de solicitudes, estadísticas, resoluciones denegatorias, reclamaciones.
           title_transparency: Transparencia
       scopes:
         index:
+          subtitle: Encuentra las entidades y sigue las propuestas de nuestros barrios
           title: La ciudad de cerca
           title_processes: Procesos
         show:
@@ -124,7 +128,9 @@ es:
   pages:
     home:
       extended:
-        city_close_up: La ciudad de cerca
-        proposals: Propuestas
-        read_more: Leer más
+        city_close_up: Ciudad de cerca
+        city_close_up_text: Apartado para ver el ámbito de actuación de la ciudad tanto de manera global como de los barrios
+        processes: Procesos
+        processes_text: Espacio donde puden participar en los procesos de la ciudad en la que desea vivir
         transparency: Transparencia
+        transparency_text: Acceso a la información pública y buen gobierno de la ciudad

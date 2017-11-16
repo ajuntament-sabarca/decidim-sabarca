@@ -1,8 +1,7 @@
-<section class="wrapper">
-  <div class="row">
-    <h1 class="heading1 page-title"><%= t(".title") %></h1>
-  </div>
+<%= render "decidim/sabarca/shared/section_header_sabarca", title: t(".title"),
+  subtitle: t(".subtitle"), center_text: false, icon_name: "location" %>
 
+<section class="wrapper">
   <% if organization_scopes.any? %>
     <section id ="organization-scopes" class="row section">
       <%= map_for_scopes %>

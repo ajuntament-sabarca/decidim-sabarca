@@ -10,6 +10,7 @@ $primary_color: #7C2529;
 $dark: #000000;
 $blue: #00B5E2;
 $white: #ffffff;
+$whitness: #F3F3F3;
 
 body{
   font-family: 'Lato', sans-serif;
@@ -81,7 +82,6 @@ a:hover{
   background: $yellow;
 }
 
-
 /////////////////////////////
 //////////FOOTER/////////////
 /////////////////////////////
@@ -120,4 +120,77 @@ a:hover{
   &:hover, &:focus{
     background-color: $dark_grey;
   }
+}
+/////////////////////////////
+//////////SECTIONS/////////////
+/////////////////////////////
+.background-white{
+  background-color: $white;
+}
+
+.background-whitness{
+  background-color: $whitness;
+}
+
+.background-yellow{
+  background: $yellow;
+}
+
+/////////////////////////////
+//////////HEADER/////////////
+/////////////////////////////
+
+.sabarca-header-section{
+  text-align: left;
+  background: $yellow;
+  .sabarca--header__icon{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+  .titles{
+    float: left;
+  }
+  .block-center{
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/////////////////////////////
+//////////FONT/////////////
+/////////////////////////////
+.font-18{
+  font-size: 1.8rem;
+}
+
+
+/////////////////////////////
+/////////CARDLINK////////////
+/////////////////////////////
+.card-link{
+  border-radius: 0;
+  border: solid 2px $primary_color;
+  a{
+    color: $primary_color;
+  }
+  .sabarca--block__icon{
+    width: 50px;
+    height: 50px;
+  }
+}
+
+
+/////////////////////////////
+/////////SCOPE LINK/////////
+/////////////////////////////
+
+.scope-link{
+  background-color: transparent;
+  line-height: 40px;
+  display: block;
+  border-color: $dark;
+  border-radius: 0;
 }
