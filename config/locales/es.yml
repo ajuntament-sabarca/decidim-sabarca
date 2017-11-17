@@ -64,9 +64,6 @@ es:
           no_meetings: No hi ha trobades de l'alcalde
       titles:
         mayor_neighborhoods: Trobades de l'alcalde
-    features:
-      sabarca:
-        name: Sabarca
     authorization_handlers:
         decidim/sabarca/dummy_authorization_handler:
           fields:
@@ -77,6 +74,13 @@ es:
       first_login:
           actions:
             decidim/sabarca/dummy_authorization_handler: Verificar contra la Autoritzación de Sabarca
+    features:
+      sabarca:
+        name: Sabarca
+    participatory_processes:
+      participatory_processes:
+        index:
+          processes: Procesos
     sabarca:
       admin:
         mayor_neighborhoods:

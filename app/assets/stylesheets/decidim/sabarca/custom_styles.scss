@@ -156,6 +156,7 @@ a:hover{
   .block-center{
     display: flex;
     justify-content: center;
+    text-align: center;
   }
 }
 
@@ -193,4 +194,24 @@ a:hover{
   display: block;
   border-color: $dark;
   border-radius: 0;
+}
+
+
+/////////////////////////////
+/////////Custom/////////
+/////////////////////////////
+
+.sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+  .wrapper{
+    .row.collapse{
+      .row.collapse{
+        margin-right: calc(-75rem - 100%);
+        margin-left: calc(-75rem - 100%);
+        margin-bottom: 4rem;
+        margin-top: -5rem;
+        padding-top: 2rem;
+        background: $yellow;
+      }
+    }
+  }
 }

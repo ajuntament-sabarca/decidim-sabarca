@@ -64,9 +64,6 @@ ca:
           no_meetings: No hi ha trobades de l'alcalde
       titles:
         mayor_neighborhoods: Trobades de l'alcalde
-    features:
-      sabarca:
-        name: Sabarca
     authorization_handlers:
         decidim/sabarca/dummy_authorization_handler:
           fields:
@@ -77,6 +74,13 @@ ca:
       first_login:
           actions:
             decidim/sabarca/dummy_authorization_handler: Verificar contra l'Autorització de Sabarca
+    features:
+      sabarca:
+        name: Sabarca
+    participatory_processes:
+      participatory_processes:
+        index:
+          processes: Processos
     sabarca:
       admin:
         mayor_neighborhoods:
@@ -112,7 +116,6 @@ ca:
           title_transparency: Transparència
       scopes:
         index:
-          subtitle: Troba les entitats i segueix les propostes dels nostres barris
           title: La ciutat de prop
           title_processes: Processos
         show:
@@ -124,10 +127,18 @@ ca:
     invitations:
       user:
         updated: Usuari actualitzat
+  layouts:
+    decidim:
+      wrapper:
+        city_close_up: La ciutat de prop
+        city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres barris
+        more_information: Més informació
+        processes: Processos
+        transparency: Transparència
   pages:
     home:
       extended:
-        city_close_up: Ciutat d'aprop
+        city_close_up: Ciutat de prop
         city_close_up_text: Apartat per veure l'àmbit d'actuació de la ciutat tant de manera global com dels barris
         processes: Processos
         processes_text: Espai on poder participar en els processos de la ciutat en la que voleu viure

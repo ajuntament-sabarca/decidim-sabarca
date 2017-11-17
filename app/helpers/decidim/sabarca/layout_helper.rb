@@ -4,18 +4,9 @@ module Decidim
   # View helpers related to the layout.
   module Sabarca
     module LayoutHelper
-      # Outputs an SVG-based icon.
-      #
-      # name    - The String with the icon name.
-      # options - The Hash options used to customize the icon (default {}):
-      #             :width  - The Number of width in pixels (optional).
-      #             :height - The Number of height in pixels (optional).
-      #             :aria_label - The String to set as aria label (optional).
-      #             :aria_hidden - The Truthy value to enable aria_hidden (optional).
-      #             :role - The String to set as the role (optional).
-      #             :class - The String to add as a CSS class (optional).
-      #
-      # Returns a String.
+
+      ##NOT USED NOW
+
       def icon_sabarca(name, options = {})
         html_properties = {}
 
@@ -54,6 +45,44 @@ module Decidim
         classes = options[:remove_icon_class] ? [] : ["icon"]
         classes += [options[:class]]
         classes.compact
+      end
+
+      def header_section
+        if (controller_name == "pages" and params[:id]!= "home") or (controller_name == "participatory_processes" and action_name == "index") or (%w(mayor_neighborhoods scopes).include? controller_name)
+          case controller_name
+          when "participatory_processes"
+            @title = t(".processes")
+            @subtitle = ""
+          when "pages"
+            case action_name
+            when "transparency"
+              @title= t(".transparency")
+              @subtitle= ""
+            when "index"
+              @title= t(".more_information")
+              @subtitle= ""
+            when "show"
+              @title= ""
+              @subtitle= ""
+            end
+          when "scopes"
+            case action_name
+            when "index"
+              @title= t(".city_close_up")
+              @subtitle= t(".city_close_up_subtitle")
+            when "show"
+              @title= translated_attribute(@scope.name)
+              @subtitle= ""
+            end
+          when "mayor_neighborhoods"
+            case action_name
+            when "show"
+              @title= translated_attribute(mayor_neighborhood.title)
+              @subtitle= ""
+            end
+          end
+          render "decidim/sabarca/shared/section_header_sabarca", title: @title, subtitle: @subtitle
+        end
       end
     end
   end

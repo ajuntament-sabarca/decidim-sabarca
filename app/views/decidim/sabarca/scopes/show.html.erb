@@ -1,5 +1,7 @@
-<%= render "decidim/sabarca/shared/section_header_sabarca", title: translated_attribute(@scope.name), subtitle: "", center_text: false, icon_name: "location" %>
-
+<% add_decidim_page_title(translated_attribute(@scope.name)) %>
+<% content_for :section_header do %>
+  <%= translated_attribute(@scope.name)%>
+<% end %>
 <section class="wrapper">
   <div class="row section">
     <div class="map_entities">
