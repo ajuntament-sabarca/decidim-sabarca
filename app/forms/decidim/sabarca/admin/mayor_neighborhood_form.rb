@@ -23,8 +23,7 @@ module Decidim
 
         validates :title, :description, translatable_presence: true
 
-        validates :slug, presence: true
-        validates :slug, format: { with: /\A[a-z0-9-]+/ }
+        validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :address, presence: true
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }

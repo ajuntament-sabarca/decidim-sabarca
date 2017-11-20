@@ -110,11 +110,12 @@ ca:
         city_close_up: La ciutat de prop
       pages:
         transparency:
-          subtitle_transparency: Accés a la informació pública
           text: Aquest portal conté la informació pública de l'Ajuntament amb la qual respon a les seves obligacions legals de transparència activa.
           text_2: La normativa, informació sobre com tramitar una sol·licitud, consulta d'estat de sol·licituds, estadístiques, resolucions denegatòries, reclamacions.
-          title_transparency: Transparència
+          title_transparency: Transparencia
       scopes:
+        all_scopes:
+          title: Veure tots els barris
         index:
           title: La ciutat de prop
           title_processes: Processos
@@ -123,6 +124,7 @@ ca:
           title_mayor_neighborhood_future: Properes trobades de l'alcalde
           title_mayor_neighborhood_past: Trobades de l'alcalde passades
           title_processes: Processos
+          title_user_groups: Directori d'entitats
   devise:
     invitations:
       user:
@@ -132,8 +134,8 @@ ca:
       wrapper:
         city_close_up: La ciutat de prop
         city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres barris
-        more_information: Més informació
         processes: Processos
+        subtitle_transparency: Accés a la informació pública
         transparency: Transparència
   pages:
     home:

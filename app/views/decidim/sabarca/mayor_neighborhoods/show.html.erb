@@ -24,7 +24,6 @@
         <p><%= sanitize translated_attribute mayor_neighborhood.description %></p>
         <p><%= sanitize translated_attribute mayor_neighborhood.councilors %></p>
         <p><%= sanitize translated_attribute mayor_neighborhood.topics %></p>
-
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: mayor_neighborhood } %>
       </div>
     </div>

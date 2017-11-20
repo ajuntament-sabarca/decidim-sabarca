@@ -48,23 +48,14 @@ module Decidim
       end
 
       def header_section
-        if (controller_name == "pages" and params[:id]!= "home") or (controller_name == "participatory_processes" and action_name == "index") or (%w(mayor_neighborhoods scopes).include? controller_name)
+        if (controller_name == "pages" and action_name== "transparency") or (controller_name == "participatory_processes" and action_name == "index") or (%w(mayor_neighborhoods scopes).include? controller_name)
           case controller_name
           when "participatory_processes"
             @title = t(".processes")
             @subtitle = ""
           when "pages"
-            case action_name
-            when "transparency"
-              @title= t(".transparency")
-              @subtitle= ""
-            when "index"
-              @title= t(".more_information")
-              @subtitle= ""
-            when "show"
-              @title= ""
-              @subtitle= ""
-            end
+            @title= t(".transparency")
+            @subtitle= t(".subtitle_transparency")
           when "scopes"
             case action_name
             when "index"

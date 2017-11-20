@@ -175,7 +175,14 @@ a:hover{
   border-radius: 0;
   border: solid 2px $primary_color;
   a{
+    height: 100%;
+    transition: background-color .5s ease;
+    -moz-transition: background-color .5s ease;
+    -webkit-transition: background-color .5s ease;
     color: $primary_color;
+    &:hover{
+      background-color: $yellow;
+    }
   }
   .sabarca--block__icon{
     width: 50px;
@@ -183,23 +190,30 @@ a:hover{
   }
 }
 
-
 /////////////////////////////
 /////////SCOPE LINK/////////
 /////////////////////////////
-
+.sabarca-section-title{
+  margin-top: -2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
 .scope-link{
   background-color: transparent;
   line-height: 40px;
   display: block;
   border-color: $dark;
   border-radius: 0;
+  background-color: $white;
 }
 
 
 /////////////////////////////
 /////////Custom/////////
 /////////////////////////////
+.process-header__phase{
+  background-color: $yellow;
+}
 
 .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
   .wrapper{
@@ -208,9 +222,122 @@ a:hover{
         margin-right: calc(-75rem - 100%);
         margin-left: calc(-75rem - 100%);
         margin-bottom: 4rem;
-        margin-top: -5rem;
-        padding-top: 2rem;
+        margin-top: -1.5rem;
+        padding: 4rem 0;
         background: $yellow;
+        .page-title{
+          margin-bottom: 0;
+          p{
+            margin-top: 20px;
+          }
+          a{
+            border: 2px solid $primary_color;
+            color: $primary_color;
+            padding: 0.5rem 2rem;
+            margin-left: 20px;
+            text-transform: uppercase;
+            &:hover{
+              color: $white;
+              background-color: $primary_color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.sab-ctrl-pages{
+  .wrapper{
+    .row.column{
+      max-width: none;
+      background: $yellow;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: 100vw;
+      margin-top: -2rem;
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+      .page-title{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media print, screen and (min-width: 28.125em){
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+    .wrapper{
+      .row.collapse{
+        .row.collapse{
+          margin-top: -2rem;
+        }
+      }
+    }
+  }
+
+  .sab-ctrl-pages{
+    .wrapper{
+      .row.column{
+        margin-top: -2rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding: 4rem 0;
+      }
+    }
+  }
+}
+
+@media print, screen and (min-width: 40em){
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+    .wrapper{
+      .row.collapse{
+        .row.collapse{
+          margin-top: -5rem;
+        }
+      }
+    }
+  }
+  .sab-ctrl-pages{
+    .wrapper{
+      .row.column{
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        margin-top: -5rem;
+        padding: 4rem 0;
+        margin-bottom: 4rem;
+      }
+    }
+  }
+}
+
+
+@media print, screen and (min-width: 64em){
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+    .wrapper{
+      .row.collapse{
+        .row.collapse{
+          margin-right: calc(-75rem - 100%);
+          margin-left: calc(-75rem - 100%);
+          margin-bottom: 4rem;
+          margin-top: -5rem;
+          padding: 4rem 0;
+
+        }
+      }
+    }
+  }
+
+  .sab-ctrl-pages{
+    .wrapper{
+      .row.column{
+        margin-left: -4rem;
+        margin-right: -4rem;
+        margin-top: -5rem;
+        padding: 4rem 0;
+        margin-bottom: 4rem;
+
       }
     }
   }
