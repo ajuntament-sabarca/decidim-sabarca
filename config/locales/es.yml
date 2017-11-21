@@ -119,10 +119,12 @@ es:
         index:
           title: La ciudad de cerca
           title_processes: Procesos
+        order_by_mayor_neighborhoods:
+          past: Pasades
+          upcoming: Próximas
         show:
+          loading: Cargando resultados...
           title: "Barrio"
-          title_mayor_neighborhood_future: Próximos encuentros del alcalde
-          title_mayor_neighborhood_past: Encuentros del alcalde pasados
           title_processes: Procesos
           title_user_groups: Directorio de entidades
   devise:
@@ -131,6 +133,11 @@ es:
         updated: Usuario actualitzado
   layouts:
     decidim:
+      scopes:
+        order_by_mayor_neighborhoods:
+          mayor_neighborhoods:
+            one: "%{count} encuentro del alcalde"
+            other: "%{count} encuentros del alcalde"
       wrapper:
         city_close_up: La ciudad de cerca
         city_close_up_subtitle: Encuentra las entidades y sigue las propuestas de nuestros barrios

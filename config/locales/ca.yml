@@ -119,10 +119,12 @@ ca:
         index:
           title: La ciutat de prop
           title_processes: Processos
+        order_by_mayor_neighborhoods:
+          past: Passades
+          upcoming: Properes
         show:
+          loading: Carregant resultats...
           title: "Barri"
-          title_mayor_neighborhood_future: Properes trobades de l'alcalde
-          title_mayor_neighborhood_past: Trobades de l'alcalde passades
           title_processes: Processos
           title_user_groups: Directori d'entitats
   devise:
@@ -131,6 +133,11 @@ ca:
         updated: Usuari actualitzat
   layouts:
     decidim:
+      scopes:
+        order_by_mayor_neighborhoods:
+          mayor_neighborhoods:
+            one: "%{count} trobada de l'alcalde"
+            other: "%{count} trobades de l'alcalde"
       wrapper:
         city_close_up: La ciutat de prop
         city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres barris

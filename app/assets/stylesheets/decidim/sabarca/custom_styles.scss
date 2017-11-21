@@ -215,7 +215,7 @@ a:hover{
   background-color: $yellow;
 }
 
-.sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+.sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations, .sab-ctrl-authorizations{
   .wrapper{
     .row.collapse{
       .row.collapse{
@@ -267,7 +267,7 @@ a:hover{
 }
 
 @media print, screen and (min-width: 28.125em){
-  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations, .sab-ctrl-authorizations{
     .wrapper{
       .row.collapse{
         .row.collapse{
@@ -290,7 +290,7 @@ a:hover{
 }
 
 @media print, screen and (min-width: 40em){
-  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations, .sab-ctrl-authorizations{
     .wrapper{
       .row.collapse{
         .row.collapse{
@@ -314,7 +314,7 @@ a:hover{
 
 
 @media print, screen and (min-width: 64em){
-  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations, .sab-ctrl-authorizations{
     .wrapper{
       .row.collapse{
         .row.collapse{

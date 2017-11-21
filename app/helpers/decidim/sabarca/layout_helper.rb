@@ -62,7 +62,7 @@ module Decidim
               @title= t(".city_close_up")
               @subtitle= t(".city_close_up_subtitle")
             when "show"
-              @title= translated_attribute(@scope.name)
+              @title= translated_attribute(current_scope.name)
               @subtitle= ""
             end
           when "mayor_neighborhoods"

@@ -14,11 +14,12 @@ module Decidim
       helper_method :participatory_processes_organization, :organization_scopes, :user_groups, :collection,
                     :participatory_processes, :filter, :decidim_scope_id
 
+      helper_method :current_scope, :collection_mayor_neighborhoods, :mayor_neighborhoods, :filter_mayor_neighborhood
+
       def index
       end
 
       def show
-        @scope = Decidim::Scope.find_by(decidim_organization_id: current_organization.id, id: params[:id])
       end
 
       private
@@ -38,7 +39,6 @@ module Decidim
 
       def collection
         @collection ||= participatory_processes
-        # @collection ||= (participatory_processes.to_a + participatory_process_groups).flatten
       end
 
       def filtered_participatory_processes(filter = default_filter)
@@ -48,10 +48,6 @@ module Decidim
       def participatory_processes
         @participatory_processes ||= filtered_participatory_processes(filter)
       end
-
-      # def participatory_process_groups
-      #   @process_groups ||= Decidim::ParticipatoryProcesses::OrganizationPrioritizedParticipatoryProcessGroups.new(current_organization, filter)
-      # end
 
       def filter
         @filter = params[:filter] || default_filter
@@ -64,6 +60,34 @@ module Decidim
       def decidim_scope_id
         params[:id].to_i
       end
+
+      ##Used FOR FILTER MAYOR NEIGHBORHOOD
+
+      def current_scope
+        @scope ||= organization_scopes.find_by(decidim_organization_id: current_organization.id, id: params[:id])
+      end
+
+      def collection_mayor_neighborhoods
+        @collection_mayor_neighborhood ||= mayor_neighborhoods
+      end
+
+      def filtered_mayor_neighborhoods(filter_mayor_neighborhood = default_filter_mayor_neighborhood)
+        # @scope.decidim_sabarca_mayor_neighborhoods
+        Decidim::Sabarca::OrganizationScopeMayorNeighborhoods.new(current_organization, filter_mayor_neighborhood, decidim_scope_id)
+      end
+
+      def mayor_neighborhoods
+        @mayor_neighborhoods ||= filtered_mayor_neighborhoods(filter_mayor_neighborhood)
+      end
+
+      def filter_mayor_neighborhood
+        @filter_mayor_neighborhood = params[:filter_mayor_neighborhood] || default_filter_mayor_neighborhood
+      end
+
+      def default_filter_mayor_neighborhood
+        "upcoming"
+      end
+
     end
   end
 end
