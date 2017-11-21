@@ -21,10 +21,19 @@
     </div>
     <div class="columns mediumlarge-8 mediumlarge-pull-4">
       <div class="section">
+        <h3 class="section-heading"><%= t(".description") %></h3>
         <p><%= sanitize translated_attribute mayor_neighborhood.description %></p>
-        <p><%= sanitize translated_attribute mayor_neighborhood.councilors %></p>
-        <p><%= sanitize translated_attribute mayor_neighborhood.topics %></p>
+      </div>
+      <div class="section">
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: mayor_neighborhood } %>
+      </div>
+      <div class="section">
+        <h3 class="section-heading"><%= t(".councilors") %></h3>
+        <p><%= sanitize translated_attribute mayor_neighborhood.councilors %></p>
+      </div>
+      <div class="section">
+        <h3 class="section-heading"><%= t(".topics") %></h3>
+        <p><%= sanitize translated_attribute mayor_neighborhood.topics %></p>
       </div>
     </div>
   </div>

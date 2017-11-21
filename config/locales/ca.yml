@@ -8,6 +8,7 @@ ca:
         decidim_scope_id: Barri
         description: Descripció
         end_time: Data Fi
+        location: Localització
         slug: Nom curt d’URL
         start_time: Data Inici
         title: Títol
@@ -105,6 +106,10 @@ ca:
             title: Nou item de transparència
       mayor_neighborhoods:
         read_more: Llegir més
+        show:
+          councilors: Regidors que assistiran
+          description: Descripció
+          topics: Temes que es tractaran
       menu:
         transparency: Transparència
         city_close_up: La ciutat de prop
@@ -122,6 +127,8 @@ ca:
         order_by_mayor_neighborhoods:
           past: Passades
           upcoming: Properes
+        other_scopes:
+          title: Veure els altres barris
         show:
           loading: Carregant resultats...
           title: "Barri"

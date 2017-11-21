@@ -6,7 +6,7 @@ module Decidim
     # This is the engine that runs on the public interface of `decidim-sabarca`.
     class Engine < ::Rails::Engine
       require "acts_as_list"
-
+      
       isolate_namespace Decidim::Sabarca
       engine_name "decidim_sabarca"
 

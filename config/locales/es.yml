@@ -8,6 +8,7 @@ es:
         decidim_scope_id: Barrio
         description: Descripción
         end_time: Fecha Fin
+        location: Localización
         slug: Texto corto de URL
         start_time: Fecha Inicio
         title: Títol
@@ -105,6 +106,11 @@ es:
             title: Nuevo item de transparencia
       mayor_neighborhoods:
         read_more: Leer más
+        show:
+          councilors: Concejales que asistirán
+          description: Descripció
+          topics: Temas que se trataran
+
       menu:
         transparency: Transparencia
         city_close_up: La ciudad de cerca
@@ -122,6 +128,8 @@ es:
         order_by_mayor_neighborhoods:
           past: Pasades
           upcoming: Próximas
+        other_scopes:
+          title: Ver los otros barrios
         show:
           loading: Cargando resultados...
           title: "Barrio"
