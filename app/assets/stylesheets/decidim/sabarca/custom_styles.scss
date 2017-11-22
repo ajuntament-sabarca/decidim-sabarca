@@ -1,7 +1,7 @@
 //////////////////////////////
 /////// NEW VARIBLES /////////
 //////////////////////////////
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Titillium+Web:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Titillium+Web:400,600,700');
 
 $light_grey: #D8D8D8;
 $dark_grey: #787779;
@@ -17,10 +17,21 @@ body{
 }
 h1, h2, h3, h4, h5, h6{
   font-family: 'Lato', sans-serif;
-  font-weight: 700;
+  // font-weight: 700;
 }
-a:hover{
+a:hover, .card__link:hover, .card--list__data__icon:hover{
   color: $blue;
+}
+.card--list__data__icon:hover .icon{
+  fill: $blue;
+}
+.off-canvas{
+  background-color: $primary_color;
+}
+.address__icon .icon{
+  width: 40px;
+  height: 40px;
+  fill: $primary_color;
 }
 //////////////////////////////
 /////// TOP BAR MENU /////////
@@ -81,6 +92,9 @@ a:hover{
 .home-section{
   background: $yellow;
 }
+.extended.wrapper-home{
+  text-align: center;
+}
 
 /////////////////////////////
 //////////FOOTER/////////////
@@ -136,6 +150,27 @@ a:hover{
   background: $yellow;
 }
 
+.button-back{
+  margin-top: -4.5rem;
+  display: block;
+  color: $primary_color;
+  .sabarca--block__icon{
+    width: 40px;
+    height: 40px;
+    float: left;
+  }
+  p{
+    float: left;
+    margin-left: -10px;
+    line-height: 40px;
+  }
+  &:hover{
+    p{
+      color: $primary_color;
+      text-decoration: underline;
+    }
+  }
+}
 /////////////////////////////
 //////////HEADER/////////////
 /////////////////////////////
@@ -163,11 +198,27 @@ a:hover{
 /////////////////////////////
 //////////FONT/////////////
 /////////////////////////////
-.font-18{
-  font-size: 1.8rem;
+.font-titillum-bold{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
 }
+.section-heading{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+.font-18{ font-size: 1.8rem; }
+.font-22{ line-height: 28px; font-size: 1.4rem;}
 
+.home-pam__number.users_count{ font-family: 'Titillium Web', sans-serif;}
+.page-title{font-family: 'Titillium Web', sans-serif; }
 
+/////////////////////////////
+//////////MARGIN/////////////
+/////////////////////////////
+.margin-bottom-0{
+  margin-bottom: 30px !important;
+}
 /////////////////////////////
 /////////CARDLINK////////////
 /////////////////////////////
@@ -188,23 +239,39 @@ a:hover{
     width: 50px;
     height: 50px;
   }
+  .card_block{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    p{
+      line-height: 20px;
+    }
+  }
 }
 
 /////////////////////////////
 /////////SCOPE LINK/////////
 /////////////////////////////
 .sabarca-section-title{
-  margin-top: -2rem;
+  margin-top: 2rem;
   margin-bottom: 2rem;
   text-transform: uppercase;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
 }
 .scope-link{
-  background-color: transparent;
-  line-height: 40px;
   display: block;
-  border-color: $dark;
   border-radius: 0;
-  background-color: $white;
+  background-color: $yellow;
+  border: 2px solid $primary_color;
+  color: $primary_color;
+  padding: 0.5rem 2rem;
+  margin-left: 20px;
+  &:hover{
+    background-color: $primary_color;
+    color: $white;
+  }
 }
 
 
@@ -287,6 +354,7 @@ a:hover{
       }
     }
   }
+
 }
 
 @media print, screen and (min-width: 40em){
@@ -309,6 +377,18 @@ a:hover{
         margin-bottom: 4rem;
       }
     }
+  }
+  /////////////////////////////
+  //////////MARGIN/////////////
+  /////////////////////////////
+  .margin-bottom-0{
+    margin-bottom: 0px !important;
+  }
+  /////////////////////////////
+  /////////SCOPE LINK/////////
+  /////////////////////////////
+  .sabarca-section-title{
+    margin-top: -2rem;
   }
 }
 
@@ -341,4 +421,116 @@ a:hover{
       }
     }
   }
+}
+
+.legend{
+  float: right;
+  .legend-item{
+    float: left;
+    margin-right: 20px;
+    svg, p{
+      float: left;
+      line-height: 35px;
+    }
+  }
+}
+@media screen and (max-width: 39.9375em){
+  .title-bar {
+    border-top: 3.125rem solid $dark_grey;
+    .logo-cityhall{
+      margin-top: -2.6rem;
+    }
+    .language-choose{
+      top: -2.6rem;
+    }
+  }
+  .off-canvas{
+    .topbar__user__login{
+      border-top-color: $white;
+      border-bottom-color: $white;
+      a{
+        color: $white;
+        &:hover{
+          color: $blue;
+        }
+      }
+    }
+  }
+
+
+  .button-back{
+    margin-top: 0;
+  }
+
+}
+
+/////////////////////////////
+//////////MAPS NUMBER/////////////
+/////////////////////////////
+.marker-cluster-small{
+  background-color: rgba(0, 181, 226, 0.6) !important;
+  div{
+    background-color: rgba(0, 181, 226, 0.6) !important;
+  }
+}
+
+.card--process__small, .home-pam__title{
+  color: $primary_color;
+}
+
+/////////////////////////////
+//////////BUTTONS/////////////
+/////////////////////////////
+.button, .card{
+  border-radius: 0px !important;
+}
+
+.button{
+  background-color: $primary_color;
+}
+.button.expanded.button--sc.home-section__cta{
+  border: 2px solid $primary_color !important;
+}
+
+
+.sabarca-header-section .page-title{
+  margin-bottom: 10px;
+}
+
+/////////////////////////////
+//////////FILTRES/////////////
+/////////////////////////////
+.order-by__tabs{
+  display: block;
+  margin-left: 10px;
+  margin-top: 20px;
+  text-align: center;
+
+  .order-by__tab{
+    border: 2px solid $primary_color;
+    color: $primary_color;
+    padding: 0.5rem 2rem;
+    margin-left: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: .5rem;
+
+    &:after{
+      border: none;
+      margin: 0;
+    }
+    &:hover, &.is-active{
+      color: $white;
+      background-color: $primary_color;
+    }
+  }
+}
+
+/////////////////////////////
+//////////FILTRES/////////////
+/////////////////////////////
+#user_groups .card__title{
+  font-weight: 700;
 }

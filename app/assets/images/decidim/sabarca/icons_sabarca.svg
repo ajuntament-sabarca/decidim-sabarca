@@ -1,5 +1,11 @@
 <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" style="display:none">
   <defs><style>.cls-1{fill:#777677;}</style></defs>
+  <symbol viewBox="0 0 41 41" id="icon-sabarca-arrow-back">
+    <title>arrow-back</title>
+    <g fill="none" fill-rule="evenodd" transform="translate(3 4)">
+      <path fill="#7C2529" d="M18.8728,24.8166 L13.2318,18.0486 C12.9228,17.6776 12.9228,17.1386 13.2318,16.7676 L18.8728,10.0006 L20.4088,11.2796 L15.3028,17.4086 L20.4088,23.5376 L18.8728,24.8166 Z"/>
+    </g>
+  </symbol>
   <symbol viewBox="0 0 41 41" id="icon-sabarca-arrow-left">
     <title>arrow-left</title>
     <g fill="none" fill-rule="evenodd" transform="translate(3 4)">

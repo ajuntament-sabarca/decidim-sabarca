@@ -1,34 +1,40 @@
-<section class="extended subhero background-white">
-  <div class="row small-up-1 medium-up-3 card-grid">
-    <div class="column">
+<section class="extended wrapper-home background-white">
+  <div class="row small-up-1 medium-up-3 large-up-3 card-grid">
+    <div class="column margin-bottom-0">
       <div class="card card-link">
         <%= link_to decidim_participatory_processes.participatory_processes_path, class: "" do %>
           <div class="card__content">
             <%= icon_sabarca "process", class: "sabarca--block__icon" %>
-            <h3><%= t(".processes") %></h3>
-            <%= t(".processes_text") %>
+            <h3 class="heading3 font-titillum-bold"><%= t(".processes") %></h3>
+            <div class="card_block">
+              <p><%= t(".processes_text") %></p>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="column">
+    <div class="column margin-bottom-0">
       <div class="card card-link">
-        <%= link_to decidim_sabarca.city_close_up_path, class: "" do %>
+        <%= link_to decidim_sabarca.city_close_up_index_path, class: "" do %>
           <div class="card__content">
             <%= icon_sabarca "location", class: "sabarca--block__icon" %>
-            <h3><%= t(".city_close_up") %></h3>
-            <%= t(".city_close_up_text") %>
+            <h3 class="heading3 font-titillum-bold"><%= t(".city_close_up") %></h3>
+            <div class="card_block">
+              <p><%= t(".city_close_up_text") %></p>
+            </div>
           </div>
         <% end %>
       </div>
     </div>
-    <div class="column">
+    <div class="column margin-bottom-0">
       <div class="card card-link">
         <%= link_to decidim_sabarca.transparency_path, class: "" do %>
           <div class="card__content">
             <%= icon_sabarca "loupe", class: "sabarca--block__icon" %>
-            <h3><%= t(".transparency") %></h3>
-            <%= t(".transparency_text") %>
+            <h3 class="heading3 font-titillum-bold" ><%= t(".transparency") %></h3>
+            <div class="card_block">
+              <p><%= t(".transparency_text") %></p>
+            </div>
           </div>
         <% end %>
       </div>

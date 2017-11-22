@@ -110,7 +110,6 @@ es:
           councilors: Concejales que asistirán
           description: Descripció
           topics: Temas que se trataran
-
       menu:
         transparency: Transparencia
         city_close_up: La ciudad de cerca
@@ -131,10 +130,14 @@ es:
         other_scopes:
           title: Ver los otros barrios
         show:
+          legend:
+            mayor_neighborhood: Encuentro del alcalde
+            user_group: Entidad
           loading: Cargando resultados...
           title: "Barrio"
           title_processes: Procesos
           title_user_groups: Directorio de entidades
+          view_mayor_neighborhood: Ver el encuentro del alcalde
   devise:
     invitations:
       user:
@@ -147,6 +150,7 @@ es:
             one: "%{count} encuentro del alcalde"
             other: "%{count} encuentros del alcalde"
       wrapper:
+        authorize_with: Verificarme con %{authorizer}
         city_close_up: La ciudad de cerca
         city_close_up_subtitle: Encuentra las entidades y sigue las propuestas de nuestros barrios
         processes: Procesos

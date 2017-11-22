@@ -48,7 +48,7 @@ module Decidim
       end
 
       def header_section
-        if (controller_name == "pages" and action_name== "transparency") or (controller_name == "participatory_processes" and action_name == "index") or (%w(mayor_neighborhoods scopes).include? controller_name)
+        if (controller_name == "pages" and action_name== "transparency") or (controller_name == "participatory_processes" and action_name == "index") or (controller_name == "authorizations" and action_name == "new") or (%w(mayor_neighborhoods scopes).include? controller_name)
           case controller_name
           when "participatory_processes"
             @title = t(".processes")
@@ -71,6 +71,9 @@ module Decidim
               @title= translated_attribute(mayor_neighborhood.title)
               @subtitle= ""
             end
+          when "authorizations"
+            @title= t(".authorize_with", authorizer: t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers")) 
+            @subtitle= ""
           end
           render "decidim/sabarca/shared/section_header_sabarca", title: @title, subtitle: @subtitle
         end

@@ -130,10 +130,14 @@ ca:
         other_scopes:
           title: Veure els altres barris
         show:
+          legend:
+            mayor_neighborhood: Trobada de l'alcalde
+            user_group: Entitat
           loading: Carregant resultats...
           title: "Barri"
           title_processes: Processos
           title_user_groups: Directori d'entitats
+          view_mayor_neighborhood: Veure la trobada de l'alcalde
   devise:
     invitations:
       user:
@@ -146,6 +150,7 @@ ca:
             one: "%{count} trobada de l'alcalde"
             other: "%{count} trobades de l'alcalde"
       wrapper:
+        authorize_with: Verificar-me amb %{authorizer}
         city_close_up: La ciutat de prop
         city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres barris
         processes: Processos

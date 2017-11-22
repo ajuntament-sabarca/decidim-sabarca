@@ -8,20 +8,32 @@
     <div class="map_entities">
       <%= dynamic_map_for user_groups_data_for_map(user_groups.select(&:geocoded?)) + mayor_neighborhoods_data_for_map(current_scope.decidim_sabarca_mayor_neighborhoods.select(&:geocoded?)) do %>
         <template id="marker-popup">
-          <div class="map-info__content">
-            <h3>${name}</h3>
-            <div id="bodyContent">
-              <!-- <p>{{html body}}</p> -->
-              <div class="phone">${phone}</div>
-              <div class="phone">${email}</div>
+          <div class="map-info__content ">
+            <h3>${title}</h3>
+            <div id="bodyContent ${type}">
+              <p>{{html description}}</p>
               <div class="map__date-adress">
+                <div class="card__datetime">
+                  <div class="card__datetime__date">
+                    ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
+                  </div>
+                  <div class="card__datetime__time">${starTime}</div>
+                </div>
                 <div class="address card__extra">
                   <div class="address__icon">{{html icon}}</div>
                   <div class="address__details">
+                    <strong style="display:block">{{html location}}</strong>
+                    <strong style="display:block">${phone}</strong>
+                    <strong style="display:block">${email}</strong>
                     <span>${address}</span><br />
                   </div>
                 </div>
               </div>
+              <!-- <div class="map-info__button">
+                <a href="${link}" class="button button--sc">
+                  <%#= t('.view_mayor_neighborhood') %>
+                </a>
+              </div> -->
             </div>
           </div>
         </template>
@@ -29,6 +41,17 @@
         <%= javascript_include_tag "decidim/sabarca/scopes/id-#{current_scope.id}-geojson" %>
         <%= javascript_include_tag "decidim/sabarca/scope_map" %>
       <% end %>
+      <div class="legend">
+        <div class="legend-item">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-icon-svg" style="width:32; height:48;"><path class="svg-icon-path" d="M14 1.17a11.685 11.685 0 0 0-11.685 11.685c0 11.25 10.23 20.61 10.665 21a1.5 1.5 0 0 0 2.025 0c0.435-.435 10.665-9.81 10.665-21A11.685 11.685 0 0 0 14 1.17Zm0 17.415A5.085 5.085 0 1 1 19.085 13.5 5.085 5.085 0 0 1 14 18.585Z" stroke-width="2" stroke="rgba(0,102,255,0)" fill="#7C2529"></path><text text-anchor="middle" x="16" y="18.8" style="font-size: 8px" fill="rgba(0, 0, 0,1)"></text></svg>
+          <p><%= t(".legend.user_group") %></p>
+        </div>
+
+        <div class="legend-item">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-icon-svg" style="width:32; height:48;"><path class="svg-icon-path" d="M14 1.17a11.685 11.685 0 0 0-11.685 11.685c0 11.25 10.23 20.61 10.665 21a1.5 1.5 0 0 0 2.025 0c0.435-.435 10.665-9.81 10.665-21A11.685 11.685 0 0 0 14 1.17Zm0 17.415A5.085 5.085 0 1 1 19.085 13.5 5.085 5.085 0 0 1 14 18.585Z" stroke-width="2" stroke="rgba(0,102,255,0)" fill="#FFCD00"></path><text text-anchor="middle" x="16" y="18.8" style="font-size: 8px" fill="rgba(0, 0, 0,1)"></text></svg>
+          <p><%= t(".legend.mayor_neighborhood") %></p>
+        </div>
+      </div>
     </div>
   </section>
 
