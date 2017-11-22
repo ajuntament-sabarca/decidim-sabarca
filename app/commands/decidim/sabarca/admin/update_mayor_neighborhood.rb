@@ -32,6 +32,7 @@ module Decidim
         def attributes
           {
             title: form.title,
+            location: form.location,
             address: form.address,
             slug: form.slug,
             description: form.description,

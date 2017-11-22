@@ -6,7 +6,7 @@ module Decidim
     # This is the engine that runs on the public interface of `decidim-sabarca`.
     class Engine < ::Rails::Engine
       require "acts_as_list"
-
+      
       isolate_namespace Decidim::Sabarca
       engine_name "decidim_sabarca"
 
@@ -25,6 +25,11 @@ module Decidim
           resources :mayor_neighborhoods, only: [:show], param: :slug
         end
 
+      end
+      initializer "decidim.action_controller" do |_app|
+        ActiveSupport.on_load :action_controller do
+          helper Decidim::Sabarca::LayoutHelper if respond_to?(:helper)
+        end
       end
 
       initializer "decidim_sabarca.assets" do |app|

@@ -1,11 +1,5 @@
 <main class="wrapper">
   <div class="row collapse">
-    <div class="row collapse">
-      <div class="columns large-8 large-centered text-center page-title">
-        <h1><%= t(".authorize_with", authorizer: t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers")) %></h1>
-      </div>
-    </div>
-
     <div class="row">
       <div class="columns large-6 medium-centered">
         <div class="card">
@@ -22,7 +16,9 @@
                 </div>
               <% end %>
             <% end %>
-            <p class="text-center skip"><%= t("decidim.authorizations.skip_verification", link: link_to(t("decidim.authorizations.current_participatory_processes"), stored_location).html_safe).html_safe %>.</p>
+            <p class="text-center skip">
+              <%= t("decidim.authorizations.skip_verification", link: link_to(t("decidim.authorizations.start_exploring"), cta_button_path).html_safe).html_safe %>.
+            </p>
           </div>
         </div>
       </div>

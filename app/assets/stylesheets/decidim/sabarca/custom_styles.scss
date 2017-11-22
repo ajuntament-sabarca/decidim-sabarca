@@ -1,7 +1,7 @@
 //////////////////////////////
 /////// NEW VARIBLES /////////
 //////////////////////////////
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Titillium+Web:400,700');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700|Titillium+Web:400,600,700');
 
 $light_grey: #D8D8D8;
 $dark_grey: #787779;
@@ -10,16 +10,28 @@ $primary_color: #7C2529;
 $dark: #000000;
 $blue: #00B5E2;
 $white: #ffffff;
+$whitness: #F3F3F3;
 
 body{
   font-family: 'Lato', sans-serif;
 }
 h1, h2, h3, h4, h5, h6{
   font-family: 'Lato', sans-serif;
-  font-weight: 700;
+  // font-weight: 700;
 }
-a:hover{
+a:hover, .card__link:hover, .card--list__data__icon:hover{
   color: $blue;
+}
+.card--list__data__icon:hover .icon{
+  fill: $blue;
+}
+.off-canvas{
+  background-color: $primary_color;
+}
+.address__icon .icon{
+  width: 40px;
+  height: 40px;
+  fill: $primary_color;
 }
 //////////////////////////////
 /////// TOP BAR MENU /////////
@@ -80,7 +92,9 @@ a:hover{
 .home-section{
   background: $yellow;
 }
-
+.extended.wrapper-home{
+  text-align: center;
+}
 
 /////////////////////////////
 //////////FOOTER/////////////
@@ -120,4 +134,403 @@ a:hover{
   &:hover, &:focus{
     background-color: $dark_grey;
   }
+}
+/////////////////////////////
+//////////SECTIONS/////////////
+/////////////////////////////
+.background-white{
+  background-color: $white;
+}
+
+.background-whitness{
+  background-color: $whitness;
+}
+
+.background-yellow{
+  background: $yellow;
+}
+
+.button-back{
+  margin-top: -4.5rem;
+  display: block;
+  color: $primary_color;
+  .sabarca--block__icon{
+    width: 40px;
+    height: 40px;
+    float: left;
+  }
+  p{
+    float: left;
+    margin-left: -10px;
+    line-height: 40px;
+  }
+  &:hover{
+    p{
+      color: $primary_color;
+      text-decoration: underline;
+    }
+  }
+}
+/////////////////////////////
+//////////HEADER/////////////
+/////////////////////////////
+
+.sabarca-header-section{
+  text-align: left;
+  background: $yellow;
+  .sabarca--header__icon{
+    width: 50px;
+    height: 50px;
+    float: left;
+    margin-top: 5px;
+    margin-right: 10px;
+  }
+  .titles{
+    float: left;
+  }
+  .block-center{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+/////////////////////////////
+//////////FONT/////////////
+/////////////////////////////
+.font-titillum-bold{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+}
+.section-heading{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 600;
+  font-size: 1.5em;
+}
+.font-18{ font-size: 1.8rem; }
+.font-22{ line-height: 28px; font-size: 1.4rem;}
+
+.home-pam__number.users_count{ font-family: 'Titillium Web', sans-serif;}
+.page-title{font-family: 'Titillium Web', sans-serif; }
+
+/////////////////////////////
+//////////MARGIN/////////////
+/////////////////////////////
+.margin-bottom-0{
+  margin-bottom: 30px !important;
+}
+/////////////////////////////
+/////////CARDLINK////////////
+/////////////////////////////
+.card-link{
+  border-radius: 0;
+  border: solid 2px $primary_color;
+  a{
+    height: 100%;
+    transition: background-color .5s ease;
+    -moz-transition: background-color .5s ease;
+    -webkit-transition: background-color .5s ease;
+    color: $primary_color;
+    &:hover{
+      background-color: $yellow;
+    }
+  }
+  .sabarca--block__icon{
+    width: 50px;
+    height: 50px;
+  }
+  .card_block{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top: 20px;
+    p{
+      line-height: 20px;
+    }
+  }
+}
+
+/////////////////////////////
+/////////SCOPE LINK/////////
+/////////////////////////////
+.sabarca-section-title{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  text-decoration: underline;
+}
+.scope-link{
+  display: block;
+  border-radius: 0;
+  background-color: $yellow;
+  border: 2px solid $primary_color;
+  color: $primary_color;
+  padding: 0.5rem 2rem;
+  margin-left: 20px;
+  &:hover{
+    background-color: $primary_color;
+    color: $white;
+  }
+}
+
+
+/////////////////////////////
+/////////Custom/////////
+/////////////////////////////
+.process-header__phase{
+  background-color: $yellow;
+}
+
+.sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+  .wrapper{
+    .row.collapse{
+      .row.collapse{
+        margin-right: calc(-75rem - 100%);
+        margin-left: calc(-75rem - 100%);
+        margin-bottom: 4rem;
+        margin-top: -1.5rem;
+        padding: 4rem 0;
+        background: $yellow;
+        .page-title{
+          margin-bottom: 0;
+          p{
+            margin-top: 20px;
+          }
+          a{
+            border: 2px solid $primary_color;
+            color: $primary_color;
+            padding: 0.5rem 2rem;
+            margin-left: 20px;
+            text-transform: uppercase;
+            &:hover{
+              color: $white;
+              background-color: $primary_color;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.sab-ctrl-pages{
+  .wrapper{
+    .row.column{
+      max-width: none;
+      background: $yellow;
+      margin-left: -1rem;
+      margin-right: -1rem;
+      width: 100vw;
+      margin-top: -2rem;
+      padding: 2rem 0;
+      text-align: center;
+      margin-bottom: 3rem;
+      .page-title{
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+
+@media print, screen and (min-width: 28.125em){
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+    .wrapper{
+      .row.collapse{
+        .row.collapse{
+          margin-top: -2rem;
+        }
+      }
+    }
+  }
+
+  .sab-ctrl-pages{
+    .wrapper{
+      .row.column{
+        margin-top: -2rem;
+        margin-left: -1rem;
+        margin-right: -1rem;
+        padding: 4rem 0;
+      }
+    }
+  }
+
+}
+
+@media print, screen and (min-width: 40em){
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+    .wrapper{
+      .row.collapse{
+        .row.collapse{
+          margin-top: -5rem;
+        }
+      }
+    }
+  }
+  .sab-ctrl-pages{
+    .wrapper{
+      .row.column{
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        margin-top: -5rem;
+        padding: 4rem 0;
+        margin-bottom: 4rem;
+      }
+    }
+  }
+  /////////////////////////////
+  //////////MARGIN/////////////
+  /////////////////////////////
+  .margin-bottom-0{
+    margin-bottom: 0px !important;
+  }
+  /////////////////////////////
+  /////////SCOPE LINK/////////
+  /////////////////////////////
+  .sabarca-section-title{
+    margin-top: -2rem;
+  }
+}
+
+
+@media print, screen and (min-width: 64em){
+  .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
+    .wrapper{
+      .row.collapse{
+        .row.collapse{
+          margin-right: calc(-75rem - 100%);
+          margin-left: calc(-75rem - 100%);
+          margin-bottom: 4rem;
+          margin-top: -5rem;
+          padding: 4rem 0;
+
+        }
+      }
+    }
+  }
+
+  .sab-ctrl-pages{
+    .wrapper{
+      .row.column{
+        margin-left: -4rem;
+        margin-right: -4rem;
+        margin-top: -5rem;
+        padding: 4rem 0;
+        margin-bottom: 4rem;
+
+      }
+    }
+  }
+}
+
+.legend{
+  float: right;
+  .legend-item{
+    float: left;
+    margin-right: 20px;
+    svg, p{
+      float: left;
+      line-height: 35px;
+    }
+  }
+}
+@media screen and (max-width: 39.9375em){
+  .title-bar {
+    border-top: 3.125rem solid $dark_grey;
+    .logo-cityhall{
+      margin-top: -2.6rem;
+    }
+    .language-choose{
+      top: -2.6rem;
+    }
+  }
+  .off-canvas{
+    .topbar__user__login{
+      border-top-color: $white;
+      border-bottom-color: $white;
+      a{
+        color: $white;
+        &:hover{
+          color: $blue;
+        }
+      }
+    }
+  }
+
+
+  .button-back{
+    margin-top: 0;
+  }
+
+}
+
+/////////////////////////////
+//////////MAPS NUMBER/////////////
+/////////////////////////////
+.marker-cluster-small{
+  background-color: rgba(0, 181, 226, 0.6) !important;
+  div{
+    background-color: rgba(0, 181, 226, 0.6) !important;
+  }
+}
+
+.card--process__small, .home-pam__title{
+  color: $primary_color;
+}
+
+/////////////////////////////
+//////////BUTTONS/////////////
+/////////////////////////////
+.button, .card{
+  border-radius: 0px !important;
+}
+
+.button{
+  background-color: $primary_color;
+}
+.button.expanded.button--sc.home-section__cta{
+  border: 2px solid $primary_color !important;
+}
+
+
+.sabarca-header-section .page-title{
+  margin-bottom: 10px;
+}
+
+/////////////////////////////
+//////////FILTRES/////////////
+/////////////////////////////
+.order-by__tabs{
+  display: block;
+  margin-left: 10px;
+  margin-top: 20px;
+  text-align: center;
+
+  .order-by__tab{
+    border: 2px solid $primary_color;
+    color: $primary_color;
+    padding: 0.5rem 2rem;
+    margin-left: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: .5rem;
+
+    &:after{
+      border: none;
+      margin: 0;
+    }
+    &:hover, &.is-active{
+      color: $white;
+      background-color: $primary_color;
+    }
+  }
+}
+
+/////////////////////////////
+//////////FILTRES/////////////
+/////////////////////////////
+#user_groups .card__title{
+  font-weight: 700;
 }

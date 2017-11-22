@@ -1,13 +1,15 @@
-<% provide(:title, translated_attribute(mayor_neighborhood.title)) %>
-
 <% add_decidim_meta_tags({
   title: translated_attribute(mayor_neighborhood.title),
   description: translated_attribute(mayor_neighborhood.description),
   url: decidim_sabarca.city_close_up_mayor_neighborhood_url(@scope, mayor_neighborhood.id)
 }) %>
+
 <div class="wrapper">
-  <div class="row column view-header ">
-    <h2 class="heading2"><%= translated_attribute mayor_neighborhood.title %></h2>
+  <div class="row">
+    <%= link_to decidim_sabarca.city_close_up_path(params[:city_close_up_id]), class: "button-back" do %>
+      <%= icon_sabarca "arrow-back", class: "sabarca--block__icon" %>
+      <p>Torna al barri</p>
+    <% end %>
   </div>
   <div class="row">
     <div class="columns section view-side mediumlarge-4 mediumlarge-push-8 large-3 large-push-9">
@@ -25,11 +27,19 @@
     </div>
     <div class="columns mediumlarge-8 mediumlarge-pull-4">
       <div class="section">
-        <p><%= sanitize translated_attribute mayor_neighborhood.description %></p>
-        <p><%= sanitize translated_attribute mayor_neighborhood.councilors %></p>
-        <p><%= sanitize translated_attribute mayor_neighborhood.topics %></p>
-
+        <h3 class="section-heading"><%= t(".description") %></h3>
+        <%= sanitize translated_attribute mayor_neighborhood.description %>
+      </div>
+      <div class="section">
         <%= render partial: "decidim/shared/static_map", locals: { icon_name: "meetings", geolocalizable: mayor_neighborhood } %>
+      </div>
+      <div class="section">
+        <h3 class="section-heading"><%= t(".councilors") %></h3>
+        <%= sanitize translated_attribute mayor_neighborhood.councilors %>
+      </div>
+      <div class="section">
+        <h3 class="section-heading"><%= t(".topics") %></h3>
+        <%= sanitize translated_attribute mayor_neighborhood.topics %>
       </div>
     </div>
   </div>

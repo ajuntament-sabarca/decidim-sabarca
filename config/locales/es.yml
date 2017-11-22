@@ -8,6 +8,7 @@ es:
         decidim_scope_id: Barrio
         description: Descripción
         end_time: Fecha Fin
+        location: Localización
         slug: Texto corto de URL
         start_time: Fecha Inicio
         title: Títol
@@ -64,9 +65,6 @@ es:
           no_meetings: No hi ha trobades de l'alcalde
       titles:
         mayor_neighborhoods: Trobades de l'alcalde
-    features:
-      sabarca:
-        name: Sabarca
     authorization_handlers:
         decidim/sabarca/dummy_authorization_handler:
           fields:
@@ -77,6 +75,13 @@ es:
       first_login:
           actions:
             decidim/sabarca/dummy_authorization_handler: Verificar contra la Autoritzación de Sabarca
+    features:
+      sabarca:
+        name: Sabarca
+    participatory_processes:
+      participatory_processes:
+        index:
+          processes: Procesos
     sabarca:
       admin:
         mayor_neighborhoods:
@@ -101,30 +106,62 @@ es:
             title: Nuevo item de transparencia
       mayor_neighborhoods:
         read_more: Leer más
+        show:
+          councilors: Concejales que asistirán
+          description: Descripció
+          topics: Temas que se trataran
       menu:
         transparency: Transparencia
         city_close_up: La ciudad de cerca
       pages:
         transparency:
+          text: Este portal contiene la información pública del Ayuntamiento con la que responde a sus obligaciones legales de transparencia activa.
+          text_2: La normativa, información sobre cómo tramitar una solicitud, consulta de estado de solicitudes, estadísticas, resoluciones denegatorias, reclamaciones.
           title_transparency: Transparencia
       scopes:
+        all_scopes:
+          title: Ver todos los barrios
         index:
           title: La ciudad de cerca
           title_processes: Procesos
+        order_by_mayor_neighborhoods:
+          past: Pasades
+          upcoming: Próximas
+        other_scopes:
+          title: Ver los otros barrios
         show:
+          legend:
+            mayor_neighborhood: Encuentro del alcalde
+            user_group: Entidad
+          loading: Cargando resultados...
           title: "Barrio"
-          title_mayor_neighborhood: Encuentros del alcalde
-          title_mayor_neighborhood_future: Próximos encuentros del alcalde
-          title_mayor_neighborhood_past: Encuentros del alcalde pasados
           title_processes: Procesos
+          title_user_groups: Directorio de entidades
+          view_mayor_neighborhood: Ver el encuentro del alcalde
   devise:
     invitations:
       user:
         updated: Usuario actualitzado
+  layouts:
+    decidim:
+      scopes:
+        order_by_mayor_neighborhoods:
+          mayor_neighborhoods:
+            one: "%{count} encuentro del alcalde"
+            other: "%{count} encuentros del alcalde"
+      wrapper:
+        authorize_with: Verificarme con %{authorizer}
+        city_close_up: La ciudad de cerca
+        city_close_up_subtitle: Encuentra las entidades y sigue las propuestas de nuestros barrios
+        processes: Procesos
+        subtitle_transparency: Acceso a la información pública
+        transparency: Transparencia
   pages:
     home:
       extended:
-        city_close_up: La ciudad de cerca
-        proposals: Propuestas
-        read_more: Leer más
+        city_close_up: Ciudad de cerca
+        city_close_up_text: Apartado para ver el ámbito de actuación de la ciudad tanto de manera global como de los barrios
+        processes: Procesos
+        processes_text: Espacio donde puden participar en los procesos de la ciudad en la que desea vivir
         transparency: Transparencia
+        transparency_text: Acceso a la información pública y buen gobierno de la ciudad

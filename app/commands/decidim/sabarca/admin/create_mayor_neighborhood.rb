@@ -24,6 +24,7 @@ module Decidim
         def create_mayor_neighborhood
           MayorNeighborhood.create!(
             title: form.title,
+            location: form.location,
             address: form.address,
             slug: form.slug,
             description: form.description,

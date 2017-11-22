@@ -11,6 +11,7 @@ module Decidim
         translatable_attribute :description, String
         translatable_attribute :councilors, String
         translatable_attribute :topics, String
+        translatable_attribute :location, String
 
         attribute :slug, String
         attribute :address, String
@@ -21,10 +22,9 @@ module Decidim
         attribute :decidim_scope_id, Integer
         attribute :decidim_organization_id, Integer
 
-        validates :title, :description, translatable_presence: true
+        validates :title, :description, :location, translatable_presence: true
 
-        validates :slug, presence: true
-        validates :slug, format: { with: /\A[a-z0-9-]+/ }
+        validates :slug, presence: true, format: { with: Decidim::ParticipatoryProcess.slug_format }
         validates :address, presence: true
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }

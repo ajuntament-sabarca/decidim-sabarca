@@ -1,0 +1,13 @@
+const $grid = $('#processes-grid');
+const $loading = $grid.find('.loading');
+
+const $gridMayorNeighborhood = $('#mayor-neighborhood-grid');
+const $loadingMayorNeighborhood = $gridMayorNeighborhood.find('.loading');
+
+$grid.find('.card-grid').html('<%= j(render partial: "participatory_process", collection: participatory_processes).strip.html_safe %>');
+$grid.find('.processes-grid-order-by').html('<%= j(render(partial: "decidim/participatory_processes/order_by_processes", locals: { include_filter: true })).strip.html_safe %>');
+$loading.hide();
+
+$gridMayorNeighborhood.find('.card-grid').html('<%= j(render partial: "mayor_neighborhood", collection: mayor_neighborhoods).strip.html_safe %>');
+$gridMayorNeighborhood.find('.mayor-neighborhood-grid-order-by').html('<%= j(render(partial: "order_by_mayor_neighborhoods", locals: { include_filter: true })).strip.html_safe %>');
+$loadingMayorNeighborhood.hide();

@@ -1,0 +1,14 @@
+<section class="wrapper background-yellow">
+  <h4 class="text-center sabarca-section-title text-uppercase"><%= t(".title")%></h4>
+  <div class="row small-up-2 medium-up-4">
+    <div class="small-12 medium-10 small-centered card-grid">
+      <% organization_scopes.where.not(id: current_scope.id).each do |scope|%>
+        <div class="column small-12 medium-6 large-4 text-center">
+          <%= link_to decidim_sabarca.city_close_up_path(scope), class: "card scope-link" do %>
+          <%= translated_attribute(scope.name) %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>

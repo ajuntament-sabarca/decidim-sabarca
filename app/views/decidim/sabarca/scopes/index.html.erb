@@ -1,8 +1,6 @@
-<section class="wrapper">
-  <div class="row">
-    <h1 class="heading1 page-title"><%= t(".title") %></h1>
-  </div>
+<% add_decidim_page_title(t(".title")) %>
 
+<main class="wrapper">
   <% if organization_scopes.any? %>
     <section id ="organization-scopes" class="row section">
       <%= map_for_scopes %>
@@ -13,15 +11,20 @@
     </section>
   <% end %>
 
-  <% if participatory_processes_organization.any? %>
-    <section id ="participatory_processes" class="row section">
-      <div class="section">
-        <h2 class="heading2 section-heading"><%= t(".title_processes") %></h2>
+  <% if collection.any? %>
+    <section id="processes-grid" class="section row collapse">
+      <div class="processes-grid-order-by">
+        <%= render partial: "decidim/participatory_processes/order_by_processes", locals: { include_filter: true } %>
       </div>
-      <div class="row section">
-        <%= render partial: "participatory_process", collection: participatory_processes_organization, as: :participatory_process %>
+      <p class="loading"><%= t('.loading') %></p>
+      <div class="row small-up-1 medium-up-2 large-up-4 card-grid">
+        <%= render partial: "participatory_process", collection: collection %>
       </div>
     </section>
   <% end %>
 
-</section>
+</main>
+
+<%= render 'all_scopes' %>
+
+<%= javascript_include_tag "decidim/participatory_processes/filters" %>

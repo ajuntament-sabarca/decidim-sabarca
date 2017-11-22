@@ -1,0 +1,29 @@
+# frozen_string_literal: true
+
+module Decidim
+  module Sabarca
+    # This query class filters participatory processes given a filter name.
+    # It uses the start and end dates to select the correct processes.
+    class FilteredScopeMayorNeighborhoods < Rectify::Query
+      def initialize(organization, filter_mayor_neighborhood = "upcoming", decidim_scope_id)
+        @organization = organization
+        @filter_mayor_neighborhood = filter_mayor_neighborhood
+        @decidim_scope_id = decidim_scope_id
+      end
+
+      def query
+
+        mayor_neighborhoods = Decidim::Sabarca::MayorNeighborhood.
+                    where(decidim_organization_id: @organization, decidim_scope_id: @decidim_scope_id)
+        case @filter_mayor_neighborhood
+        when "past"
+          mayor_neighborhoods.where("decidim_sabarca_mayor_neighborhoods.end_time <= ?", Time.current).order(end_time: :desc)
+        when "upcoming"
+          mayor_neighborhoods.where("decidim_sabarca_mayor_neighborhoods.start_time > ?", Time.current).order(start_time: :asc)
+        else
+          mayor_neighborhoods
+        end
+      end
+    end
+  end
+end

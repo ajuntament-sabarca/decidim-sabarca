@@ -1,88 +1,97 @@
-<section class="wrapper">
-  <div class="row">
-    <h1 class="heading1 page-title"><%= translated_attribute @scope.name %></h1>
-  </div>
-  <div class="row section">
-    <div class="map_entities columns small-12 large-9">
+<% add_decidim_page_title(translated_attribute(current_scope.name)) %>
+<% content_for :section_header do %>
+  <%= translated_attribute(current_scope.name)%>
+<% end %>
 
-      <%= dynamic_map_for user_groups_data_for_map(@user_groups.select(&:geocoded?)) + mayor_neighborhoods_data_for_map(@scope.decidim_sabarca_mayor_neighborhoods.select(&:geocoded?)) do %>
+<main class="wrapper background-white">
+  <section class="row section collapse">
+    <div class="map_entities">
+      <%= dynamic_map_for user_groups_data_for_map(user_groups.select(&:geocoded?)) + mayor_neighborhoods_data_for_map(current_scope.decidim_sabarca_mayor_neighborhoods.select(&:geocoded?)) do %>
         <template id="marker-popup">
-          <div class="map-info__content">
-            <h3>${name}</h3>
-            <div id="bodyContent">
-              <!-- <p>{{html body}}</p> -->
-              <div class="phone">${phone}</div>
-              <div class="phone">${email}</div>
+          <div class="map-info__content ">
+            <h3>${title}</h3>
+            <div id="bodyContent ${type}">
+              <p>{{html description}}</p>
               <div class="map__date-adress">
+                <div class="card__datetime">
+                  <div class="card__datetime__date">
+                    ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
+                  </div>
+                  <div class="card__datetime__time">${starTime}</div>
+                </div>
                 <div class="address card__extra">
                   <div class="address__icon">{{html icon}}</div>
                   <div class="address__details">
+                    <strong style="display:block">{{html location}}</strong>
+                    <strong style="display:block">${phone}</strong>
+                    <strong style="display:block">${email}</strong>
                     <span>${address}</span><br />
                   </div>
                 </div>
               </div>
+              <!-- <div class="map-info__button">
+                <a href="${link}" class="button button--sc">
+                  <%#= t('.view_mayor_neighborhood') %>
+                </a>
+              </div> -->
             </div>
           </div>
         </template>
         <%= stylesheet_link_tag "decidim/map" %>
-        <%= javascript_include_tag "decidim/sabarca/scopes/id-#{@scope.id}-geojson" %>
+        <%= javascript_include_tag "decidim/sabarca/scopes/id-#{current_scope.id}-geojson" %>
         <%= javascript_include_tag "decidim/sabarca/scope_map" %>
       <% end %>
-    </div>
-    <div class="columns small-12 large-3">
-      <ul>
-        <% @user_groups.each do |user_group| %>
-          <li>
-            <%= user_group.name %>, <%= user_group.address %>, <%= user_group.phone %>, <%= user_group.users.first.email %>, <%= user_group.latitude %>, <%= user_group.longitude %>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-  </div>
-
-  <% if @scope.decidim_sabarca_mayor_neighborhoods.any? %>
-    <div class="row section">
-      <% class_div = (@scope.decidim_sabarca_mayor_neighborhoods.upcoming.any? and @scope.decidim_sabarca_mayor_neighborhoods.past.any?) ?  "mediumlarge-6 large-6" : "mediumlarge-12 large-12" %>
-      <% if @scope.decidim_sabarca_mayor_neighborhoods.upcoming.any? %>
-        <div id="future-meetings" class="columns <%=class_div%>">
-          <h3 class="heading2 section-heading"><%= t(".title_mayor_neighborhood_future") %></h3>
-          <div class="row section">
-            <%= render partial: 'decidim/sabarca/scopes/mayor_neighborhood', collection: @scope.decidim_sabarca_mayor_neighborhoods.upcoming, as: :mayor_neighborhood %>
-          </div>
+      <div class="legend">
+        <div class="legend-item">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-icon-svg" style="width:32; height:48;"><path class="svg-icon-path" d="M14 1.17a11.685 11.685 0 0 0-11.685 11.685c0 11.25 10.23 20.61 10.665 21a1.5 1.5 0 0 0 2.025 0c0.435-.435 10.665-9.81 10.665-21A11.685 11.685 0 0 0 14 1.17Zm0 17.415A5.085 5.085 0 1 1 19.085 13.5 5.085 5.085 0 0 1 14 18.585Z" stroke-width="2" stroke="rgba(0,102,255,0)" fill="#7C2529"></path><text text-anchor="middle" x="16" y="18.8" style="font-size: 8px" fill="rgba(0, 0, 0,1)"></text></svg>
+          <p><%= t(".legend.user_group") %></p>
         </div>
-      <% end %>
-      <% if @scope.decidim_sabarca_mayor_neighborhoods.past.any? %>
-        <div id="past-meetings" class="columns <%=class_div%>">
-          <h3 class="heading2 section-heading"><%= t(".title_mayor_neighborhood_past") %></h3>
-          <div class="row section">
-            <%= render partial: 'decidim/sabarca/scopes/mayor_neighborhood', collection: @scope.decidim_sabarca_mayor_neighborhoods.past, as: :mayor_neighborhood %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
 
-  <% if participatory_processes_organization.any? %>
-    <section id ="participatory_processes" class="row section">
-      <div class="section">
-        <h2 class="heading2 section-heading"><%= t(".title_processes") %></h2>
+        <div class="legend-item">
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1" class="svg-icon-svg" style="width:32; height:48;"><path class="svg-icon-path" d="M14 1.17a11.685 11.685 0 0 0-11.685 11.685c0 11.25 10.23 20.61 10.665 21a1.5 1.5 0 0 0 2.025 0c0.435-.435 10.665-9.81 10.665-21A11.685 11.685 0 0 0 14 1.17Zm0 17.415A5.085 5.085 0 1 1 19.085 13.5 5.085 5.085 0 0 1 14 18.585Z" stroke-width="2" stroke="rgba(0,102,255,0)" fill="#FFCD00"></path><text text-anchor="middle" x="16" y="18.8" style="font-size: 8px" fill="rgba(0, 0, 0,1)"></text></svg>
+          <p><%= t(".legend.mayor_neighborhood") %></p>
+        </div>
       </div>
-      <div class="row section">
-        <%= render partial: "participatory_process", collection: participatory_processes_organization, as: :participatory_process %>
+    </div>
+  </section>
+
+  <% if mayor_neighborhoods.any? %>
+    <section id="mayor-neighborhood-grid" class="row section collapse">
+      <div class="mayor-neighborhood-grid-order-by">
+        <%= render partial: "order_by_mayor_neighborhoods", locals: { include_filter: true } %>
+      </div>
+      <p class="loading"><%= t('.loading') %></p>
+      <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+        <%= render partial: 'decidim/sabarca/scopes/mayor_neighborhood', collection: mayor_neighborhoods, as: :mayor_neighborhood %>
       </div>
     </section>
   <% end %>
 
-  <div class="row section">
-    <h3>Veure altres barris</h3>
-    <ul>
-      <% organization_scopes.each do |scope|%>
-        <li>
-          <%= link_to decidim_sabarca.city_close_up_path(scope) do %>
-            <%= translated_attribute(scope.name) %>
-          <% end %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</section>
+  <% if participatory_processes_organization.any? %>
+    <section id="processes-grid" class="row section collapse">
+      <div class="processes-grid-order-by">
+        <%= render partial: "decidim/participatory_processes/order_by_processes", locals: { include_filter: true } %>
+      </div>
+      <p class="loading"><%= t('.loading') %></p>
+      <div class="row small-up-1 medium-up-2 large-up-4 card-grid">
+        <%= render partial: "participatory_process", collection: collection %>
+      </div>
+    </section>
+  <% end %>
+
+  <% if user_groups.any? %>
+    <section id="user_groups" class="row section collapse">
+      <div class="section">
+        <h3 class="heading3 section-heading"><%= t(".title_user_groups") %></h3>
+      </div>
+      <div class="row card-grid">
+        <%= render partial: 'user_group', collection: user_groups, as: :user_group %>
+      </div>
+    </section>
+  <% end %>
+
+</main>
+
+<%= render 'other_scopes' %>
+<%= javascript_include_tag "decidim/participatory_processes/filters" %>
+<%= javascript_include_tag "decidim/sabarca/filters_mayor_neighborhood" %>

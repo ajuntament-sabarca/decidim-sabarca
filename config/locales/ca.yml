@@ -8,6 +8,7 @@ ca:
         decidim_scope_id: Barri
         description: Descripció
         end_time: Data Fi
+        location: Localització
         slug: Nom curt d’URL
         start_time: Data Inici
         title: Títol
@@ -64,9 +65,6 @@ ca:
           no_meetings: No hi ha trobades de l'alcalde
       titles:
         mayor_neighborhoods: Trobades de l'alcalde
-    features:
-      sabarca:
-        name: Sabarca
     authorization_handlers:
         decidim/sabarca/dummy_authorization_handler:
           fields:
@@ -77,6 +75,13 @@ ca:
       first_login:
           actions:
             decidim/sabarca/dummy_authorization_handler: Verificar contra l'Autorització de Sabarca
+    features:
+      sabarca:
+        name: Sabarca
+    participatory_processes:
+      participatory_processes:
+        index:
+          processes: Processos
     sabarca:
       admin:
         mayor_neighborhoods:
@@ -101,29 +106,62 @@ ca:
             title: Nou item de transparència
       mayor_neighborhoods:
         read_more: Llegir més
+        show:
+          councilors: Regidors que assistiran
+          description: Descripció
+          topics: Temes que es tractaran
       menu:
         transparency: Transparència
         city_close_up: La ciutat de prop
       pages:
         transparency:
-          title_transparency: Transparència
+          text: Aquest portal conté la informació pública de l'Ajuntament amb la qual respon a les seves obligacions legals de transparència activa.
+          text_2: La normativa, informació sobre com tramitar una sol·licitud, consulta d'estat de sol·licituds, estadístiques, resolucions denegatòries, reclamacions.
+          title_transparency: Transparencia
       scopes:
+        all_scopes:
+          title: Veure tots els barris
         index:
           title: La ciutat de prop
           title_processes: Processos
+        order_by_mayor_neighborhoods:
+          past: Passades
+          upcoming: Properes
+        other_scopes:
+          title: Veure els altres barris
         show:
+          legend:
+            mayor_neighborhood: Trobada de l'alcalde
+            user_group: Entitat
+          loading: Carregant resultats...
           title: "Barri"
-          title_mayor_neighborhood_future: Properes trobades de l'alcalde
-          title_mayor_neighborhood_past: Trobades de l'alcalde passades
           title_processes: Processos
+          title_user_groups: Directori d'entitats
+          view_mayor_neighborhood: Veure la trobada de l'alcalde
   devise:
     invitations:
       user:
         updated: Usuari actualitzat
+  layouts:
+    decidim:
+      scopes:
+        order_by_mayor_neighborhoods:
+          mayor_neighborhoods:
+            one: "%{count} trobada de l'alcalde"
+            other: "%{count} trobades de l'alcalde"
+      wrapper:
+        authorize_with: Verificar-me amb %{authorizer}
+        city_close_up: La ciutat de prop
+        city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres barris
+        processes: Processos
+        subtitle_transparency: Accés a la informació pública
+        transparency: Transparència
   pages:
     home:
       extended:
-        city_close_up: La ciutat d'aprop
-        proposals: Propostes
-        read_more: Llegir més
+        city_close_up: Ciutat de prop
+        city_close_up_text: Apartat per veure l'àmbit d'actuació de la ciutat tant de manera global com dels barris
+        processes: Processos
+        processes_text: Espai on poder participar en els processos de la ciutat en la que voleu viure
         transparency: Transparència
+        transparency_text: Accés a la informació pública i bon govern de la ciutat
