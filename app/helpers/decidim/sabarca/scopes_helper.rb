@@ -54,7 +54,7 @@ module Decidim
                                                                           startTimeMonth: l(mayor_neighborhood.start_time, format: "%B"),
                                                                           startTimeYear: l(mayor_neighborhood.start_time, format: "%Y"),
                                                                           startTime: "#{mayor_neighborhood.start_time.strftime("%H:%M")} - #{mayor_neighborhood.end_time.strftime("%H:%M")}",
-                                                                          icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
+                                                                          icon: icon("meetings", width: 40, height: 70, remove_icon_class: true),
                                                                           location: translated_attribute(mayor_neighborhood.location),
                                                                           address: mayor_neighborhood.address,
                                                                           link: decidim_sabarca.city_close_up_mayor_neighborhood_path(city_close_up_id: current_scope.id, slug: mayor_neighborhood.slug),

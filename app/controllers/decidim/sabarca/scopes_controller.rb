@@ -62,7 +62,6 @@ module Decidim
       end
 
       ##Used FOR FILTER MAYOR NEIGHBORHOOD
-
       def current_scope
         @scope ||= organization_scopes.find_by(decidim_organization_id: current_organization.id, id: params[:id])
       end
@@ -72,7 +71,6 @@ module Decidim
       end
 
       def filtered_mayor_neighborhoods(filter_mayor_neighborhood = default_filter_mayor_neighborhood)
-        # @scope.decidim_sabarca_mayor_neighborhoods
         Decidim::Sabarca::OrganizationScopeMayorNeighborhoods.new(current_organization, filter_mayor_neighborhood, decidim_scope_id)
       end
 
@@ -85,7 +83,7 @@ module Decidim
       end
 
       def default_filter_mayor_neighborhood
-        "upcoming"
+        "active"
       end
 
     end

@@ -3,7 +3,7 @@ module Decidim
   module Sabarca
     module Admin
       class MayorNeighborhoodsController < Decidim::Admin::ApplicationController
-        
+
         def index
           authorize! :index, Decidim::Sabarca::MayorNeighborhood
           @mayor_neighborhoods ||= collection
@@ -93,7 +93,7 @@ module Decidim
         end
 
         def collection
-          Decidim::Sabarca::MayorNeighborhood.where(decidim_organization_id: current_organization.id)
+          Decidim::Sabarca::MayorNeighborhood.where(decidim_organization_id: current_organization.id).order(start_time: :desc)
         end
 
       end

@@ -125,6 +125,7 @@ ca:
           title: La ciutat de prop
           title_processes: Processos
         order_by_mayor_neighborhoods:
+          active: Actives
           past: Passades
           upcoming: Properes
         other_scopes:

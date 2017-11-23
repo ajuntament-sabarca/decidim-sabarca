@@ -19,8 +19,24 @@ h1, h2, h3, h4, h5, h6{
   font-family: 'Lato', sans-serif;
   // font-weight: 700;
 }
-a:hover, .card__link:hover, .card--list__data__icon:hover{
+.heading1{
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  font-size: 3rem;
+}
+a{
+  color: $primary_color;
+}
+a:hover, a:focus, .card__link:hover, .card--list__data__icon:hover{
   color: $blue;
+}
+
+.share-link.link{
+  color: $blue;
+}
+
+.main-nav__link a:focus{
+  color: $white;
 }
 .card--list__data__icon:hover .icon{
   fill: $blue;
@@ -32,6 +48,12 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
   width: 40px;
   height: 40px;
   fill: $primary_color;
+}
+[type='text'], [type='password'], [type='date'],
+[type='datetime'], [type='datetime-local'], [type='month'],
+[type='week'], [type='email'], [type='number'], [type='search'],
+[type='tel'], [type='time'], [type='url'], [type='color'], textarea{
+  border-radius: 0;
 }
 //////////////////////////////
 /////// TOP BAR MENU /////////
@@ -124,18 +146,6 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
 }
 
 /////////////////////////////
-///////////BUTTON////////////
-////////////////////////////
-
-.button{
-  background: $primary_color;
-  font-family: 'Titillium Web', sans-serif;
-  font-weight: 700;
-  &:hover, &:focus{
-    background-color: $dark_grey;
-  }
-}
-/////////////////////////////
 //////////SECTIONS/////////////
 /////////////////////////////
 .background-white{
@@ -171,6 +181,7 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
     }
   }
 }
+
 /////////////////////////////
 //////////HEADER/////////////
 /////////////////////////////
@@ -219,9 +230,25 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
 .margin-bottom-0{
   margin-bottom: 30px !important;
 }
+
+/////////////////////////////
+//////////dropdown/////////////
+/////////////////////////////
+.dropdown.menu > li.is-dropdown-submenu-parent > a::after{
+  border-color: $primary_color transparent transparent;
+}
+
 /////////////////////////////
 /////////CARDLINK////////////
 /////////////////////////////
+.card{
+  .author-data .author__name{
+    color: $blue;
+  }
+}
+.card--list__icon{
+  fill: $primary_color;
+}
 .card-link{
   border-radius: 0;
   border: solid 2px $primary_color;
@@ -258,7 +285,7 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
   text-transform: uppercase;
   font-family: 'Titillium Web', sans-serif;
   font-weight: 700;
-  text-decoration: underline;
+  letter-spacing: 1px;
 }
 .scope-link{
   display: block;
@@ -268,6 +295,9 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
   color: $primary_color;
   padding: 0.5rem 2rem;
   margin-left: 20px;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  justify-content: center;
   &:hover{
     background-color: $primary_color;
     color: $white;
@@ -278,6 +308,9 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
 /////////////////////////////
 /////////Custom/////////
 /////////////////////////////
+.hero:after{
+  background-color: rgba(26, 24, 29, 0.2) !important;
+}
 .process-header__phase{
   background-color: $yellow;
 }
@@ -303,6 +336,7 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
             padding: 0.5rem 2rem;
             margin-left: 20px;
             text-transform: uppercase;
+            font-weight: 700;
             &:hover{
               color: $white;
               background-color: $primary_color;
@@ -481,22 +515,73 @@ a:hover, .card__link:hover, .card--list__data__icon:hover{
 /////////////////////////////
 //////////BUTTONS/////////////
 /////////////////////////////
+
+.button{
+  background: $primary_color;
+  font-family: 'Titillium Web', sans-serif;
+  font-weight: 700;
+  &:hover, &:focus{
+    background-color: $blue !important;
+  }
+}
+
+.button.hollow:hover, .button.hollow:focus{
+  background-color: transparent !important;
+  border: 1px solid $blue !important;
+  color: $blue !important;
+}
+
 .button, .card{
   border-radius: 0px !important;
 }
 
-.button{
-  background-color: $primary_color;
-}
 .button.expanded.button--sc.home-section__cta{
   border: 2px solid $primary_color !important;
+  &:hover, &:focus{
+    background-color: transparent !important;
+    border: 2px solid $blue !important;
+    color: $blue !important;
+  }
 }
-
 
 .sabarca-header-section .page-title{
   margin-bottom: 10px;
 }
 
+.button.hollow.secondary{
+  border: 1px solid $primary_color;
+  color: $primary_color;
+  &:hover, &:focus{
+    background-color: transparent !important;
+    border: 1px solid $blue !important;
+    color: $blue !important;
+  }
+}
+.process-header__phase .button{
+  &:hover, &:focus{
+    background-color: transparent !important;
+  }
+}
+.muted-link:hover{
+  color: $blue;
+}
+
+.process-nav__link{
+  &:hover, &:focus{
+    color: $primary_color;
+    svg{
+      fill: $primary_color;
+    }
+  }
+}
+
+/////////////////////////////
+//////////ICONS/////////////
+/////////////////////////////
+.process_stats .process_stats-item .icon{
+  color: $primary_color;
+
+}
 /////////////////////////////
 //////////FILTRES/////////////
 /////////////////////////////
