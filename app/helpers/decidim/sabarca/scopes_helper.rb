@@ -57,14 +57,14 @@ module Decidim
                                                                           icon: icon("meetings", width: 40, height: 70, remove_icon_class: true),
                                                                           location: translated_attribute(mayor_neighborhood.location),
                                                                           address: mayor_neighborhood.address,
-                                                                          link: decidim_sabarca.city_close_up_mayor_neighborhood_path(city_close_up_id: current_scope.id, slug: mayor_neighborhood.slug),
+                                                                          # link: decidim_sabarca.city_close_up_mayor_neighborhood_path(city_close_up_id: current_scope.id, slug: mayor_neighborhood.slug),
                                                                           type: MayorNeighborhood.model_name.human.parameterize,
                                                                         )
         end
       end
 
       def mayor_neighborhood_description(mayor_neighborhood, max_length = 120)
-        link = decidim_sabarca.city_close_up_mayor_neighborhood_path(current_scope, mayor_neighborhood.slug)
+        link = decidim_sabarca.mayor_neighborhood_city_close_up_mayor_neighborhoods_path(mayor_neighborhood.decidim_scope_id, mayor_neighborhood.slug)
         description = translated_attribute(mayor_neighborhood.description)
         tail = "... #{link_to(t("read_more", scope: "decidim.sabarca.mayor_neighborhoods"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)

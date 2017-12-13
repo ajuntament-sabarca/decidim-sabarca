@@ -13,11 +13,11 @@ module Decidim
       helper_method :mayor_neighborhood
 
       def show
-        @scope = Decidim::Scope.find_by(decidim_organization_id: current_organization.id, id: params[:city_close_up_id])
+        @scope = Decidim::Scope.find_by(decidim_organization_id: current_organization.id, id: params[:scope_id])
       end
 
       def mayor_neighborhood
-        Decidim::Sabarca::MayorNeighborhood.find_by(decidim_organization_id: current_organization.id, decidim_scope_id: params[:city_close_up_id], slug: params[:slug])
+        Decidim::Sabarca::MayorNeighborhood.find_by(decidim_organization_id: current_organization.id, decidim_scope_id: params[:scope_id], slug: params[:slug])
       end
 
     end

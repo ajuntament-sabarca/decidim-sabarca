@@ -104,6 +104,29 @@ ca:
           new:
             create: Crea
             title: Nou item de transparència
+      city_close_up_mayor_neighborhoods:
+        index:
+          title: Trobades amb l'alcalde
+          description: Recull de les actes de les visites de l'alcalde al barri
+        show:
+          title: Trobades amb l'alcalde - %{name}
+          description: Recull de les actes de les visites de l'alcalde al %{name}
+      city_close_up_processes:
+        index:
+          title: Processos de la ciutat de prop
+          description: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure
+        show:
+          title: Processos de la ciutat - %{name}
+          description: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure - %{name}
+      city_close_up_user_groups:
+        index:
+          title: Entitats de la ciutat de prop
+          description: Apartat per a veure l'àmbit d'actuació de la ciutat tant de manera global o com barris
+          title_user_groups: Directori d'entitats
+        show:
+          title: Entitats - %{name}
+          title_user_groups: Directori d'entitats
+          description: Apartat per a veure les entitats de %{name}
       mayor_neighborhoods:
         read_more: Llegir més
         show:
@@ -114,46 +137,40 @@ ca:
         transparency: Transparència
         city_close_up: La ciutat de prop
       pages:
+        city_close_up:
+          mayor_neighborhoods: Trobades amb l'alcalde
+          mayor_neighborhoods_text: Recull de les actes de les visites de l'alcalde al barri
+          processes: Processos
+          processes_text: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure
+          subtitle: Troba les entitats i segueix les propostes dels nostres barris
+          title: La ciutat de prop
+          user_groups: Entitats
+          user_groups_text: Apartat per a veure l'àmbit d'actuació de la ciutat tant de manera global o com barris
         transparency:
           text: Aquest portal conté la informació pública de l'Ajuntament amb la qual respon a les seves obligacions legals de transparència activa.
           text_2: La normativa, informació sobre com tramitar una sol·licitud, consulta d'estat de sol·licituds, estadístiques, resolucions denegatòries, reclamacions.
           title_transparency: Transparencia
-      scopes:
+      shared:
         all_scopes:
           title: Veure tots els barris
-        index:
-          title: La ciutat de prop
-          title_processes: Processos
-        order_by_mayor_neighborhoods:
-          active: Actives
-          past: Passades
-          upcoming: Properes
         other_scopes:
           title: Veure els altres barris
-        show:
-          legend:
-            mayor_neighborhood: Trobada de l'alcalde
-            user_group: Entitat
-          loading: Carregant resultats...
-          title: "Barri"
-          title_processes: Processos
-          title_user_groups: Directori d'entitats
-          view_mayor_neighborhood: Veure la trobada de l'alcalde
   devise:
     invitations:
       user:
         updated: Usuari actualitzat
   layouts:
     decidim:
-      scopes:
-        order_by_mayor_neighborhoods:
-          mayor_neighborhoods:
-            one: "%{count} trobada de l'alcalde"
-            other: "%{count} trobades de l'alcalde"
       wrapper:
         authorize_with: Verificar-me amb %{authorizer}
         city_close_up: La ciutat de prop
+        city_close_up_mayor_neighborhoods: Trobades amb l'alcalde
+        city_close_up_mayor_neighborhoods_subtitle: Recull de les actes de les visites de l'alcalde al barri
+        city_close_up_processes: Processos de la ciutat de prop
+        city_close_up_processes_subtitle: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure
         city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres barris
+        city_close_up_user_groups: Entitats de la ciutat de prop
+        city_close_up_user_groups_subtitle: Apartat per a veure l'àmbit d'actuació de la ciutat tant de manera global o com barris
         processes: Processos
         subtitle_transparency: Accés a la informació pública
         transparency: Transparència

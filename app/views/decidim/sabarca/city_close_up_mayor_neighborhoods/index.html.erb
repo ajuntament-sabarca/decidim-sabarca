@@ -1,0 +1,63 @@
+<% add_decidim_meta_tags({
+  title: t(".title"),
+  description: t(".description"),
+  url: decidim_sabarca.city_close_up_mayor_neighborhoods_url
+}) %>
+
+<main class="wrapper">
+  <section class="row section collapse">
+    <div class="map_entities">
+      <%= dynamic_map_for mayor_neighborhoods_data_for_map(collection_mayor_neighborhoods.select(&:geocoded?)) do %>
+        <template id="marker-popup">
+          <div class="map-info__content ">
+            <h3>${title}</h3>
+            <div id="bodyContent ${type}">
+              <p>{{html description}}</p>
+              <div class="map__date-adress">
+                <div class="card__datetime">
+                  <div class="card__datetime__date">
+                    ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
+                  </div>
+                  <div class="card__datetime__time">${starTime}</div>
+                </div>
+                <div class="address card__extra">
+                  <div class="address__icon">{{html icon}}</div>
+                  <div class="address__details">
+                    <strong style="display:block">{{html location}}</strong>
+                    <strong style="display:block">${phone}</strong>
+                    <strong style="display:block">${email}</strong>
+                    <span>${address}</span><br />
+                  </div>
+                </div>
+              </div>
+              <div class="map-info__button">
+                <a href="${link}" class="button button--sc">
+                  <%= t('.view_mayor_neighborhood') %>
+                </a>
+              </div>
+            </div>
+          </div>
+        </template>
+        <%= stylesheet_link_tag "decidim/map" %>
+        <%= javascript_include_tag "decidim/sabarca/scopes/all-scopes-geojson" %>
+        <%= javascript_include_tag "decidim/sabarca/scope_map" %>
+      <% end %>
+    </div>
+  </section>
+
+  <% if mayor_neighborhoods.any? %>
+    <section id="mayor-neighborhood-grid" class="row section collapse">
+      <div class="mayor-neighborhood-grid-order-by">
+        <%= render partial: "decidim/sabarca/shared/order_by_mayor_neighborhoods", locals: { include_filter: true } %>
+      </div>
+      <p class="loading"><%= t('.loading') %></p>
+      <div class="row small-up-1 medium-up-2 large-up-3 card-grid">
+        <%= render partial: 'decidim/sabarca/shared/mayor_neighborhood', collection: mayor_neighborhoods, as: :mayor_neighborhood %>
+      </div>
+    </section>
+  <% end %>
+
+</main>
+
+<%= render 'decidim/sabarca/shared/all_scopes', link: "mayor_neighborhoods" %>
+<%= javascript_include_tag "decidim/sabarca/filters_mayor_neighborhood" %>

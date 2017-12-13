@@ -1,10 +1,10 @@
 <div class="column large-4">
   <article class="card card--meeting">
     <div class="card__content">
-      <%= link_to decidim_sabarca.city_close_up_mayor_neighborhood_path(city_close_up_id: current_scope.id, slug: mayor_neighborhood.slug), class: "card__link" do %>
+      <%= link_to decidim_sabarca.mayor_neighborhood_city_close_up_mayor_neighborhoods_path(scope_id: mayor_neighborhood.decidim_scope_id, slug: mayor_neighborhood.slug), class: "card__link" do %>
         <h5 class="card__title"><%= translated_attribute mayor_neighborhood.title %></h5>
       <% end %>
-      <%= render partial: "datetime", locals: { mayor_neighborhood: mayor_neighborhood } %>
+      <%= render partial: "decidim/sabarca/shared/datetime", locals: { mayor_neighborhood: mayor_neighborhood } %>
       <%= sanitize mayor_neighborhood_description(mayor_neighborhood) %>
       <div class="address card__extra">
         <div class="address__icon">
