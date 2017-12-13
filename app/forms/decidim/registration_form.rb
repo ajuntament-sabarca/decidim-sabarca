@@ -14,6 +14,7 @@ module Decidim
     attribute :tos_agreement, Boolean
 
     attribute :user_group_name, String
+    attribute :user_group_url, String
     attribute :user_group_document_number, String
     attribute :user_group_phone, String
     attribute :user_group_scope_id, Integer
@@ -34,9 +35,23 @@ module Decidim
     validate :email_unique_in_organization
     validate :user_group_name_unique_in_organization
     validate :user_group_document_number_unique_in_organization
+    validate :valid_url
 
     def user_group?
       sign_up_as == "user_group"
+    end
+
+    def valid_url
+      self.errors.add(:user_group_url, :invalid) unless uri?(user_group_url)
+    end
+
+    def uri?(string)
+      uri = URI.parse(string)
+      %w( http https ).include?(uri.scheme)
+    rescue URI::BadURIError
+      false
+    rescue URI::InvalidURIError
+      false
     end
 
     private
