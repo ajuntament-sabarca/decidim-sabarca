@@ -99,7 +99,7 @@ const loadMap = (mapId, markersData) => {
 
   function onclick(e) {
     var current_url = window.location.href.split("?")[0];
-    var detail_url = "/"+ e.target.feature.properties.id_scope;
+    var detail_url = "/scopes/"+ e.target.feature.properties.id_scope;
 
     window.location = current_url + detail_url
   }

@@ -13,6 +13,9 @@ module Decidim
         @transparency_items = Decidim::Sabarca::TransparencyItem.where(decidim_organization_id: current_organization.id)
       end
 
+      def city_close_up
+
+      end
     end
   end
 end

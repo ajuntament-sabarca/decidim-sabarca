@@ -48,14 +48,38 @@ module Decidim
       end
 
       def header_section
-        if (controller_name == "pages" and action_name== "transparency") or (controller_name == "participatory_processes" and action_name == "index") or (controller_name == "authorizations" and action_name == "new") or (%w(mayor_neighborhoods scopes).include? controller_name)
+        if (controller_name == "participatory_processes" and action_name == "index") or (controller_name == "authorizations" and action_name == "new") or (%w(pages mayor_neighborhoods city_close_up_processes city_close_up_user_groups scopes).include? controller_name)
           case controller_name
           when "participatory_processes"
             @title = t(".processes")
             @subtitle = ""
           when "pages"
-            @title= t(".transparency")
-            @subtitle= t(".subtitle_transparency")
+            case action_name
+            when "transparency"
+              @title= t(".transparency")
+              @subtitle= t(".subtitle_transparency")
+            when "city_close_up"
+              @title= t(".city_close_up")
+              @subtitle= t(".city_close_up_subtitle")
+            end
+          when "city_close_up_processes"
+            case action_name
+            when "index"
+              @title= t(".city_close_up_processes")
+              @subtitle= t(".city_close_up_processes_subtitle")
+            when "show"
+              @title= translated_attribute(current_scope.name)
+              @subtitle= ""
+            end
+          when "city_close_up_user_groups"
+            case action_name
+            when "index"
+              @title= t(".city_close_up_user_groups")
+              @subtitle= t(".city_close_up_user_groups_subtitle")
+            when "show"
+              @title= translated_attribute(current_scope.name)
+              @subtitle= ""
+            end
           when "scopes"
             case action_name
             when "index"
@@ -72,7 +96,7 @@ module Decidim
               @subtitle= ""
             end
           when "authorizations"
-            @title= t(".authorize_with", authorizer: t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers")) 
+            @title= t(".authorize_with", authorizer: t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers"))
             @subtitle= ""
           end
           render "decidim/sabarca/shared/section_header_sabarca", title: @title, subtitle: @subtitle

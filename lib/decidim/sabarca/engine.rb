@@ -6,24 +6,48 @@ module Decidim
     # This is the engine that runs on the public interface of `decidim-sabarca`.
     class Engine < ::Rails::Engine
       require "acts_as_list"
-      
+
       isolate_namespace Decidim::Sabarca
       engine_name "decidim_sabarca"
 
       routes do
         # Add engine routes here
-        # resources :sabarca
-        # root to: "sabarca#index"
         get 'transparency', to: "pages#transparency", as: :transparency
+        get 'city_close_up', to: "pages#city_close_up", as: :city_close_up
+
+        scope :city_close_up, as: :city_close_up do
+          resources :processes, only: [:index], controller: "city_close_up_processes"  do
+            get '/scopes/:id', action: :show, on: :collection, as: :scope
+          end
+          resources :user_groups, only: [:index], controller: "city_close_up_user_groups" do
+            get '/scopes/:id', action: :show, on: :collection, as: :scope
+          end
+          resources :mayor_neighborhoods, only: [:index], controller: "city_close_up_mayor_neighborhoods" do
+            get '/scopes/:id', action: :show, on: :collection, as: :scope
+            get '/scopes/:scope_id/mayor_neighborhoods/:slug', to: "mayor_neighborhoods#show", on: :collection, as: :mayor_neighborhood
+          end
+        end
+
+        # namespace :city_close_up do
+        #   resources :processes, only: [:index], controller: "city_close_up_processes" do
+        #     get '/scope/:id', action: :show, on: :collection, as: :scope
+        #   end
+        #   resources :user_groups, only: [:index], controller: "user_groups_city_close_up" do
+        #     get '/scope/:id', action: :show, on: :collection, as: :scope
+        #   end
+        #   resources :mayor_neighborhoods, only: [:index], param: :slug, controller: "mayor_neighborhoods_city_close_up" do
+        #     get '/scope/:id', action: :show, on: :collection, as: :scope
+        #   end
+        # end
 
         namespace :admin do
           resources :mayor_neighborhoods, except: [:show]
           resources :transparency_items, except: [:show]
         end
 
-        resources :scopes, only: [:index, :show], as: :city_close_up do
-          resources :mayor_neighborhoods, only: [:show], param: :slug
-        end
+        # resources :scopes, only: [:index, :show] do
+        #   resources :mayor_neighborhoods, only: [:show], param: :slug
+        # end
 
       end
       initializer "decidim.action_controller" do |_app|
@@ -54,7 +78,7 @@ module Decidim
             active: :inclusive
 
           menu.item I18n.t("menu.city_close_up", scope: "decidim.sabarca"),
-            decidim_sabarca.city_close_up_index_path,
+            decidim_sabarca.city_close_up_path,
             position: 4,
             active: :inclusive
         end

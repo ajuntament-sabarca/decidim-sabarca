@@ -1,0 +1,55 @@
+<% add_decidim_meta_tags({
+  title: t(".title"),
+  description: t(".description"),
+  url: decidim_sabarca.city_close_up_user_groups_url
+}) %>
+
+<main class="wrapper">
+  <section class="row section collapse">
+    <div class="map_entities">
+      <%= dynamic_map_for user_groups_data_for_map(user_groups.select(&:geocoded?)) do %>
+        <template id="marker-popup">
+          <div class="map-info__content ">
+            <h3>${title}</h3>
+            <div id="bodyContent ${type}">
+              <p>{{html description}}</p>
+              <div class="map__date-adress">
+                <div class="card__datetime">
+                  <div class="card__datetime__date">
+                    ${startTimeDay} <span class="card__datetime__month">${startTimeMonth} ${startTimeYear}</span>
+                  </div>
+                  <div class="card__datetime__time">${starTime}</div>
+                </div>
+                <div class="address card__extra">
+                  <div class="address__icon">{{html icon}}</div>
+                  <div class="address__details">
+                    <strong style="display:block">{{html location}}</strong>
+                    <strong style="display:block">${phone}</strong>
+                    <strong style="display:block">${email}</strong>
+                    <span>${address}</span><br />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </template>
+        <%= stylesheet_link_tag "decidim/map" %>
+        <%= javascript_include_tag "decidim/sabarca/scopes/all-scopes-geojson" %>
+        <%= javascript_include_tag "decidim/sabarca/scope_map" %>
+      <% end %>
+    </div>
+  </section>
+
+  <% if user_groups.any? %>
+    <section id="user_groups" class="row section collapse">
+      <div class="section">
+        <h3 class="heading3 section-heading"><%= t(".title_user_groups") %></h3>
+      </div>
+      <div class="row card-grid">
+        <%= render partial: 'decidim/sabarca/shared/user_group', collection: user_groups, as: :user_group %>
+      </div>
+    </section>
+  <% end %>
+</main>
+
+<%= render 'decidim/sabarca/shared/all_scopes', link: "user_groups" %>
