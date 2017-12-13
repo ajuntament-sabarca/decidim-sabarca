@@ -48,7 +48,10 @@ module Decidim
       end
 
       def header_section
-        if (controller_name == "participatory_processes" and action_name == "index") or (controller_name == "authorizations" and action_name == "new") or (%w(pages mayor_neighborhoods city_close_up_processes city_close_up_user_groups scopes).include? controller_name)
+        if (controller_name == "pages" and action_name != "show") or
+          (controller_name == "participatory_processes" and action_name == "index") or
+          (controller_name == "authorizations" and action_name == "new") or
+          (%w(mayor_neighborhoods city_close_up_processes city_close_up_user_groups city_close_up_mayor_neighborhoods).include? controller_name)
           case controller_name
           when "participatory_processes"
             @title = t(".processes")
@@ -68,7 +71,7 @@ module Decidim
               @title= t(".city_close_up_processes")
               @subtitle= t(".city_close_up_processes_subtitle")
             when "show"
-              @title= translated_attribute(current_scope.name)
+              @title= t(".city_close_up_processes") + " - " + translated_attribute(current_scope.name)
               @subtitle= ""
             end
           when "city_close_up_user_groups"
@@ -77,7 +80,16 @@ module Decidim
               @title= t(".city_close_up_user_groups")
               @subtitle= t(".city_close_up_user_groups_subtitle")
             when "show"
-              @title= translated_attribute(current_scope.name)
+              @title= t(".city_close_up_user_groups") + " - " + translated_attribute(current_scope.name)
+              @subtitle= ""
+            end
+          when "city_close_up_mayor_neighborhoods"
+            case action_name
+            when "index"
+              @title= t(".city_close_up_mayor_neighborhoods")
+              @subtitle= t(".city_close_up_mayor_neighborhoods_subtitle")
+            when "show"
+              @title= t(".city_close_up_mayor_neighborhoods") + " - " + translated_attribute(current_scope.name)
               @subtitle= ""
             end
           when "scopes"

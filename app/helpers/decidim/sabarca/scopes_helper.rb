@@ -64,7 +64,7 @@ module Decidim
       end
 
       def mayor_neighborhood_description(mayor_neighborhood, max_length = 120)
-        link = decidim_sabarca.mayor_neighborhood_city_close_up_mayor_neighborhoods_path(current_scope, mayor_neighborhood.slug)
+        link = decidim_sabarca.mayor_neighborhood_city_close_up_mayor_neighborhoods_path(mayor_neighborhood.decidim_scope_id, mayor_neighborhood.slug)
         description = translated_attribute(mayor_neighborhood.description)
         tail = "... #{link_to(t("read_more", scope: "decidim.sabarca.mayor_neighborhoods"), link)}".html_safe
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)

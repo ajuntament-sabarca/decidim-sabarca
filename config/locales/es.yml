@@ -104,6 +104,29 @@ es:
           new:
             create: Crea
             title: Nuevo item de transparencia
+      city_close_up_mayor_neighborhoods:
+        index:
+          title: Encuentros con el alcalde
+          description: Resumen de los actos de las visitas del alcalde en el barrio
+        show:
+          title: Encuentros con el alcalde - %{name}
+          description: Resumen de los actos de las visitas del alcalde en %{name}
+      city_close_up_processes:
+        index:
+          title: Procesos de la ciudad de cerca
+          description: Espacio abierto a propuestas ciudadanas sobre el tipo de ciudad en el que quieres vivir
+        show:
+          title: Procesos de la ciudad de cerca - %{name}
+          description: Espacio abierto a propuestas ciudadanas sobre el tipo de ciudad en el que quieres vivir - %{name}
+      city_close_up_user_groups:
+        index:
+          title: Entidades de la ciudad de cerca
+          description: Apartado para ver el ambito de actuación de la ciudad de manera global o por barrios
+          title_user_groups: Directorio de entidades
+        show:
+          title: Entidades - %{name}
+          title_user_groups: Directorio de entidades
+          description: Apartado para ver las entidades de %{name}
       mayor_neighborhoods:
         read_more: Leer más
         show:
@@ -114,46 +137,40 @@ es:
         transparency: Transparencia
         city_close_up: La ciudad de cerca
       pages:
+        city_close_up:
+          mayor_neighborhoods: Encuentros con el alcalde
+          mayor_neighborhoods_text: Resumen de los actos de las visitas del alcalde en el barrio
+          processes: Procesos
+          processes_text: Espacio abierto a propuestas ciudadanas sobre el tipo de ciudad en el que quieres vivir
+          subtitle: Encuentra las entidades y sigue las propuestas de nuestros barrios
+          title: La ciudad de cerca
+          user_groups: Entidades
+          user_groups_text: Apartado para ver el ambito de actuación de la ciudad de manera global o por barrios
         transparency:
           text: Este portal contiene la información pública del Ayuntamiento con la que responde a sus obligaciones legales de transparencia activa.
           text_2: La normativa, información sobre cómo tramitar una solicitud, consulta de estado de solicitudes, estadísticas, resoluciones denegatorias, reclamaciones.
           title_transparency: Transparencia
-      scopes:
+      shared:
         all_scopes:
           title: Ver todos los barrios
-        index:
-          title: La ciudad de cerca
-          title_processes: Procesos
-        order_by_mayor_neighborhoods:
-          active: Activas
-          past: Pasades
-          upcoming: Próximas
         other_scopes:
           title: Ver los otros barrios
-        show:
-          legend:
-            mayor_neighborhood: Encuentro del alcalde
-            user_group: Entidad
-          loading: Cargando resultados...
-          title: "Barrio"
-          title_processes: Procesos
-          title_user_groups: Directorio de entidades
-          view_mayor_neighborhood: Ver el encuentro del alcalde
   devise:
     invitations:
       user:
         updated: Usuario actualitzado
   layouts:
     decidim:
-      scopes:
-        order_by_mayor_neighborhoods:
-          mayor_neighborhoods:
-            one: "%{count} encuentro del alcalde"
-            other: "%{count} encuentros del alcalde"
       wrapper:
         authorize_with: Verificarme con %{authorizer}
         city_close_up: La ciudad de cerca
+        city_close_up_mayor_neighborhoods: Encuentros con el alcalde
+        city_close_up_mayor_neighborhoods_subtitle: Resumen de los actos de las visitas del alcalde en el barrio
+        city_close_up_processes: Procesos de la ciudad de cerca
+        city_close_up_processes_subtitle: spacio abierto a propuestas ciudadanas sobre el tipo de ciudad en el que quieres vivir
         city_close_up_subtitle: Encuentra las entidades y sigue las propuestas de nuestros barrios
+        city_close_up_user_groups: Entidades de la ciudad de cerca
+        city_close_up_user_groups_subtitle: Apartado para ver el ambito de actuación de la ciudad de manera global o por barrios
         processes: Procesos
         subtitle_transparency: Acceso a la información pública
         transparency: Transparencia

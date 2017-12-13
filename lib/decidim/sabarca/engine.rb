@@ -28,26 +28,10 @@ module Decidim
           end
         end
 
-        # namespace :city_close_up do
-        #   resources :processes, only: [:index], controller: "city_close_up_processes" do
-        #     get '/scope/:id', action: :show, on: :collection, as: :scope
-        #   end
-        #   resources :user_groups, only: [:index], controller: "user_groups_city_close_up" do
-        #     get '/scope/:id', action: :show, on: :collection, as: :scope
-        #   end
-        #   resources :mayor_neighborhoods, only: [:index], param: :slug, controller: "mayor_neighborhoods_city_close_up" do
-        #     get '/scope/:id', action: :show, on: :collection, as: :scope
-        #   end
-        # end
-
         namespace :admin do
           resources :mayor_neighborhoods, except: [:show]
           resources :transparency_items, except: [:show]
         end
-
-        # resources :scopes, only: [:index, :show] do
-        #   resources :mayor_neighborhoods, only: [:show], param: :slug
-        # end
 
       end
       initializer "decidim.action_controller" do |_app|

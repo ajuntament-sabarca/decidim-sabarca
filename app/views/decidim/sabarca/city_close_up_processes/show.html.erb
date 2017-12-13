@@ -1,4 +1,10 @@
-<% add_decidim_page_title(translated_attribute(current_scope.name)) %>
+<% add_decidim_meta_tags({
+  title: t(".title", name: translated_attribute(current_scope.name)),
+  description: t(".description", name: translated_attribute(current_scope.name)),
+  url: decidim_sabarca.scope_city_close_up_mayor_neighborhoods_url(current_scope)
+}) %>
+
+
 <% content_for :section_header do %>
   <%= translated_attribute(current_scope.name)%>
 <% end %>

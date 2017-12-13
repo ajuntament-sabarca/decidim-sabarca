@@ -11,7 +11,10 @@ module Decidim
       helper Decidim::Sabarca::ScopesHelper
       skip_authorization_check
 
-      helper_method :organization_scopes, :decidim_scope_id, :current_scope, :collection_mayor_neighborhoods, :mayor_neighborhoods, :filter_mayor_neighborhood
+      helper_method :organization_scopes, :decidim_scope_id, :current_scope,
+                    :collection_mayor_neighborhoods, :collection_scoped_mayor_neighborhoods,
+                    :mayor_neighborhoods, :scoped_mayor_neighborhoods,
+                    :filter_mayor_neighborhood
 
       def index
       end
@@ -25,12 +28,10 @@ module Decidim
         @scopes ||= Decidim::Scope.where(decidim_organization_id: current_organization.id)
       end
 
-
       def decidim_scope_id
         params[:id].to_i
       end
 
-      ##Used FOR FILTER MAYOR NEIGHBORHOOD
       def current_scope
         @scope ||= organization_scopes.find_by(decidim_organization_id: current_organization.id, id: params[:id])
       end
@@ -39,12 +40,24 @@ module Decidim
         @collection_mayor_neighborhood ||= mayor_neighborhoods
       end
 
+      def collection_scoped_mayor_neighborhoods
+        @collection_mayor_neighborhood ||= scoped_mayor_neighborhoods
+      end
+
       def filtered_mayor_neighborhoods(filter_mayor_neighborhood = default_filter_mayor_neighborhood)
+        Decidim::Sabarca::OrganizationMayorNeighborhoods.new(current_organization, filter_mayor_neighborhood)
+      end
+
+      def filtered_scoped_mayor_neighborhoods(filter_mayor_neighborhood = default_filter_mayor_neighborhood)
         Decidim::Sabarca::OrganizationScopeMayorNeighborhoods.new(current_organization, filter_mayor_neighborhood, decidim_scope_id)
       end
 
       def mayor_neighborhoods
         @mayor_neighborhoods ||= filtered_mayor_neighborhoods(filter_mayor_neighborhood)
+      end
+
+      def scoped_mayor_neighborhoods
+        @mayor_neighborhoods ||= filtered_scoped_mayor_neighborhoods(filter_mayor_neighborhood)
       end
 
       def filter_mayor_neighborhood
