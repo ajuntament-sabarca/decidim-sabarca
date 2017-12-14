@@ -57,7 +57,7 @@ module Decidim
                                                                           icon: icon("meetings", width: 40, height: 70, remove_icon_class: true),
                                                                           location: translated_attribute(mayor_neighborhood.location),
                                                                           address: mayor_neighborhood.address,
-                                                                          # link: decidim_sabarca.city_close_up_mayor_neighborhood_path(city_close_up_id: current_scope.id, slug: mayor_neighborhood.slug),
+                                                                          link: decidim_sabarca.mayor_neighborhood_city_close_up_mayor_neighborhoods_path(scope_id: mayor_neighborhood.decidim_scope_id, slug: mayor_neighborhood.slug),
                                                                           type: MayorNeighborhood.model_name.human.parameterize,
                                                                         )
         end

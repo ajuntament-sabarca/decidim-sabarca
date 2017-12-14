@@ -111,6 +111,7 @@ es:
         show:
           title: Encuentros con el alcalde - %{name}
           description: Resumen de los actos de las visitas del alcalde en %{name}
+          view_mayor_neighborhood: Ver el encuentro del alcalde
       city_close_up_processes:
         index:
           title: Procesos de la ciudad de cerca
@@ -161,6 +162,11 @@ es:
         updated: Usuario actualitzado
   layouts:
     decidim:
+      scopes:
+        order_by_mayor_neighborhoods:
+          mayor_neighborhoods:
+            one: "%{count} encuentro del alcalde"
+            other: "%{count} encuentros del alcalde"
       wrapper:
         authorize_with: Verificarme con %{authorizer}
         city_close_up: La ciudad de cerca
