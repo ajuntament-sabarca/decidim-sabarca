@@ -3,7 +3,7 @@
 module Decidim
   module Sabarca
     # An example implementation of an AuthorizationHandler to be used in tests.
-    class DummyAuthorizationHandler < AuthorizationHandler
+    class DummyAuthorizationHandler < Decidim::AuthorizationHandler
       attribute :document_number, String
       attribute :postal_code, String
       attribute :birthday, Date
