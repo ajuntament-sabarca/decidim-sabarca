@@ -48,7 +48,7 @@ module Decidim
       end
 
       def header_section
-        if (controller_name == "pages" and action_name != "show") or
+        if (controller_name == "pages" and %w(show index).exclude? action_name) or
           (controller_name == "participatory_processes" and action_name == "index") or
           (controller_name == "authorizations" and action_name == "new") or
           (%w(mayor_neighborhoods city_close_up_processes city_close_up_user_groups city_close_up_mayor_neighborhoods).include? controller_name)
