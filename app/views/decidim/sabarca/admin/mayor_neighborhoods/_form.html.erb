@@ -38,7 +38,9 @@
 </div>
 <div class="row" >
   <div class="columns xlarge-6" >
-    <%= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_search_path  %>
+    <%#= form.scopes_select :decidim_scope_id, prompt: I18n.t("decidim.scopes.global"), remote_path: decidim.scopes_path  %>
   </div>
-
+  <div class="row column">
+    <%= scopes_picker_field form, :decidim_scope_id, root: nil %>
+  </div>
 </div>

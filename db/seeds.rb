@@ -120,6 +120,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.find_or_initialize_by(email: "admin@example.org").update!(
     name: Faker::Name.name,
+    nickname: Faker::Lorem.unique.characters(rand(1..20)),
     password: "decidim123456",
     password_confirmation: "decidim123456",
     organization: organization,
@@ -133,6 +134,7 @@ if !Rails.env.production? || ENV["SEED"]
 
   Decidim::User.find_or_initialize_by(email: "user@example.org").update!(
     name: Faker::Name.name,
+    nickname: Faker::Lorem.unique.characters(rand(1..20)),
     password: "decidim123456",
     password_confirmation: "decidim123456",
     confirmed_at: Time.current,
@@ -221,6 +223,7 @@ if !Rails.env.production? || ENV["SEED"]
       user = Decidim::User.find_or_initialize_by(email: email)
       user.update!(
         name: Faker::Name.name,
+        nickname: Faker::Lorem.unique.characters(rand(1..20)),
         password: "decidim123456",
         password_confirmation: "decidim123456",
         organization: organization,
