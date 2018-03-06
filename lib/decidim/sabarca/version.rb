@@ -1,5 +1,5 @@
 module Decidim
   module Sabarca
-    VERSION = '0.2.6.alpha'
+    VERSION = '0.3.0.beta'
   end
 end
