@@ -2,9 +2,8 @@
 
 Decidim.configure do |config|
   config.application_name = "Participa.Sabarca"
-  config.mailer_sender = "participa@sabarca.cat" # ajuntament@sabarca.cat
-  config.authorization_handlers = ["Decidim::Sabarca::DummyAuthorizationHandler"]
-
+  config.mailer_sender = "newsletter@sabarca.cat" # ajuntament@sabarca.cat
+  # config.authorization_handlers = ["Decidim::Sabarca::DummyAuthorizationHandler"]
   # Change this line to set your preferred locales
   config.available_locales = [:ca, :es]
   config.default_locale = :ca
