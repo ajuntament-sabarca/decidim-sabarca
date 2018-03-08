@@ -334,7 +334,11 @@ a:hover, a:focus, .card__link:hover, .card--list__data__icon:hover{
 .process-header__phase{
   background-color: $yellow;
 }
-
+.sab-ctrl-authorizations{
+  .columns.page-title{
+    display: none;
+  }
+}
 .sab-ctrl-sessions, .sab-ctrl-registrations, .sab-ctrl-passwords, .sab-ctrl-confirmations{
   .wrapper{
     .row.collapse{
