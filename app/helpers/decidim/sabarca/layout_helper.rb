@@ -108,7 +108,11 @@ module Decidim
               @subtitle= ""
             end
           when "authorizations"
-            @title= t(".authorize_with", authorizer: t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers"))
+            if @authorization.present?
+              @title= t(".authorize_with", authorizer: t("#{@authorization.try(:name)}.name", scope: "decidim.authorization_handlers"))
+            else
+              @title= t(".authorize_with", authorizer: t("#{handler.handler_name}.name", scope: "decidim.authorization_handlers"))
+            end
             @subtitle= ""
           end
           render "decidim/sabarca/shared/section_header_sabarca", title: @title, subtitle: @subtitle
