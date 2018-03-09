@@ -36,6 +36,12 @@
               <%= f.email_field :email %>
             </div>
 
+            <div class="user-person">
+              <div class="field">
+                <%= f.text_field :nickname, help_text: t(".nickname_help") %>
+              </div>
+            </div>
+            
             <div class="field">
               <%= f.password_field :password, autocomplete: "off" %>
             </div>
