@@ -2,10 +2,6 @@
 
 The Sabarca module adds custom features to Decidim, for Sant Andreu de la Barca.
 
-## Usage
-
-> TODO
-
 ## Installation
 
 Add this line to your application's Gemfile:

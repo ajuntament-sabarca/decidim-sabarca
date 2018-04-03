@@ -20,6 +20,11 @@ ca:
       user:
         user_group_address: Adreça
         user_group_scope_id: Barri
+        user_group_url: Pàgina web de l'organizació (url)
+  activerecord:
+    attributes:
+      decidim/user:
+        user_group_url: Pàgina web de l'organizació (url)
   decidim:
     admin:
       actions:

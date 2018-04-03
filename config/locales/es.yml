@@ -20,6 +20,11 @@ es:
       user:
         user_group_address: Dirección
         user_group_scope_id: Barrio
+        user_group_url: Página web de la Organización (url)
+  activerecord:
+    attributes:
+      decidim/user:
+        user_group_url: Página web de la Organización (url)
   decidim:
     admin:
       actions:

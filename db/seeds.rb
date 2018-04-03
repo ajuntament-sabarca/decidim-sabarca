@@ -154,7 +154,7 @@ if !Rails.env.production? || ENV["SEED"]
     decidim_organization_id: organization.id,
     scope_id: 1,
     address: "Plaça de l'Ajuntament 1, 08740 Sant Andreu de la Barca",
-
+    url: Faker::Internet.url
   )
 
   Decidim::UserGroupMembership.create!(
