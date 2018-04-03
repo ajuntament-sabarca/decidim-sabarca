@@ -25,7 +25,8 @@ module Decidim
     has_many :children,
              foreign_key: "parent_id",
              class_name: "Decidim::Scope",
-             inverse_of: :parent
+             inverse_of: :parent,
+             dependent: :destroy
 
     has_many :decidim_sabarca_mayor_neighborhoods, class_name: "Decidim::Sabarca::MayorNeighborhood", foreign_key: "decidim_scope_id"
 
@@ -46,6 +47,10 @@ module Decidim
 
     def descendants
       organization.scopes.where("? = ANY(decidim_scopes.part_of)", id)
+    end
+
+    def ancestor_of?(scope)
+      scope && scope.part_of.member?(id)
     end
 
     # Gets the scopes from the part_of list in descending order (first the top level scope, last itself)

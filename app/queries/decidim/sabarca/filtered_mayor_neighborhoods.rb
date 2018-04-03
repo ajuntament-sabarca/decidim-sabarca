@@ -11,10 +11,9 @@ module Decidim
       end
 
       def query
-
-        mayor_neighborhoods = Decidim::Sabarca::MayorNeighborhood.
-                    where(decidim_organization_id: @organization).
-                    order(start_time: :desc)
+        mayor_neighborhoods = Decidim::Sabarca::MayorNeighborhood
+                              .where(decidim_organization_id: @organization)
+                              .order(start_time: :desc)
         case @filter_mayor_neighborhood
         when "past"
           mayor_neighborhoods.where("decidim_sabarca_mayor_neighborhoods.end_time <= ?", Time.current).order(end_time: :desc)

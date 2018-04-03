@@ -23,7 +23,6 @@ module Decidim
         def destroy_transparency_item
           transparency_item.destroy!
         end
-
       end
     end
   end

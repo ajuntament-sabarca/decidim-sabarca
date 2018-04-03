@@ -23,7 +23,6 @@ module Decidim
         def destroy_mayor_neighborhood
           mayor_neighborhood.destroy!
         end
-
       end
     end
   end

@@ -1,9 +1,9 @@
 # frozen_string_literal: true
+
 module Decidim
   module Sabarca
     module Admin
       class TransparencyItemsController < Decidim::Admin::ApplicationController
-
         def index
           authorize! :index, Decidim::Sabarca::TransparencyItem
           @transparency_items ||= collection
@@ -82,7 +82,7 @@ module Decidim
           form_params["transparency_item"] ||= {}
           form_params["transparency_item"]["decidim_organization_id"] = current_organization.id
 
-          return form_params
+          form_params
         end
 
         def transparency_item
@@ -92,7 +92,6 @@ module Decidim
         def collection
           Decidim::Sabarca::TransparencyItem.where(decidim_organization_id: current_organization.id)
         end
-
       end
     end
   end

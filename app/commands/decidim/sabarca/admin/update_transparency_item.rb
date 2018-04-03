@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a static scope.
       class UpdateTransparencyItem < Rectify::Command
-
         attr_reader :transparency_item
 
         def initialize(transparency_item, form)
@@ -34,7 +33,7 @@ module Decidim
             text: form.text,
             url: form.url,
             position: form.position,
-            decidim_organization_id: form.decidim_organization_id,
+            decidim_organization_id: form.decidim_organization_id
           }
         end
       end

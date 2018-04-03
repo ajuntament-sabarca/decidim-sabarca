@@ -16,11 +16,9 @@ module Decidim
                     :mayor_neighborhoods, :scoped_mayor_neighborhoods,
                     :filter_mayor_neighborhood
 
-      def index
-      end
+      def index; end
 
-      def show
-      end
+      def show; end
 
       private
 
@@ -49,7 +47,7 @@ module Decidim
       end
 
       def filtered_scoped_mayor_neighborhoods(filter_mayor_neighborhood = default_filter_mayor_neighborhood)
-        Decidim::Sabarca::OrganizationScopeMayorNeighborhoods.new(current_organization, filter_mayor_neighborhood, decidim_scope_id)
+        Decidim::Sabarca::OrganizationScopeMayorNeighborhoods.new(current_organization, decidim_scope_id, filter_mayor_neighborhood)
       end
 
       def mayor_neighborhoods
@@ -67,7 +65,6 @@ module Decidim
       def default_filter_mayor_neighborhood
         "active"
       end
-
     end
   end
 end

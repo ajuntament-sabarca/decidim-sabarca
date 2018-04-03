@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 module Decidim
   module Sabarca
-    VERSION = '0.3.1.beta.3'
+    VERSION = "0.3.1.beta.3"
   end
 end

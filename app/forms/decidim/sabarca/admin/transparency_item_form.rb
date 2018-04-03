@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'uri'
+require "uri"
 module Decidim
   module Sabarca
     module Admin
-    # A form object to create or update scopes.
+      # A form object to create or update scopes.
       class TransparencyItemForm < Decidim::Form
         include Decidim::TranslatableAttributes
 
@@ -19,26 +19,25 @@ module Decidim
 
         def validate_text_length
           current_organization.available_locales.each do |locale|
-            self.errors.add(:"text_#{locale}", :too_long, { count: 150 }) if self.try("text_#{locale}").size > 150
+            errors.add(:"text_#{locale}", :too_long, count: 150) if try("text_#{locale}").size > 150
           end
         end
 
         def valid_url
           current_organization.available_locales.each do |locale|
-            url = self.try("url_#{locale}")
-            self.errors.add(:"url_#{locale}", :invalid) unless uri?(url)
+            url = try("url_#{locale}")
+            errors.add(:"url_#{locale}", :invalid) unless uri?(url)
           end
         end
 
         def uri?(string)
           uri = URI.parse(string)
-          %w( http https ).include?(uri.scheme)
+          %w(http https).include?(uri.scheme)
         rescue URI::BadURIError
           false
         rescue URI::InvalidURIError
           false
         end
-
       end
     end
   end

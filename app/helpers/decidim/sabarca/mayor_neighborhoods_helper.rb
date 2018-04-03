@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Decidim
   module Sabarca
     module MayorNeighborhoodsHelper
-
       def static_map_link(resource, options = {})
         return unless resource.geocoded?
 
@@ -15,7 +16,6 @@ module Decidim
           image_tag decidim.static_map_path(sgid: resource.to_sgid.to_s)
         end
       end
-
     end
   end
 end

@@ -17,17 +17,15 @@ module Decidim
 
       helper_method :current_scope
 
-      def index
-      end
+      def index; end
 
-      def show
-      end
+      def show; end
 
       private
 
       def participatory_processes_organization
         @partcipatory_processes ||=
-        Decidim::ParticipatoryProcess.where(decidim_organization_id: current_organization.id).where(decidim_scope_id: params[:id])
+          Decidim::ParticipatoryProcess.where(decidim_organization_id: current_organization.id).where(decidim_scope_id: params[:id])
       end
 
       def organization_scopes
@@ -39,7 +37,7 @@ module Decidim
       end
 
       def filtered_participatory_processes(filter = default_filter)
-        Decidim::ParticipatoryProcesses::OrganizationScopePrioritizedParticipatoryProcesses.new(current_organization, filter, decidim_scope_id)
+        Decidim::ParticipatoryProcesses::OrganizationScopePrioritizedParticipatoryProcesses.new(current_organization, decidim_scope_id, filter)
       end
 
       def participatory_processes
@@ -61,7 +59,6 @@ module Decidim
       def current_scope
         @scope ||= organization_scopes.find_by(decidim_organization_id: current_organization.id, id: params[:id])
       end
-
     end
   end
 end

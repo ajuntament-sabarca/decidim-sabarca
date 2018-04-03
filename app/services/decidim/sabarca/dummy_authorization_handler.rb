@@ -27,13 +27,3 @@ module Decidim
     end
   end
 end
-if false
-  Decidim.authorization_handlers.push(Decidim::Sabarca::DummyAuthorizationHandler)
-  handler = Decidim::Sabarca::DummyAuthorizationHandler.new(
-  document_number: document_number,
-  user: user
-  )
-  user.authorizations.create!(name:handler.handler_name, metadata:{"document_number": document_number}, unique_id: "uniq")
-
-
-end

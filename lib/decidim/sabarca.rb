@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "decidim/sabarca/admin"
 require "decidim/sabarca/engine"
 require "decidim/sabarca/admin_engine"

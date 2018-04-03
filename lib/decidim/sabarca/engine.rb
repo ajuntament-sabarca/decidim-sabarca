@@ -12,19 +12,19 @@ module Decidim
 
       routes do
         # Add engine routes here
-        get 'transparency', to: "pages#transparency", as: :transparency
-        get 'city_close_up', to: "pages#city_close_up", as: :city_close_up
+        get "transparency", to: "pages#transparency", as: :transparency
+        get "city_close_up", to: "pages#city_close_up", as: :city_close_up
 
         scope :city_close_up, as: :city_close_up do
-          resources :processes, only: [:index], controller: "city_close_up_processes"  do
-            get '/scopes/:id', action: :show, on: :collection, as: :scope
+          resources :processes, only: [:index], controller: "city_close_up_processes" do
+            get "/scopes/:id", action: :show, on: :collection, as: :scope
           end
           resources :user_groups, only: [:index], controller: "city_close_up_user_groups" do
-            get '/scopes/:id', action: :show, on: :collection, as: :scope
+            get "/scopes/:id", action: :show, on: :collection, as: :scope
           end
           resources :mayor_neighborhoods, only: [:index], controller: "city_close_up_mayor_neighborhoods" do
-            get '/scopes/:id', action: :show, on: :collection, as: :scope
-            get '/scopes/:scope_id/mayor_neighborhoods/:slug', to: "mayor_neighborhoods#show", on: :collection, as: :mayor_neighborhood
+            get "/scopes/:id", action: :show, on: :collection, as: :scope
+            get "/scopes/:scope_id/mayor_neighborhoods/:slug", to: "mayor_neighborhoods#show", on: :collection, as: :mayor_neighborhood
           end
         end
 
@@ -32,7 +32,6 @@ module Decidim
           resources :mayor_neighborhoods, except: [:show]
           resources :transparency_items, except: [:show]
         end
-
       end
       initializer "decidim.action_controller" do |_app|
         ActiveSupport.on_load :action_controller do
@@ -57,14 +56,14 @@ module Decidim
       initializer "decidim.menu" do
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.transparency", scope: "decidim.sabarca"),
-            decidim_sabarca.transparency_path,
-            position: 3,
-            active: :inclusive
+                    decidim_sabarca.transparency_path,
+                    position: 3,
+                    active: :inclusive
 
           menu.item I18n.t("menu.city_close_up", scope: "decidim.sabarca"),
-            decidim_sabarca.city_close_up_path,
-            position: 4,
-            active: :inclusive
+                    decidim_sabarca.city_close_up_path,
+                    position: 4,
+                    active: :inclusive
         end
       end
 
@@ -83,10 +82,8 @@ module Decidim
                     position: 1,
                     active: :inclusive,
                     if: can?(:index, Decidim::Sabarca::TransparencyItem)
-
         end
       end
-
     end
 
     def self.seed!

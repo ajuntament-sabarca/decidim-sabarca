@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -6,7 +7,7 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # You can remove the 'faker' gem if you don't want Decidim seeds.
-#Decidim.seed!
+# Decidim.seed!
 
 # frozen_string_literal: true
 
@@ -54,11 +55,11 @@ if !Rails.env.production? || ENV["SEED"]
     available_locales: Decidim.available_locales,
     reference_prefix: "sab",
     official_url: "http://sabarca.cat/",
-    homepage_image: File.new(File.join("#{seeds_root}", "homepage_image-ajsab.jpg")),
-    logo: File.new(File.join("#{seeds_root}", "logo_sabarca.png")),
-    favicon: File.new(File.join("#{seeds_root}", "favicon_ajsab.png")),
-    official_img_header: File.new(File.join("#{seeds_root}", "logo-ajsab.png")),
-    official_img_footer: File.new(File.join("#{seeds_root}", "logo-footer-ajsab.png")),
+    homepage_image: File.new(File.join(seeds_root.to_s, "homepage_image-ajsab.jpg")),
+    logo: File.new(File.join(seeds_root.to_s, "logo_sabarca.png")),
+    favicon: File.new(File.join(seeds_root.to_s, "favicon_ajsab.png")),
+    official_img_header: File.new(File.join(seeds_root.to_s, "logo-ajsab.png")),
+    official_img_footer: File.new(File.join(seeds_root.to_s, "logo-footer-ajsab.png"))
   )
   organization.update!(available_authorizations: ["Decidim::Sabarca::DummyAuthorizationHandler"])
 
@@ -68,55 +69,54 @@ if !Rails.env.production? || ENV["SEED"]
     organization: organization
   )
 
-  district1 = Decidim::Scope.create!(
+  Decidim::Scope.create!(
     name: Decidim::Faker::Localized.literal("Barri Casc Antic"),
     code: "08740",
     scope_type: district_scope,
-    organization: organization,
+    organization: organization
   )
 
-  district2 = Decidim::Scope.create!(
+  Decidim::Scope.create!(
     name: Decidim::Faker::Localized.literal("Barri La Colònia"),
     code: "08740",
     scope_type: district_scope,
     organization: organization
   )
 
-  district3 = Decidim::Scope.create!(
+  Decidim::Scope.create!(
     name: Decidim::Faker::Localized.literal("Barri de la Plana"),
     code: "08740",
     scope_type: district_scope,
-    organization: organization,
+    organization: organization
   )
 
-  district4 = Decidim::Scope.create!(
+  Decidim::Scope.create!(
     name: Decidim::Faker::Localized.literal("Barri del Palau"),
     code: "08740",
     scope_type: district_scope,
     organization: organization
   )
 
-  district5 = Decidim::Scope.create!(
+  Decidim::Scope.create!(
     name: Decidim::Faker::Localized.literal("Barri La Solana"),
     code: "08740",
     scope_type: district_scope,
-    organization: organization,
+    organization: organization
   )
 
-  district6 = Decidim::Scope.create!(
+  Decidim::Scope.create!(
     name: Decidim::Faker::Localized.literal("Barri La Unió"),
     code: "08740",
     scope_type: district_scope,
     organization: organization
   )
 
-  district7 = Decidim::Scope.create!(
+  Decidim::Scope.create!(
     name: Decidim::Faker::Localized.literal("Centre"),
     code: "08740",
     scope_type: district_scope,
-    organization: organization,
+    organization: organization
   )
-
 
   Decidim::User.find_or_initialize_by(email: "admin@example.org").update!(
     name: Faker::Name.name,
@@ -129,7 +129,7 @@ if !Rails.env.production? || ENV["SEED"]
     admin: true,
     tos_agreement: true,
     # comments_notifications: true,
-    #replies_notifications: true
+    # replies_notifications: true
   )
 
   Decidim::User.find_or_initialize_by(email: "user@example.org").update!(
@@ -161,7 +161,6 @@ if !Rails.env.production? || ENV["SEED"]
     user: user,
     user_group: user_group
   )
-
 
   process_groups = []
   3.times do
@@ -197,7 +196,7 @@ if !Rails.env.production? || ENV["SEED"]
       target: Decidim::Faker::Localized.sentence(3),
       participatory_scope: Decidim::Faker::Localized.sentence(1),
       participatory_structure: Decidim::Faker::Localized.sentence(2),
-      end_date: 2.month.from_now.at_midnight,
+      end_date: 2.months.from_now.at_midnight,
       participatory_process_group: process_groups.sample,
       scope: Faker::Boolean.boolean(0.5) ? nil : Decidim::Scope.reorder("RANDOM()").first
     )
@@ -264,13 +263,12 @@ if !Rails.env.production? || ENV["SEED"]
     #     participatory_process: process
     #   )
     # end
-
   end
 
   Decidim::StaticPage.create!(
     title: Decidim::Faker::Localized.sentence(2),
     slug: "terms-and-conditions",
     content: Decidim::Faker::Localized.sentence(5),
-    organization: organization,
+    organization: organization
   )
 end

@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 module Decidim
   module Sabarca
     module ScopesHelper
-
       def map_for_scopes
         return if Decidim.geocoder.blank?
 
@@ -36,13 +37,12 @@ module Decidim
       def user_groups_data_for_map(geocoded_user_groups)
         geocoded_user_groups.map do |user_group|
           user_group.slice(:latitude, :longitude, :address).merge(title: user_group.name,
-                                                                icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
-                                                                email: user_group.users.first.email,
-                                                                address: user_group.address,
-                                                                location: "",
-                                                                phone: user_group.phone,
-                                                                type: UserGroup.model_name.human.parameterize,
-                                                              )
+                                                                  icon: icon("proposals", width: 40, height: 70, remove_icon_class: true),
+                                                                  email: user_group.users.first.email,
+                                                                  address: user_group.address,
+                                                                  location: "",
+                                                                  phone: user_group.phone,
+                                                                  type: UserGroup.model_name.human.parameterize)
         end
       end
 
@@ -53,13 +53,12 @@ module Decidim
                                                                           startTimeDay: l(mayor_neighborhood.start_time, format: "%d"),
                                                                           startTimeMonth: l(mayor_neighborhood.start_time, format: "%B"),
                                                                           startTimeYear: l(mayor_neighborhood.start_time, format: "%Y"),
-                                                                          startTime: "#{mayor_neighborhood.start_time.strftime("%H:%M")} - #{mayor_neighborhood.end_time.strftime("%H:%M")}",
+                                                                          startTime: mayor_neighborhood_start_time(mayor_neighborhood),
                                                                           icon: icon("meetings", width: 40, height: 70, remove_icon_class: true),
                                                                           location: translated_attribute(mayor_neighborhood.location),
                                                                           address: mayor_neighborhood.address,
-                                                                          link: decidim_sabarca.mayor_neighborhood_city_close_up_mayor_neighborhoods_path(scope_id: mayor_neighborhood.decidim_scope_id, slug: mayor_neighborhood.slug),
-                                                                          type: MayorNeighborhood.model_name.human.parameterize,
-                                                                        )
+                                                                          link: mayor_neighborhood_link(mayor_neighborhood),
+                                                                          type: MayorNeighborhood.model_name.human.parameterize)
         end
       end
 
@@ -70,6 +69,17 @@ module Decidim
         CGI.unescapeHTML html_truncate(description, max_length: max_length, tail: tail)
       end
 
+      def mayor_neighborhood_start_time(mayor_neighborhood)
+        str = mayor_neighborhood.start_time.strftime("%H:%M")
+        str += " - "
+        str += mayor_neighborhood.end_time.strftime("%H:%M")
+        str
+      end
+
+      def mayor_neighborhood_link(mayor_neighborhood)
+        scope_id = mayor_neighborhood.decidim_scope_id
+        decidim_sabarca.mayor_neighborhood_city_close_up_mayor_neighborhoods_path(scope_id: scope_id, slug: mayor_neighborhood.slug)
+      end
     end
   end
 end

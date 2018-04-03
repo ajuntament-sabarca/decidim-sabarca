@@ -5,7 +5,6 @@ module Decidim
     module Admin
       # A command with all the business logic when creating a static scope.
       class CreateMayorNeighborhood < Rectify::Command
-
         def initialize(form)
           @form = form
         end
@@ -33,7 +32,7 @@ module Decidim
             start_time: form.start_time,
             end_time: form.end_time,
             decidim_scope_id: form.decidim_scope_id,
-            decidim_organization_id: form.decidim_organization_id,
+            decidim_organization_id: form.decidim_organization_id
           )
         end
       end

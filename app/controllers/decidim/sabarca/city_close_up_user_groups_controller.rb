@@ -14,8 +14,7 @@ module Decidim
 
       helper_method :organization_scopes, :user_groups, :current_scope
 
-      def index
-      end
+      def index; end
 
       def show
         @user_groups_scoped = user_groups.where(scope_id: current_scope)
@@ -34,7 +33,6 @@ module Decidim
       def current_scope
         @scope ||= organization_scopes.find_by(decidim_organization_id: current_organization.id, id: params[:id])
       end
-
     end
   end
 end

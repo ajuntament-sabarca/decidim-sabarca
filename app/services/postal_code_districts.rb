@@ -1,4 +1,4 @@
-# # coding: utf-8
+# frozen_string_literal: true
 # module PostalCodeDistricts
 #   DATA = {
 #     "Ciutat Vella" => %w{08001 08002 08003 08005 08007 08010 08018 08038 08039},

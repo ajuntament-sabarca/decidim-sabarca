@@ -45,12 +45,12 @@ module Decidim
     end
 
     def valid_url
-      self.errors.add(:user_group_url, :invalid) unless uri?(user_group_url)
+      errors.add(:user_group_url, :invalid) unless uri?(user_group_url)
     end
 
     def uri?(string)
       uri = URI.parse(string)
-      %w( http https ).include?(uri.scheme)
+      %w(http https).include?(uri.scheme)
     rescue URI::BadURIError
       false
     rescue URI::InvalidURIError

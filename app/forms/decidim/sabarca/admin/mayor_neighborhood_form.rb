@@ -3,7 +3,7 @@
 module Decidim
   module Sabarca
     module Admin
-    # A form object to create or update scopes.
+      # A form object to create or update scopes.
       class MayorNeighborhoodForm < Decidim::Form
         include Decidim::TranslatableAttributes
 
@@ -29,7 +29,6 @@ module Decidim
         validates :start_time, presence: true, date: { before: :end_time }
         validates :end_time, presence: true, date: { after: :start_time }
         validates :decidim_scope_id, presence: true
-
       end
     end
   end

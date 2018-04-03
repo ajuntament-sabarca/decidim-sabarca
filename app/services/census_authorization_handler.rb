@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # # frozen_string_literal: true
 # # Checks the authorization against the census for Barcelona.
 # require "digest/md5"

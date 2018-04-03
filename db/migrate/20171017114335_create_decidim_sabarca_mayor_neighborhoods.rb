@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateDecidimSabarcaMayorNeighborhoods < ActiveRecord::Migration[5.1]
   def change
     create_table :decidim_sabarca_mayor_neighborhoods do |t|
@@ -15,7 +17,6 @@ class CreateDecidimSabarcaMayorNeighborhoods < ActiveRecord::Migration[5.1]
       t.references :decidim_scope, index: { name: "index_decidim_neighborhood_on_decidim_scope_id" }
 
       t.timestamps
-
     end
   end
 end

@@ -19,7 +19,6 @@ module Decidim
       def mayor_neighborhood
         Decidim::Sabarca::MayorNeighborhood.find_by(decidim_organization_id: current_organization.id, decidim_scope_id: params[:scope_id], slug: params[:slug])
       end
-
     end
   end
 end
