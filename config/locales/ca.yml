@@ -165,6 +165,9 @@ ca:
     invitations:
       user:
         updated: Usuari actualitzat
+    failure:
+      user:
+        not_found_in_database: "%{authentication_keys} o contrasenya invàlida."
   layouts:
     decidim:
       scopes:
