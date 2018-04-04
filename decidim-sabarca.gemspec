@@ -21,6 +21,18 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*", "LICENSE-AGPLv3.txt", "Rakefile", "README.md"]
 
   s.add_dependency "acts_as_list", "0.9.9"
-  s.add_dependency "decidim-core", "~> 0.9.3"
-  # s.add_development_dependency "decidim-dev", "0.5.0"
+  s.add_dependency "decidim-accountability", "0.9.3"
+  s.add_dependency "decidim-admin", "0.9.3"
+  s.add_dependency "decidim-api", "0.9.3"
+  s.add_dependency "decidim-budgets", "0.9.3"
+  s.add_dependency "decidim-comments", "0.9.3"
+  s.add_dependency "decidim-core", "0.9.3"
+  s.add_dependency "decidim-meetings", "0.9.3"
+  s.add_dependency "decidim-pages", "0.9.3"
+  s.add_dependency "decidim-participatory_processes", "0.9.3"
+  s.add_dependency "decidim-proposals", "0.9.3"
+  s.add_dependency "decidim-system", "0.9.3"
+  s.add_dependency "decidim-verifications", "0.9.3"
+  s.add_dependency "foundation-rails", "6.4.1"
+  s.add_development_dependency "decidim-dev", "0.9.3"
 end

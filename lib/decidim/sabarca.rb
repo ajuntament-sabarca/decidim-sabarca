@@ -1,5 +1,21 @@
 # frozen_string_literal: true
 
+require "decidim/core"
+require "decidim/system"
+require "decidim/admin"
+require "decidim/api"
+
+require "decidim/verifications"
+
+require "decidim/participatory_processes"
+
+require "decidim/pages"
+require "decidim/comments"
+require "decidim/meetings"
+require "decidim/proposals"
+require "decidim/budgets"
+require "decidim/accountability"
+
 require "decidim/sabarca/admin"
 require "decidim/sabarca/engine"
 require "decidim/sabarca/admin_engine"
