@@ -71,15 +71,16 @@ ca:
       titles:
         mayor_neighborhoods: Trobades de l'alcalde
     authorization_handlers:
-        decidim/sabarca/dummy_authorization_handler:
-          fields:
-            document_number: Número de document
-            postal_code: Codi Postal
-          name: Autorització de Sabarca
+      decidim/sabarca/dummy_authorization_handler:
+        fields:
+          document_number: Número de document
+          postal_code: Codi Postal
+        name: Autorització de Sabarca
     authorizations:
       first_login:
-          actions:
-            decidim/sabarca/dummy_authorization_handler: Verificar contra l'Autorització de Sabarca
+        actions:
+          decidim/sabarca/dummy_authorization_handler: Verificar contra l'Autorització
+            de Sabarca
     features:
       sabarca:
         name: Sabarca
@@ -104,35 +105,38 @@ ca:
             title: Edita l'item de transparència
             update: Actualitzar
           index:
-            transparency_item_title: Items de transparència
             no_transparency_items: No hi ha items de transparència
+            transparency_item_title: Items de transparència
           new:
             create: Crea
             title: Nou item de transparència
       city_close_up_mayor_neighborhoods:
         index:
-          title: Trobades amb l'alcalde
           description: Recull de les actes de les visites de l'alcalde al barri
+          title: Trobades amb l'alcalde
         show:
-          title: Trobades amb l'alcalde - %{name}
           description: Recull de les actes de les visites de l'alcalde al %{name}
+          title: Trobades amb l'alcalde - %{name}
           view_mayor_neighborhood: Veure la trobada de l'alcalde
       city_close_up_processes:
         index:
+          description: Espai obert a propostes ciutadanes sobre el tipus de ciutat
+            en el que voleu viure
           title: Processos de la ciutat de prop
-          description: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure
         show:
+          description: Espai obert a propostes ciutadanes sobre el tipus de ciutat
+            en el que voleu viure - %{name}
           title: Processos de la ciutat - %{name}
-          description: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure - %{name}
       city_close_up_user_groups:
         index:
+          description: Apartat per a veure l'àmbit d'actuació de la ciutat tant de
+            manera global o com barris
           title: Entitats de la ciutat de prop
-          description: Apartat per a veure l'àmbit d'actuació de la ciutat tant de manera global o com barris
           title_user_groups: Directori d'entitats
         show:
+          description: Apartat per a veure les entitats de %{name}
           title: Entitats - %{name}
           title_user_groups: Directori d'entitats
-          description: Apartat per a veure les entitats de %{name}
       mayor_neighborhoods:
         read_more: Llegir més
         show:
@@ -140,21 +144,26 @@ ca:
           description: Descripció
           topics: Temes que es tractaran
       menu:
-        transparency: Transparència
         city_close_up: La ciutat de prop
+        transparency: Transparència
       pages:
         city_close_up:
           mayor_neighborhoods: Trobades amb l'alcalde
-          mayor_neighborhoods_text: Recull de les actes de les visites de l'alcalde al barri
+          mayor_neighborhoods_text: Recull de les actes de les visites de l'alcalde
+            al barri
           processes: Processos
-          processes_text: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure
+          processes_text: Espai obert a propostes ciutadanes sobre el tipus de ciutat
+            en el que voleu viure
           subtitle: Troba les entitats i segueix les propostes dels nostres barris
           title: La ciutat de prop
           user_groups: Entitats
-          user_groups_text: Apartat per a veure l'àmbit d'actuació de la ciutat tant de manera global o com barris
+          user_groups_text: Apartat per a veure l'àmbit d'actuació de la ciutat tant
+            de manera global o com barris
         transparency:
-          text: Aquest portal conté la informació pública de l'Ajuntament amb la qual respon a les seves obligacions legals de transparència activa.
-          text_2: La normativa, informació sobre com tramitar una sol·licitud, consulta d'estat de sol·licituds, estadístiques, resolucions denegatòries, reclamacions.
+          text: Aquest portal conté la informació pública de l'Ajuntament amb la qual
+            respon a les seves obligacions legals de transparència activa.
+          text_2: La normativa, informació sobre com tramitar una sol·licitud, consulta
+            d'estat de sol·licituds, estadístiques, resolucions denegatòries, reclamacions.
           title_transparency: Transparencia
       shared:
         all_scopes:
@@ -162,12 +171,12 @@ ca:
         other_scopes:
           title: Veure els altres barris
   devise:
-    invitations:
-      user:
-        updated: Usuari actualitzat
     failure:
       user:
         not_found_in_database: "%{authentication_keys} o contrasenya invàlida."
+    invitations:
+      user:
+        updated: Usuari actualitzat
   layouts:
     decidim:
       scopes:
@@ -179,12 +188,16 @@ ca:
         authorize_with: Verificar-me amb %{authorizer}
         city_close_up: La ciutat de prop
         city_close_up_mayor_neighborhoods: Trobades amb l'alcalde
-        city_close_up_mayor_neighborhoods_subtitle: Recull de les actes de les visites de l'alcalde al barri
+        city_close_up_mayor_neighborhoods_subtitle: Recull de les actes de les visites
+          de l'alcalde al barri
         city_close_up_processes: Processos de la ciutat de prop
-        city_close_up_processes_subtitle: Espai obert a propostes ciutadanes sobre el tipus de ciutat en el que voleu viure
-        city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres barris
+        city_close_up_processes_subtitle: Espai obert a propostes ciutadanes sobre
+          el tipus de ciutat en el que voleu viure
+        city_close_up_subtitle: Troba les entitats i segueix les propostes dels nostres
+          barris
         city_close_up_user_groups: Entitats de la ciutat de prop
-        city_close_up_user_groups_subtitle: Apartat per a veure l'àmbit d'actuació de la ciutat tant de manera global o com barris
+        city_close_up_user_groups_subtitle: Apartat per a veure l'àmbit d'actuació
+          de la ciutat tant de manera global o com barris
         processes: Processos
         subtitle_transparency: Accés a la informació pública
         transparency: Transparència
@@ -192,8 +205,10 @@ ca:
     home:
       extended:
         city_close_up: Ciutat de prop
-        city_close_up_text: Apartat per veure l'àmbit d'actuació de la ciutat tant de manera global com dels barris
+        city_close_up_text: Apartat per veure l'àmbit d'actuació de la ciutat tant
+          de manera global com dels barris
         processes: Processos
-        processes_text: Espai on poder participar en els processos de la ciutat en la que voleu viure
+        processes_text: Espai on poder participar en els processos de la ciutat en
+          la que voleu viure
         transparency: Transparència
         transparency_text: Accés a la informació pública i bon govern de la ciutat
