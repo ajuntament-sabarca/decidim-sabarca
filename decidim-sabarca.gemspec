@@ -34,5 +34,6 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-system", "0.9.3"
   s.add_dependency "decidim-verifications", "0.9.3"
   s.add_dependency "foundation-rails", "6.4.1.3"
+  s.add_dependency "foundation_rails_helper", "3.0.0"
   s.add_development_dependency "decidim-dev", "0.9.3"
 end
