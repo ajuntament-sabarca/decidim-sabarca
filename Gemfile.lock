@@ -1,9 +1,21 @@
 PATH
   remote: .
   specs:
-    decidim-sabarca (0.3.1.beta.3)
+    decidim-sabarca (0.3.1.beta.4)
       acts_as_list (= 0.9.9)
-      decidim-core (~> 0.9.3)
+      decidim-accountability (= 0.9.3)
+      decidim-admin (= 0.9.3)
+      decidim-api (= 0.9.3)
+      decidim-budgets (= 0.9.3)
+      decidim-comments (= 0.9.3)
+      decidim-core (= 0.9.3)
+      decidim-meetings (= 0.9.3)
+      decidim-pages (= 0.9.3)
+      decidim-participatory_processes (= 0.9.3)
+      decidim-proposals (= 0.9.3)
+      decidim-system (= 0.9.3)
+      decidim-verifications (= 0.9.3)
+      foundation-rails (= 6.4.1)
 
 GEM
   remote: https://rubygems.org/
@@ -276,7 +288,7 @@ GEM
     file_validators (2.1.0)
       activemodel (>= 3.0)
       mime-types (>= 1.0)
-    foundation-rails (6.4.3.0)
+    foundation-rails (6.4.1.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0, < 3.5)
       sprockets-es6 (>= 0.9.0)
