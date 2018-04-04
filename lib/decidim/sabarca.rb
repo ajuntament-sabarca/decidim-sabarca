@@ -16,6 +16,9 @@ require "decidim/proposals"
 require "decidim/budgets"
 require "decidim/accountability"
 
+require "foundation-rails"
+require "foundation_rails_helper"
+
 require "decidim/sabarca/admin"
 require "decidim/sabarca/engine"
 require "decidim/sabarca/admin_engine"
