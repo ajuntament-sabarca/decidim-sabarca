@@ -81,7 +81,7 @@ es:
         actions:
           decidim/sabarca/dummy_authorization_handler: Verificar contra la Autoritzación
             de Sabarca
-    features:
+    components:
       sabarca:
         name: Sabarca
     participatory_processes:

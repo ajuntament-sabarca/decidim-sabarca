@@ -27,8 +27,8 @@ module Decidim
           context.fetch(:current_settings, nil)
         end
 
-        def feature_settings
-          context.fetch(:feature_settings, nil)
+        def component_settings
+          context.fetch(:component_settings, nil)
         end
       end
     end

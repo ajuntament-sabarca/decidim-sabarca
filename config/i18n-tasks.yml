@@ -1,6 +1,6 @@
 base_locale: ca
 locales: [ca]
 ignore_unused:
-- "decidim.features.sabarca.name"
+- "decidim.components.sabarca.name"
 ignore_missing:
   - decidim.participatory_processes.scopes.global
