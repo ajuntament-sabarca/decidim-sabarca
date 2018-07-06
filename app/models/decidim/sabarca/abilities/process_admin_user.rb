@@ -25,12 +25,12 @@ module Decidim
           context.fetch(:current_settings, nil)
         end
 
-        def feature_settings
-          context.fetch(:feature_settings, nil)
+        def component_settings
+          context.fetch(:component_settings, nil)
         end
 
-        def current_feature
-          context.fetch(:current_feature, nil)
+        def current_component
+          context.fetch(:current_component, nil)
         end
 
         def participatory_processes
