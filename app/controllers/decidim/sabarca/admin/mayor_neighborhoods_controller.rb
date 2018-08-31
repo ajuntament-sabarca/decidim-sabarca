@@ -5,17 +5,17 @@ module Decidim
     module Admin
       class MayorNeighborhoodsController < Decidim::Admin::ApplicationController
         def index
-          authorize! :index, Decidim::Sabarca::MayorNeighborhood
+          # authorize! :index, Decidim::Sabarca::MayorNeighborhood
           @mayor_neighborhoods ||= collection
         end
 
         def new
-          authorize! :new, Decidim::Sabarca::MayorNeighborhood
+          # authorize! :new, Decidim::Sabarca::MayorNeighborhood
           @form = form(Decidim::Sabarca::Admin::MayorNeighborhoodForm).from_params({})
         end
 
         def create
-          authorize! :create, Decidim::Sabarca::MayorNeighborhood
+          # authorize! :create, Decidim::Sabarca::MayorNeighborhood
 
           @form = form(Decidim::Sabarca::Admin::MayorNeighborhoodForm).from_params(form_params)
 
@@ -34,14 +34,14 @@ module Decidim
 
         def edit
           @mayor_neighborhood = collection.find(params[:id])
-          authorize! :edit, @mayor_neighborhood
+          # authorize! :edit, @mayor_neighborhood
 
           @form = form(Decidim::Sabarca::Admin::MayorNeighborhoodForm).from_model(@mayor_neighborhood)
         end
 
         def update
           @mayor_neighborhood = collection.find(params[:id])
-          authorize! :update, @mayor_neighborhood
+          # authorize! :update, @mayor_neighborhood
 
           @form = form(Decidim::Sabarca::Admin::MayorNeighborhoodForm).from_params(form_params)
 
@@ -60,7 +60,7 @@ module Decidim
 
         def destroy
           @mayor_neighborhood = collection.find(params[:id])
-          authorize! :destroy, @mayor_neighborhood
+          # authorize! :destroy, @mayor_neighborhood
 
           DestroyMayorNeighborhood.call(@mayor_neighborhood) do
             on(:ok) do

@@ -10,12 +10,8 @@ module Decidim
     class CityCloseUpProcessesController < Decidim::ApplicationController
       helper Decidim::Sabarca::ScopesHelper
 
-      skip_authorization_check
-
       helper_method :participatory_processes_organization, :organization_scopes, :collection,
-                    :participatory_processes, :filter, :decidim_scope_id
-
-      helper_method :current_scope
+                    :participatory_processes, :filter, :decidim_scope_id, :current_scope
 
       def index; end
 

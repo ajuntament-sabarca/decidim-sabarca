@@ -10,8 +10,6 @@ module Decidim
     class CityCloseUpUserGroupsController < Decidim::ApplicationController
       helper Decidim::Sabarca::ScopesHelper
 
-      skip_authorization_check
-
       helper_method :organization_scopes, :user_groups, :current_scope
 
       def index; end

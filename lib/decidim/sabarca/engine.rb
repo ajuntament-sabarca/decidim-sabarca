@@ -33,6 +33,7 @@ module Decidim
           resources :transparency_items, except: [:show]
         end
       end
+
       initializer "decidim.action_controller" do |_app|
         ActiveSupport.on_load :action_controller do
           helper Decidim::Sabarca::LayoutHelper if respond_to?(:helper)
@@ -45,12 +46,6 @@ module Decidim
 
       initializer "decidim_sabarca.i18n_exceptions" do
         ActionView::Base.raise_on_missing_translations = false # true unless Rails.env.production?
-      end
-
-      initializer "decidim_sabarca.inject_abilities_to_user" do |_app|
-        Decidim.configure do |config|
-          config.abilities += ["Decidim::Sabarca::Abilities::CurrentUser"]
-        end
       end
 
       initializer "decidim.menu" do
@@ -73,15 +68,15 @@ module Decidim
                     decidim_sabarca.admin_mayor_neighborhoods_path,
                     icon_name: "meetings",
                     position: 1,
-                    active: :inclusive,
-                    if: can?(:index, Decidim::Sabarca::MayorNeighborhood)
+                    active: :inclusive
+                    # if: allowed_to?(:enter, :space_area, space_name: :mayor_neighborhoods)
 
           menu.item I18n.t("menu.transparency_items", scope: "decidim.sabarca.admin"),
                     decidim_sabarca.admin_transparency_items_path,
                     icon_name: "external-link",
                     position: 1,
-                    active: :inclusive,
-                    if: can?(:index, Decidim::Sabarca::TransparencyItem)
+                    active: :inclusive
+                    # if: allowed_to?(:enter, :space_area, space_name: :transparency_items)
         end
       end
     end

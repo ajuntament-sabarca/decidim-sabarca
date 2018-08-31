@@ -643,3 +643,13 @@ a:hover, a:focus, .card__link:hover, .card--list__data__icon:hover{
 #user_groups .card__title{
   font-weight: 700;
 }
+
+
+.topbar__notifications .icon,
+.topbar__conversations .icon {
+  fill: $dark;
+}
+.topbar__notifications.is-active .icon,
+.topbar__conversations.is-active .icon {
+  fill: $blue;
+}

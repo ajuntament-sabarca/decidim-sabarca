@@ -3,7 +3,7 @@
 module Decidim
   module Sabarca
     # Abstract class from which all models in this engine inherit.
-    class MayorNeighborhood < Decidim::ApplicationRecord
+    class MayorNeighborhood < Decidim::Sabarca::ApplicationRecord
       belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
       belongs_to :scope, foreign_key: "decidim_scope_id", class_name: "Decidim::Scope"
 

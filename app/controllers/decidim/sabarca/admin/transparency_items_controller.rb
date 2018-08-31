@@ -5,17 +5,17 @@ module Decidim
     module Admin
       class TransparencyItemsController < Decidim::Admin::ApplicationController
         def index
-          authorize! :index, Decidim::Sabarca::TransparencyItem
+          # authorize! :index, Decidim::Sabarca::TransparencyItem
           @transparency_items ||= collection
         end
 
         def new
-          authorize! :new, Decidim::Sabarca::TransparencyItem
+          # authorize! :new, Decidim::Sabarca::TransparencyItem
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_params({})
         end
 
         def create
-          authorize! :create, Decidim::Sabarca::TransparencyItem
+          # authorize! :create, Decidim::Sabarca::TransparencyItem
 
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_params(form_params)
 
@@ -34,14 +34,14 @@ module Decidim
 
         def edit
           @transparency_item = collection.find(params[:id])
-          authorize! :edit, @transparency_item
+          # authorize! :edit, @transparency_item
 
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_model(@transparency_item)
         end
 
         def update
           @transparency_item = collection.find(params[:id])
-          authorize! :update, @transparency_item
+          # authorize! :update, @transparency_item
 
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_params(form_params)
 
@@ -60,7 +60,7 @@ module Decidim
 
         def destroy
           @transparency_item = collection.find(params[:id])
-          authorize! :destroy, @transparency_item
+          # authorize! :destroy, @transparency_item
 
           DestroyTransparencyItem.call(@transparency_item) do
             on(:ok) do
