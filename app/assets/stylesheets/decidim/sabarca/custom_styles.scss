@@ -89,12 +89,37 @@ a:hover, a:focus, .card__link:hover, .card--list__data__icon:hover{
   }
 }
 
+.topbar__notifications .icon,
+.topbar__conversations .icon {
+  fill: $dark;
+}
+.topbar__notifications.is-active .icon,
+.topbar__conversations.is-active .icon {
+  fill: $blue;
+}
+
 .logo-cityhall{
   background: $primary_color;
   max-height: 40px;
   padding: 5px;
   img{
     max-height: 30px;
+  }
+}
+
+.topbar__search{
+  input,
+  input:focus{
+    color: $dark;
+    background: $white;
+
+    &::placeholder {
+      color: $dark_grey;
+    }
+  }
+
+  svg{
+    color: $dark_grey;
   }
 }
 
@@ -127,6 +152,12 @@ a:hover, a:focus, .card__link:hover, .card--list__data__icon:hover{
 
 .main-footer{
   background: $primary_color;
+  color: $white;
+
+  a{
+    color: $white;
+  }
+
   .main__footer__nav{
     text-align: left;
     .main-footer__badge_icon{
@@ -637,19 +668,6 @@ a:hover, a:focus, .card__link:hover, .card--list__data__icon:hover{
   }
 }
 
-/////////////////////////////
-//////////FILTRES/////////////
-/////////////////////////////
 #user_groups .card__title{
   font-weight: 700;
-}
-
-
-.topbar__notifications .icon,
-.topbar__conversations .icon {
-  fill: $dark;
-}
-.topbar__notifications.is-active .icon,
-.topbar__conversations.is-active .icon {
-  fill: $blue;
 }
