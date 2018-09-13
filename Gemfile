@@ -13,8 +13,6 @@ gem "faker", "~> 1.8.4"
 
 group :development, :test do
   gem "byebug", platform: :mri
-
-  gem "decidim-dev", "~> 0.9.3"
 end
 
 group :development do
