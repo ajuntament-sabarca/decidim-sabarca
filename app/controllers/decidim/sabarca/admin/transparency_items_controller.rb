@@ -5,17 +5,17 @@ module Decidim
     module Admin
       class TransparencyItemsController < Decidim::Admin::ApplicationController
         def index
-          authorize! :index, Decidim::Sabarca::TransparencyItem
+          enforce_permission_to :read, :admin_dashboard
           @transparency_items ||= collection
         end
 
         def new
-          authorize! :new, Decidim::Sabarca::TransparencyItem
+          enforce_permission_to :read, :admin_dashboard
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_params({})
         end
 
         def create
-          authorize! :create, Decidim::Sabarca::TransparencyItem
+          enforce_permission_to :read, :admin_dashboard
 
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_params(form_params)
 
@@ -34,14 +34,14 @@ module Decidim
 
         def edit
           @transparency_item = collection.find(params[:id])
-          authorize! :edit, @transparency_item
+          enforce_permission_to :read, :admin_dashboard
 
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_model(@transparency_item)
         end
 
         def update
           @transparency_item = collection.find(params[:id])
-          authorize! :update, @transparency_item
+          enforce_permission_to :read, :admin_dashboard
 
           @form = form(Decidim::Sabarca::Admin::TransparencyItemForm).from_params(form_params)
 
@@ -60,7 +60,7 @@ module Decidim
 
         def destroy
           @transparency_item = collection.find(params[:id])
-          authorize! :destroy, @transparency_item
+          enforce_permission_to :read, :admin_dashboard
 
           DestroyTransparencyItem.call(@transparency_item) do
             on(:ok) do

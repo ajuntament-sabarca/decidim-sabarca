@@ -14,6 +14,13 @@ And then execute:
 ```bash
 $ bundle
 ```
+## Upgrading
+
+from decidim `0.11` to `0.12`
+
+```
+  Decidim::Organization.find_each { |organization| Decidim::System::CreateDefaultPages.call(organization) }
+```
 
 ## Contributing
 See [Decidim](https://github.com/decidim/decidim).

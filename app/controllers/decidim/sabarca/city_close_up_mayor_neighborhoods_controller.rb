@@ -9,7 +9,6 @@ module Decidim
     # override its layout and provide all kinds of useful methods.
     class CityCloseUpMayorNeighborhoodsController < Decidim::ApplicationController
       helper Decidim::Sabarca::ScopesHelper
-      skip_authorization_check
 
       helper_method :organization_scopes, :decidim_scope_id, :current_scope,
                     :collection_mayor_neighborhoods, :collection_scoped_mayor_neighborhoods,

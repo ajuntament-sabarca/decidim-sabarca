@@ -8,13 +8,13 @@ require "decidim/sabarca/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   # Decidim.add_default_gemspec_properties(s)
-  DECIDIM_VERSION = "0.11.2"
+  DECIDIM_VERSION = "0.12.2"
 
   s.name = "decidim-sabarca"
   s.version = Decidim::Sabarca::VERSION
   s.authors = ["Agustí B.R.", "Isaac Massot"]
   s.email = ["agusti.br@coditramuntana.com", "isaac.mg@coditramuntana.com"]
-  s.homepage = "https://github.com/CodiTramuntana/"
+  s.homepage = "https://github.com/ajuntament-sabarca/decidim-sabarca"
   s.summary = "A component for decidim's participatory processes."
   s.description = "Customization for Sant Andreu de la Barca"
   s.license = "AGPLv3"
@@ -34,7 +34,5 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-proposals", DECIDIM_VERSION
   s.add_dependency "decidim-system", DECIDIM_VERSION
   s.add_dependency "decidim-verifications", DECIDIM_VERSION
-  # s.add_dependency "foundation-rails", "6.4.1.3"
-  # s.add_dependency "foundation_rails_helper", "3.0.0"
   s.add_development_dependency "decidim-dev", DECIDIM_VERSION
 end

@@ -8,8 +8,6 @@ module Decidim
     # Note that it inherits from `Decidim::Components::BaseController`, which
     # override its layout and provide all kinds of useful methods.
     class MayorNeighborhoodsController < Decidim::ApplicationController
-      skip_authorization_check
-
       helper_method :mayor_neighborhood
 
       def show

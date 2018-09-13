@@ -84,6 +84,10 @@ es:
     components:
       sabarca:
         name: Sabarca
+    devise:
+      registrations:
+        new:
+          user_group_url_help: "Dirección web completa (por ejemplo https://www.example.com)"
     participatory_processes:
       participatory_processes:
         index:

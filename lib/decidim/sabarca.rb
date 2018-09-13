@@ -19,14 +19,10 @@ require "decidim/accountability"
 require "foundation-rails"
 require "foundation_rails_helper"
 
-require "decidim/sabarca/admin"
 require "decidim/sabarca/engine"
-require "decidim/sabarca/admin_engine"
-require "decidim/sabarca/component"
 
 module Decidim
-  # This namespace holds the logic of the `Sabarca` component. This component
-  # allows users to create sabarca in a participatory process.
+  # This namespace holds the logic of the `Sabarca` module.
   module Sabarca
   end
 end
