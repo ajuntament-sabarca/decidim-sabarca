@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t("mayor_neighborhoods.index.mayor_neighborhoods_title", scope: "decidim.admin.actions") %>
       <%# if can? :create, Decidim::Sabarca::MayorNeighborhood %>
-        <%= link_to t("actions.new", scope: "decidim.admin"), decidim_sabarca.new_admin_mayor_neighborhood_path, class: 'button tiny button--title new' %>
+        <%= link_to t("actions.new", scope: "decidim.meetings", name: t("models.meeting.name", scope: "decidim.meetings.admin")), decidim_sabarca.new_admin_mayor_neighborhood_path, class: 'button tiny button--title new' %>
       <%# end %>
     </h2>
   </div>

@@ -3,7 +3,7 @@
     <h2 class="card-title">
       <%= t("transparency_items.index.title", scope: "decidim.admin.actions") %>
       <%# if can? :create, Decidim::Sabarca::TransparencyItem %>
-        <%= link_to t("actions.new", scope: "decidim.admin"), decidim_sabarca.new_admin_transparency_item_path, class: 'button tiny button--title new' %>
+        <%= link_to t("actions.new", scope: "decidim.admin", name: t("models.transparency_items.name", scope: "decidim.admin")), decidim_sabarca.new_admin_transparency_item_path, class: 'button tiny button--title new' %>
       <%# end %>
     </h2>
   </div>

@@ -68,6 +68,9 @@ ca:
         index:
           mayor_neighborhood_title: Alcalde al barri
           no_meetings: No hi ha trobades de l'alcalde
+      models:
+        transparency_items:
+          name: Ítem
       titles:
         mayor_neighborhoods: Trobades de l'alcalde
     authorization_handlers:

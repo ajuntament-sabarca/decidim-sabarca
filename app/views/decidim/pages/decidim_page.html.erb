@@ -3,8 +3,9 @@
   description: translated_attribute(page.content)
 ) %>
 
+<%= cell "decidim/tos_page", :announcement %>
+
 <main class="wrapper">
-  <%= cell "decidim/tos_page", :announcement %>
 
   <div class="row column">
     <h1 class="heading1 page-title"><%= translated_attribute page.title %></h1>
@@ -17,6 +18,6 @@
       </div>
     </div>
   </div>
-
-  <%= cell "decidim/tos_page", :sticky_form %>
 </main>
+
+<%= cell "decidim/tos_page", :sticky_form %>
