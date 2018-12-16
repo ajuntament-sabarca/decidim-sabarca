@@ -44,39 +44,46 @@ module Decidim
         app.config.assets.precompile += %w(decidim_sabarca_manifest.js pages.js scopes-geojson.js)
       end
 
-      initializer "decidim_sabarca.i18n_exceptions" do
-        ActionView::Base.raise_on_missing_translations = false # true unless Rails.env.production?
-      end
+      # initializer "decidim_sabarca.i18n_exceptions" do
+      #   ActionView::Base.raise_on_missing_translations = false # true unless Rails.env.production?
+      # end
 
       initializer "decidim.menu" do
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.transparency", scope: "decidim.sabarca"),
-                    decidim_sabarca.transparency_path,
-                    position: 3,
-                    active: :inclusive
+            decidim_sabarca.transparency_path,
+            position: 3,
+            active: :inclusive
 
           menu.item I18n.t("menu.city_close_up", scope: "decidim.sabarca"),
-                    decidim_sabarca.city_close_up_path,
-                    position: 4,
-                    active: :inclusive
+            decidim_sabarca.city_close_up_path,
+            position: 4,
+            active: :inclusive
         end
       end
 
       initializer "decidim_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.mayor_in_the_neighborhood", scope: "decidim.sabarca.admin"),
-                    decidim_sabarca.admin_mayor_neighborhoods_path,
-                    icon_name: "meetings",
-                    position: 1,
-                    active: :inclusive
-                    # if: allowed_to?(:enter, :space_area, space_name: :mayor_neighborhoods)
+            decidim_sabarca.admin_mayor_neighborhoods_path,
+            icon_name: "meetings",
+            position: 1,
+            active: :inclusive
+          # if: allowed_to?(:enter, :space_area, space_name: :mayor_neighborhoods)
 
           menu.item I18n.t("menu.transparency_items", scope: "decidim.sabarca.admin"),
-                    decidim_sabarca.admin_transparency_items_path,
-                    icon_name: "external-link",
-                    position: 1,
-                    active: :inclusive
-                    # if: allowed_to?(:enter, :space_area, space_name: :transparency_items)
+            decidim_sabarca.admin_transparency_items_path,
+            icon_name: "external-link",
+            position: 1,
+            active: :inclusive
+          # if: allowed_to?(:enter, :space_area, space_name: :transparency_items)
+        end
+      end
+
+      initializer "decidim.core.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :transparency) do |content_block|
+          content_block.cell = "decidim/content_blocks/transparency"
+          content_block.public_name_key = "decidim.content_blocks.transparency.name"
         end
       end
     end

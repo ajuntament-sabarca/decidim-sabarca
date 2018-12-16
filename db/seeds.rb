@@ -43,25 +43,26 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: "ajuntamentSabarca",
     github_handler: "ajuntament-sabarca",
     host: ENV["DECIDIM_HOST"] || "localhost",
-    welcome_text: {
-      "ca": "Volem fomentar la participació",
-      "es": "Queremos fomentar la participación"
-    },
+    # welcome_text: {
+    #   "ca": "Volem fomentar la participació",
+    #   "es": "Queremos fomentar la participación"
+    # },
     description: {
       "ca": "<p>L'Ajuntament de Sant Andreu de la Barca vol fomentar la participació, l'atenció ciutadana i la comunicació amb la ciutadania</p>",
       "es": "<p>El Ayuntamiento de Sant Andreu de la Barca quiere fomentar la participación, la atención ciudadana y la comunicación con la ciudadanía</p>"
     },
     default_locale: Decidim.default_locale,
     available_locales: Decidim.available_locales,
+    available_authorizations: ["Decidim::Sabarca::DummyAuthorizationHandler"],
+    tos_version: Time.current,
     reference_prefix: "sab",
     official_url: "http://sabarca.cat/",
-    homepage_image: File.new(File.join(seeds_root.to_s, "homepage_image-ajsab.jpg")),
+    # homepage_image: File.new(File.join(seeds_root.to_s, "homepage_image-ajsab.jpg")),
     logo: File.new(File.join(seeds_root.to_s, "logo_sabarca.png")),
     favicon: File.new(File.join(seeds_root.to_s, "favicon_ajsab.png")),
     official_img_header: File.new(File.join(seeds_root.to_s, "logo-ajsab.png")),
     official_img_footer: File.new(File.join(seeds_root.to_s, "logo-footer-ajsab.png"))
   )
-  organization.update!(available_authorizations: ["Decidim::Sabarca::DummyAuthorizationHandler"])
 
   district_scope = Decidim::ScopeType.create!(
     name: Decidim::Faker::Localized.literal("district_scope"),
@@ -128,8 +129,9 @@ if !Rails.env.production? || ENV["SEED"]
     locale: I18n.default_locale,
     admin: true,
     tos_agreement: true,
-    # comments_notifications: true,
-    # replies_notifications: true
+    personal_url: Faker::Internet.url,
+    about: Faker::Lorem.paragraph(2),
+    accepted_tos_version: organization.tos_version
   )
 
   Decidim::User.find_or_initialize_by(email: "user@example.org").update!(
@@ -141,8 +143,9 @@ if !Rails.env.production? || ENV["SEED"]
     locale: I18n.default_locale,
     organization: organization,
     tos_agreement: true,
-    # comments_notifications: true,
-    # replies_notifications: true
+    personal_url: Faker::Internet.url,
+    about: Faker::Lorem.paragraph(2),
+    accepted_tos_version: organization.tos_version
   )
   user = Decidim::User.find_by(email: "user@example.org")
 
@@ -229,8 +232,9 @@ if !Rails.env.production? || ENV["SEED"]
         confirmed_at: Time.current,
         locale: I18n.default_locale,
         tos_agreement: true,
-        # comments_notifications: true,
-        # replies_notifications: true
+        personal_url: Faker::Internet.url,
+        about: Faker::Lorem.paragraph(2),
+        accepted_tos_version: organization.tos_version
       )
 
       Decidim::ParticipatoryProcessUserRole.find_or_create_by!(
@@ -253,16 +257,6 @@ if !Rails.env.production? || ENV["SEED"]
       file: File.new(File.join(seeds_root, "Exampledocument.pdf")),
       attached_to: process
     )
-
-    # 2.times do
-    #   Decidim::Category.create!(
-    #     name: Decidim::Faker::Localized.sentence(5),
-    #     description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-    #       Decidim::Faker::Localized.paragraph(3)
-    #     end,
-    #     participatory_process: process
-    #   )
-    # end
   end
 
   Decidim::StaticPage.create!(
@@ -271,4 +265,43 @@ if !Rails.env.production? || ENV["SEED"]
     content: Decidim::Faker::Localized.sentence(5),
     organization: organization
   )
+
+  Decidim::Sabarca::TransparencyItem.create!(
+    text: Decidim::Faker::Localized.sentence(2),
+    url: {
+      "ca": Faker::Internet.url,
+      "es": Faker::Internet.url
+    },
+    position: 1,
+    decidim_organization_id: organization.id
+  )
+
+  # Decidim::Sabarca::MayorNeighborhood.create!(
+  #   title: Decidim::Faker::Localized.sentence(2),
+  #   description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
+  #     Decidim::Faker::Localized.paragraph(3)
+  #   end,
+  #   slug: Faker::Name.suffix,
+  #   start_time: 3.weeks.from_now,
+  #   end_time: 3.weeks.from_now + 4.hours,
+  #   address: Faker::Address,
+  #   latitude: 0.5,
+  #   longitude: 0.5,
+  #   decidim_organization_id: organization.id,
+  #   decidim_scope_id: 1,
+  #   location: Decidim::Faker::Localized.sentence(1)
+  # )
+
+  Decidim::System::CreateDefaultContentBlocks.call(organization)
+
+  hero_content_block = Decidim::ContentBlock.find_by(organization: organization, manifest_name: :hero, scope: :homepage)
+  hero_content_block.images_container.background_image = File.new(File.join(seeds_root.to_s, "homepage_image-ajsab.jpg"))
+  settings = {}
+  welcome_text = {
+    "ca": "Volem fomentar la participació",
+    "es": "Queremos fomentar la participación"
+  }
+  settings = welcome_text.inject(settings) { |acc, (k, v)| acc.update("welcome_text_#{k}" => v) }
+  hero_content_block.settings = settings
+  hero_content_block.save!
 end
