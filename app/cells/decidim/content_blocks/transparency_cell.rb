@@ -3,7 +3,7 @@
 module Decidim
   module ContentBlocks
     class TransparencyCell < Decidim::ViewModel
-    include Decidim::Sabarca::LayoutHelper
+      include Decidim::Sabarca::LayoutHelper
     end
   end
 end

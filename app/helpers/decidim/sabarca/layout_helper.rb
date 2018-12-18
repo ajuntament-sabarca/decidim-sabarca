@@ -41,13 +41,14 @@ module Decidim
       end
 
       def _icon_classes(options = {})
-        classes = options[:remove_icon_class] ? [] : ["icon"]
+        classes = options[:remove_icon_class] ? [] : %w(icon)
         classes += [options[:class]]
         classes.compact
       end
 
       def header_section
         return unless has_custom_title?
+
         send("header_#{controller_name}_titles")
         render "decidim/sabarca/shared/section_header_sabarca", title: @title, subtitle: @subtitle
       end
