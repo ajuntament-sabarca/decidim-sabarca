@@ -5,6 +5,9 @@ module Decidim
   # the scope of a participatory process.
   # (i.e. does it affect the whole city or just a district?)
   class Scope < ApplicationRecord
+    include Decidim::Traceable
+    include Decidim::Loggable
+
     belongs_to :organization,
                foreign_key: "decidim_organization_id",
                class_name: "Decidim::Organization",
@@ -28,12 +31,13 @@ module Decidim
              inverse_of: :parent,
              dependent: :destroy
 
-    has_many :decidim_sabarca_mayor_neighborhoods, class_name: "Decidim::Sabarca::MayorNeighborhood", foreign_key: "decidim_scope_id"
+    has_many :decidim_sabarca_mayor_neighborhoods,
+             class_name: "Decidim::Sabarca::MayorNeighborhood",
+             foreign_key: "decidim_scope_id"
 
     before_validation :update_part_of, on: :update
 
     validates :name, :code, :organization, presence: true
-    # validates :code, uniqueness: { scope: :organization }
     validate :forbid_cycles
 
     after_create_commit :create_part_of
@@ -43,6 +47,10 @@ module Decidim
     # Returns an ActiveRecord::Relation.
     def self.top_level
       where parent_id: nil
+    end
+
+    def self.log_presenter_class_for(_log)
+      Decidim::AdminLog::ScopePresenter
     end
 
     def descendants
@@ -55,6 +63,8 @@ module Decidim
 
     # Gets the scopes from the part_of list in descending order (first the top level scope, last itself)
     #
+    # root - The root scope to start retrieval. If present, ignores top level scopes until reaching the root scope.
+    #
     # Returns an array of Scope objects
     def part_of_scopes(root = nil)
       scope_ids = part_of
@@ -65,7 +75,9 @@ module Decidim
     private
 
     def forbid_cycles
-      errors.add(:parent_id, :cycle_detected) if parent && parent.part_of.include?(id)
+      return unless parent
+
+      errors.add(:parent_id, :cycle_detected) if parent.part_of.include?(id)
     end
 
     def create_part_of

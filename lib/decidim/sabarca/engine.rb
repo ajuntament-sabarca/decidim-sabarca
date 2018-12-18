@@ -51,31 +51,31 @@ module Decidim
       initializer "decidim.menu" do
         Decidim.menu :menu do |menu|
           menu.item I18n.t("menu.transparency", scope: "decidim.sabarca"),
-            decidim_sabarca.transparency_path,
-            position: 3,
-            active: :inclusive
+                    decidim_sabarca.transparency_path,
+                    position: 3,
+                    active: :inclusive
 
           menu.item I18n.t("menu.city_close_up", scope: "decidim.sabarca"),
-            decidim_sabarca.city_close_up_path,
-            position: 4,
-            active: :inclusive
+                    decidim_sabarca.city_close_up_path,
+                    position: 4,
+                    active: :inclusive
         end
       end
 
       initializer "decidim_admin.menu" do
         Decidim.menu :admin_menu do |menu|
           menu.item I18n.t("menu.mayor_in_the_neighborhood", scope: "decidim.sabarca.admin"),
-            decidim_sabarca.admin_mayor_neighborhoods_path,
-            icon_name: "meetings",
-            position: 1,
-            active: :inclusive
+                    decidim_sabarca.admin_mayor_neighborhoods_path,
+                    icon_name: "meetings",
+                    position: 1,
+                    active: :inclusive
           # if: allowed_to?(:enter, :space_area, space_name: :mayor_neighborhoods)
 
           menu.item I18n.t("menu.transparency_items", scope: "decidim.sabarca.admin"),
-            decidim_sabarca.admin_transparency_items_path,
-            icon_name: "external-link",
-            position: 1,
-            active: :inclusive
+                    decidim_sabarca.admin_transparency_items_path,
+                    icon_name: "external-link",
+                    position: 1,
+                    active: :inclusive
           # if: allowed_to?(:enter, :space_area, space_name: :transparency_items)
         end
       end

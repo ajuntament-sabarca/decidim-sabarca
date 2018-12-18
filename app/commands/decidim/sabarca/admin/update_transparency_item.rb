@@ -25,7 +25,7 @@ module Decidim
         attr_reader :form
 
         def update_transparency_item
-          transparency_item.update_attributes!(attributes)
+          transparency_item.update!(attributes)
         end
 
         def attributes

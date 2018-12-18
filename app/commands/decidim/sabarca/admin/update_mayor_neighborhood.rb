@@ -25,7 +25,7 @@ module Decidim
         attr_reader :form
 
         def update_mayor_neighborhood
-          mayor_neighborhood.update_attributes!(attributes)
+          mayor_neighborhood.update!(attributes)
         end
 
         def attributes
