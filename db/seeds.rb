@@ -1,18 +1,6 @@
 # frozen_string_literal: true
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-# You can remove the 'faker' gem if you don't want Decidim seeds.
-# Decidim.seed!
-
-# frozen_string_literal: true
 
 # You can remove the 'faker' gem if you don't want Decidim seeds.
-# Decidim.seed!
 
 puts "seeding from Decidim::Sabarca"
 
@@ -43,10 +31,6 @@ if !Rails.env.production? || ENV["SEED"]
     youtube_handler: "ajuntamentSabarca",
     github_handler: "ajuntament-sabarca",
     host: ENV["DECIDIM_HOST"] || "localhost",
-    # welcome_text: {
-    #   "ca": "Volem fomentar la participació",
-    #   "es": "Queremos fomentar la participación"
-    # },
     description: {
       "ca": "<p>L'Ajuntament de Sant Andreu de la Barca vol fomentar la participació, l'atenció ciutadana i la comunicació amb la ciutadania</p>",
       "es": "<p>El Ayuntamiento de Sant Andreu de la Barca quiere fomentar la participación, la atención ciudadana y la comunicación con la ciudadanía</p>"
@@ -57,7 +41,6 @@ if !Rails.env.production? || ENV["SEED"]
     tos_version: Time.current,
     reference_prefix: "sab",
     official_url: "http://sabarca.cat/",
-    # homepage_image: File.new(File.join(seeds_root.to_s, "homepage_image-ajsab.jpg")),
     logo: File.new(File.join(seeds_root.to_s, "logo_sabarca.png")),
     favicon: File.new(File.join(seeds_root.to_s, "favicon_ajsab.png")),
     official_img_header: File.new(File.join(seeds_root.to_s, "logo-ajsab.png")),
@@ -276,21 +259,19 @@ if !Rails.env.production? || ENV["SEED"]
     decidim_organization_id: organization.id
   )
 
-  # Decidim::Sabarca::MayorNeighborhood.create!(
-  #   title: Decidim::Faker::Localized.sentence(2),
-  #   description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-  #     Decidim::Faker::Localized.paragraph(3)
-  #   end,
-  #   slug: Faker::Name.suffix,
-  #   start_time: 3.weeks.from_now,
-  #   end_time: 3.weeks.from_now + 4.hours,
-  #   address: Faker::Address,
-  #   latitude: 0.5,
-  #   longitude: 0.5,
-  #   decidim_organization_id: organization.id,
-  #   decidim_scope_id: 1,
-  #   location: Decidim::Faker::Localized.sentence(1)
-  # )
+  3.times do |n|
+    Decidim::Sabarca::MayorNeighborhood.create!(
+      title: Decidim::Faker::Localized.sentence(2),
+      description: Decidim::Faker::Localized.sentence(5),
+      location: Decidim::Faker::Localized.sentence(1),
+      slug: Faker::Name.suffix,
+      start_time: (n + 1).weeks.from_now,
+      end_time: (n + 1).weeks.from_now + 4.hours,
+      address: Faker::Address.street_address,
+      decidim_organization_id: organization.id,
+      decidim_scope_id: n + 1
+    )
+  end
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
