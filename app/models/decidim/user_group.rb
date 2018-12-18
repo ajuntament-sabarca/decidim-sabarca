@@ -16,9 +16,9 @@ module Decidim
     validate :correct_state
     validate :unique_document_number
 
-    # validates :scope_id, presence: true
-    # validates :address, presence: true
     geocoded_by :address
+
+    after_validation :geocode
 
     scope :verified, -> { where.not("extended_data->>'verified_at' IS ?", nil) }
     scope :rejected, -> { where.not("extended_data->>'rejected_at' IS ?", nil) }
@@ -54,6 +54,26 @@ module Decidim
 
     def self.export_serializer
       Decidim::DataPortabilitySerializers::DataPortabilityUserGroupSerializer
+    end
+
+    def latitude
+      extended_data["latitude"]
+    end
+
+    def longitude
+      extended_data["longitude"]
+    end
+
+    def url
+      extended_data["url"]
+    end
+
+    def address
+      extended_data["address"]
+    end
+
+    def scope_id
+      extended_data["scope_id"]
     end
 
     def document_number

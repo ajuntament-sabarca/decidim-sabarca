@@ -282,22 +282,19 @@ if !Rails.env.production? || ENV["SEED"]
     position: 1,
     decidim_organization_id: organization.id
   )
-
-  # Decidim::Sabarca::MayorNeighborhood.create!(
-  #   title: Decidim::Faker::Localized.sentence(2),
-  #   description: Decidim::Faker::Localized.wrapped("<p>", "</p>") do
-  #     Decidim::Faker::Localized.paragraph(3)
-  #   end,
-  #   slug: Faker::Name.suffix,
-  #   start_time: 3.weeks.from_now,
-  #   end_time: 3.weeks.from_now + 4.hours,
-  #   address: Faker::Address,
-  #   latitude: 0.5,
-  #   longitude: 0.5,
-  #   decidim_organization_id: organization.id,
-  #   decidim_scope_id: 1,
-  #   location: Decidim::Faker::Localized.sentence(1)
-  # )
+  3.times do |n|
+    Decidim::Sabarca::MayorNeighborhood.create!(
+      title: Decidim::Faker::Localized.sentence(2),
+      description: Decidim::Faker::Localized.sentence(5),
+      location: Decidim::Faker::Localized.sentence(1),
+      slug: Faker::Name.suffix,
+      start_time: (n + 1).weeks.from_now,
+      end_time: (n + 1).weeks.from_now + 4.hours,
+      address: Faker::Address.street_address,
+      decidim_organization_id: organization.id,
+      decidim_scope_id: n + 1
+    )
+  end
 
   Decidim::System::CreateDefaultContentBlocks.call(organization)
 
