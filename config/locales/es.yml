@@ -13,6 +13,7 @@ es:
         start_time: Fecha Inicio
         title: Títol
         topics: Temas que se tratarán
+        url: Enlace
       transparency_item:
         position: Posición
         text: Texto
@@ -95,6 +96,11 @@ es:
       participatory_processes:
         index:
           processes: Procesos
+        order_by_processes:
+          active: Activos
+          all: Todos
+          past: Pasados
+          upcoming: Próximos
     sabarca:
       admin:
         mayor_neighborhoods:
@@ -117,12 +123,18 @@ es:
           new:
             create: Crea
             title: Nuevo item de transparencia
+        transparency_items:
+          edit:
+            update: Actualizar
       city_close_up_mayor_neighborhoods:
         index:
           description: Resumen de los actos de las visitas del alcalde en el barrio
+          loading: Cargando resultados...
           title: Encuentros con el alcalde
+          view_mayor_neighborhood: Ver el encuentro del alcalde
         show:
           description: Resumen de los actos de las visitas del alcalde en %{name}
+          loading: Cargando resultados...
           title: Encuentros con el alcalde - %{name}
           view_mayor_neighborhood: Ver el encuentro del alcalde
       city_close_up_processes:
@@ -172,17 +184,38 @@ es:
           text_2: La normativa, información sobre cómo tramitar una solicitud, consulta
             de estado de solicitudes, estadísticas, resoluciones denegatorias, reclamaciones.
           title_transparency: Transparencia
+          subtitle_transparency: Acceso a la información pública
       shared:
         all_scopes:
           title: Ver todos los barrios
         other_scopes:
           title: Ver los otros barrios
+        order_by_mayor_neighborhoods:
+          active: Activos
+          all: Todos
+          past: Pasados
+          upcoming: Próximos
   devise:
     invitations:
       user:
         updated: Usuario actualitzado
   layouts:
     decidim:
+      participatory_processes:
+        index:
+          promoted_processes: Highlighted processes
+        order_by_processes:
+          loading: Cargando resultados...
+          processes:
+            one: "%{count} proceso"
+            other: "%{count} procesos"
+        participatory_process:
+          active_step: 'Current step:'
+          take_part: Take part
+        promoted_process:
+          active_step: 'Current step:'
+          more_info: More info
+          take_part: Take part
       scopes:
         order_by_mayor_neighborhoods:
           mayor_neighborhoods:

@@ -18,8 +18,9 @@ module Decidim
             decidim_organization_id: form.current_organization.id,
             scope_id: form.user_group_scope_id,
             url: form.user_group_url,
-            address: form.user_group_address)
+            address: form.user_group_address
           )
+        )
       end
     end
   end

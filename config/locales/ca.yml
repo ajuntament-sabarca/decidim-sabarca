@@ -13,6 +13,7 @@ ca:
         start_time: Data Inici
         title: Títol
         topics: Temes que es tractaran
+        url: Enllaç
       transparency_item:
         position: Posició
         text: Text
@@ -95,6 +96,11 @@ ca:
       participatory_processes:
         index:
           processes: Processos
+        order_by_processes:
+          active: Actius
+          all: Tots
+          past: Passats
+          upcoming: Propers
     sabarca:
       admin:
         mayor_neighborhoods:
@@ -120,9 +126,12 @@ ca:
       city_close_up_mayor_neighborhoods:
         index:
           description: Recull de les actes de les visites de l'alcalde al barri
+          loading: Carregant resultats...
           title: Trobades amb l'alcalde
+          view_mayor_neighborhood: Veure la trobada de l'alcalde
         show:
           description: Recull de les actes de les visites de l'alcalde al %{name}
+          loading: Carregant resultats...
           title: Trobades amb l'alcalde - %{name}
           view_mayor_neighborhood: Veure la trobada de l'alcalde
       city_close_up_processes:
@@ -172,9 +181,15 @@ ca:
           text_2: La normativa, informació sobre com tramitar una sol·licitud, consulta
             d'estat de sol·licituds, estadístiques, resolucions denegatòries, reclamacions.
           title_transparency: Transparencia
+          subtitle_transparency: Accés a la informació pública
       shared:
         all_scopes:
           title: Veure tots els barris
+        order_by_mayor_neighborhoods:
+          active: Actius
+          all: Tots
+          past: Passats
+          upcoming: Propers
         other_scopes:
           title: Veure els altres barris
   devise:
@@ -186,6 +201,21 @@ ca:
         updated: Usuari actualitzat
   layouts:
     decidim:
+      participatory_processes:
+        index:
+          promoted_processes: Processos destacats
+        order_by_processes:
+          loading: Carregant resultats...
+          processes:
+            one: "%{count} procés"
+            other: "%{count} processos"
+        participatory_process:
+          active_step: 'Fase actual:'
+          take_part: Participa
+        promoted_process:
+          active_step: 'Fase actual:'
+          more_info: Més informació
+          take_part: Participa
       scopes:
         order_by_mayor_neighborhoods:
           mayor_neighborhoods:

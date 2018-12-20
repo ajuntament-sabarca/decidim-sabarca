@@ -69,14 +69,21 @@ module Decidim
                     icon_name: "meetings",
                     position: 1,
                     active: :inclusive
-                    # if: allowed_to?(:enter, :space_area, space_name: :mayor_neighborhoods)
+          # if: allowed_to?(:enter, :space_area, space_name: :mayor_neighborhoods)
 
           menu.item I18n.t("menu.transparency_items", scope: "decidim.sabarca.admin"),
                     decidim_sabarca.admin_transparency_items_path,
                     icon_name: "external-link",
                     position: 1,
                     active: :inclusive
-                    # if: allowed_to?(:enter, :space_area, space_name: :transparency_items)
+          # if: allowed_to?(:enter, :space_area, space_name: :transparency_items)
+        end
+      end
+
+      initializer "decidim.core.content_blocks" do
+        Decidim.content_blocks.register(:homepage, :transparency) do |content_block|
+          content_block.cell = "decidim/content_blocks/transparency"
+          content_block.public_name_key = "decidim.content_blocks.transparency.name"
         end
       end
     end

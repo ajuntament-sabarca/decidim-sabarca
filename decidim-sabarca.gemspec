@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push File.expand_path("../lib", __FILE__)
+$LOAD_PATH.push File.expand_path("lib", __dir__)
 
 # Maintain your gem's version:
 require "decidim/sabarca/version"
@@ -8,7 +8,7 @@ require "decidim/sabarca/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   # Decidim.add_default_gemspec_properties(s)
-  DECIDIM_VERSION = "0.13.1"
+  DECIDIM_VERSION = "0.14.3"
 
   s.name = "decidim-sabarca"
   s.version = Decidim::Sabarca::VERSION

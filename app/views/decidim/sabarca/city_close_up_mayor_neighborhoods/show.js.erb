@@ -1,6 +1,8 @@
-const $gridMayorNeighborhood = $('#mayor-neighborhood-grid');
-const $loadingMayorNeighborhood = $gridMayorNeighborhood.find('.loading');
+$(() => {
+  const $gridMayorNeighborhood = $('#mayor-neighborhood-grid');
+  const $loadingMayorNeighborhood = $gridMayorNeighborhood.find('.loading');
 
-$gridMayorNeighborhood.find('.card-grid').html('<%= j(render partial: "decidim/sabarca/shared/mayor_neighborhood", collection: scoped_mayor_neighborhoods).strip.html_safe %>');
-$gridMayorNeighborhood.find('.mayor-neighborhood-grid-order-by').html('<%= j(render(partial: "decidim/sabarca/shared/order_by_mayor_neighborhoods", locals: { include_filter: true })).strip.html_safe %>');
-$loadingMayorNeighborhood.hide();
+  $gridMayorNeighborhood.find('.card-grid').html('<%= j(render partial: "decidim/sabarca/shared/mayor_neighborhood", collection: scoped_mayor_neighborhoods).strip.html_safe %>');
+  $gridMayorNeighborhood.find('.mayor-neighborhood-grid-order-by').html('<%= j(render(partial: "decidim/sabarca/shared/order_by_mayor_neighborhoods", locals: { include_filter: true })).strip.html_safe %>');
+  $loadingMayorNeighborhood.hide();
+});
