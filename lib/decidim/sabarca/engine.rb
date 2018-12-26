@@ -44,9 +44,9 @@ module Decidim
         app.config.assets.precompile += %w(decidim_sabarca_manifest.js pages.js scopes-geojson.js)
       end
 
-      # initializer "decidim_sabarca.i18n_exceptions" do
-      #   ActionView::Base.raise_on_missing_translations = false # true unless Rails.env.production?
-      # end
+      initializer "decidim_sabarca.i18n_exceptions" do
+        ActionView::Base.raise_on_missing_translations = false # true unless Rails.env.production?
+      end
 
       initializer "decidim.menu" do
         Decidim.menu :menu do |menu|
