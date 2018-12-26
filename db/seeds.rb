@@ -265,6 +265,7 @@ if !Rails.env.production? || ENV["SEED"]
     position: 1,
     decidim_organization_id: organization.id
   )
+
   3.times do |n|
     Decidim::Sabarca::MayorNeighborhood.create!(
       title: Decidim::Faker::Localized.sentence(2),
