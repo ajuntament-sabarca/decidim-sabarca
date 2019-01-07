@@ -10,18 +10,20 @@ module Decidim
     class CityCloseUpUserGroupsController < Decidim::ApplicationController
       helper Decidim::Sabarca::ScopesHelper
 
-      helper_method :organization_scopes, :user_groups, :current_scope
+      helper_method :user_groups, :user_groups_scoped, :organization_scopes, :current_scope
 
       def index; end
 
-      def show
-        @user_groups_scoped = user_groups.where(scope_id: current_scope)
-      end
+      def show; end
 
       private
 
       def user_groups
         @user_groups ||= Decidim::UserGroup.where(decidim_organization_id: current_organization.id).verified
+      end
+
+      def user_groups_scoped
+        @user_groups_scoped ||= user_groups.select { |g| g.scope_id == current_scope.id }
       end
 
       def organization_scopes

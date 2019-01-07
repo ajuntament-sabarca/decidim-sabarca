@@ -8,7 +8,7 @@ require "decidim/sabarca/version"
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
   # Decidim.add_default_gemspec_properties(s)
-  DECIDIM_VERSION = "0.14.3"
+  DECIDIM_VERSION = "0.15.1"
 
   s.name = "decidim-sabarca"
   s.version = Decidim::Sabarca::VERSION

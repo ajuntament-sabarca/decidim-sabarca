@@ -11,7 +11,7 @@
 <main class="wrapper background-white">
   <section class="row section collapse">
     <div class="map_entities">
-      <%= dynamic_map_for user_groups_data_for_map(@user_groups_scoped.select(&:geocoded?)) do %>
+      <%= dynamic_map_for user_groups_data_for_map(user_groups_scoped.select(&:geocoded?)) do %>
         <template id="marker-popup">
           <div class="map-info__content ">
             <h3>${title}</h3>
@@ -44,13 +44,13 @@
     </div>
   </section>
 
-  <% if @user_groups_scoped.any? %>
+  <% if user_groups_scoped.any? %>
     <section id="user_groups" class="row section collapse">
       <div class="section">
         <h3 class="heading3 section-heading"><%= t(".title_user_groups") %></h3>
       </div>
       <div class="row card-grid">
-        <%= render partial: 'decidim/sabarca/shared/user_group', collection: @user_groups_scoped, as: :user_group %>
+        <%= render partial: 'decidim/sabarca/shared/user_group', collection: user_groups_scoped, as: :user_group %>
       </div>
     </section>
   <% end %>
