@@ -42,7 +42,7 @@ module Decidim
         extended_data: {
           phone: form.phone,
           document_number: form.document_number,
-          scope_id: form.scope_id,
+          scope_id: form.scope_id.to_i,
           address: form.address,
           url: form.url
         }
