@@ -21,6 +21,7 @@ module Decidim
 
       transaction do
         create_user_group
+        geocode_user_group
         create_membership
       end
 
@@ -47,6 +48,20 @@ module Decidim
           url: form.url
         }
       )
+    end
+
+    # To automatically geocode objects with Geocoder
+    # they have to have two attributes/columns (float or decimal)
+    # called latitude and longitude (that we don't have)
+    # Here we search for the address without using ActiveRecord
+    def geocode_user_group
+      result = Geocoder.search(form.address).first
+      return unless result
+
+      coordinates = result.data['Location']['DisplayPosition']
+      @user_group.extended_data['latitude'] = coordinates["Latitude"]
+      @user_group.extended_data['longitude'] =  coordinates["Longitude"]
+      @user_group.save!
     end
 
     def create_membership
