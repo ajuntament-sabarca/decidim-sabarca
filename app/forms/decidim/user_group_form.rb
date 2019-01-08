@@ -12,7 +12,7 @@ module Decidim
     attribute :about
     attribute :document_number
     attribute :url
-    attribute :scope_id
+    attribute :scope_id, Integer
     attribute :address
     attribute :phone
 
