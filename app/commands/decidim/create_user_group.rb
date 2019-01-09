@@ -8,8 +8,6 @@ module Decidim
     # form - A form object with the params.
     def initialize(form)
       @form = form
-      @latitude = nil
-      @longitude = nil
     end
 
     # Executes the command. Broadcasts these events:
@@ -22,7 +20,6 @@ module Decidim
       return broadcast(:invalid) if form.invalid?
 
       transaction do
-        geocode_address
         create_user_group
         create_membership
       end
@@ -48,23 +45,10 @@ module Decidim
           scope_id: form.scope_id,
           address: form.address,
           url: form.url,
-          latitude: @latitude,
-          longitude: @longitude
+          latitude: form.latitude,
+          longitude: form.longitude
         }
       )
-    end
-
-    # To automatically geocode objects with Geocoder
-    # they have to have two attributes/columns (float or decimal)
-    # called latitude and longitude (that we don't have)
-    # Here we search for the address without using ActiveRecord
-    def geocode_address
-      result = Geocoder.search(form.address).first
-      return unless result
-
-      coordinates = result.data['Location']['DisplayPosition']
-      @latitude = coordinates["Latitude"]
-      @longitude = coordinates["Longitude"]
     end
 
     def create_membership

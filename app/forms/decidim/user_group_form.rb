@@ -15,6 +15,8 @@ module Decidim
     attribute :scope_id, Integer
     attribute :address
     attribute :phone
+    attribute :latitude, Float
+    attribute :longitude, Float
 
     validates :name, presence: true
     validates :email, presence: true, 'valid_email_2/email': { disposable: true }
@@ -33,7 +35,21 @@ module Decidim
     validate :unique_nickname
     validate :valid_url
 
+    def latitude
+      return nil unless geocode
+      geocode.data['Location']['DisplayPosition']["Latitude"]
+    end
+
+    def longitude
+      return nil unless geocode
+      geocode.data['Location']['DisplayPosition']["Longitude"]
+    end
+
     private
+
+    def geocode
+      Geocoder.search(address).first
+    end
 
     def unique_document_number
       errors.add :document_number, :taken if UserGroup
