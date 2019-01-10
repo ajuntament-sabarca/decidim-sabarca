@@ -60,17 +60,20 @@ module Decidim
     end
 
     def latitude
-      geocode.data['Location']['DisplayPosition']["Latitude"]
+      geocode_address["Latitude"]
     end
 
     def longitude
-      geocode.data['Location']['DisplayPosition']["Longitude"]
+      geocode_address["Longitude"]
     end
 
-    def geocode
-      @geocode ||= Geocoder.search(form.address).first
-      @geocode ||= {}
-      @geocode
+    def geocode_address
+      return @geocode_address if defined?(@geocode_address)
+
+      geocode = Geocoder.search(form.address).first
+      return @geocode_address = {} unless geocode
+
+      @geocode_address = geocode.data['Location']["DisplayPosition"]
     end
   end
 end
