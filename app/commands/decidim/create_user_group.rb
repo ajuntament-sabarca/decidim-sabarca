@@ -45,8 +45,8 @@ module Decidim
           scope_id: form.scope_id,
           address: form.address,
           url: form.url,
-          latitude: form.latitude,
-          longitude: form.longitude
+          latitude: latitude,
+          longitude: longitude
         }
       )
     end
@@ -57,6 +57,20 @@ module Decidim
         role: "creator",
         user_group: @user_group
       )
+    end
+
+    def latitude
+      geocode.data['Location']['DisplayPosition']["Latitude"]
+    end
+
+    def longitude
+      geocode.data['Location']['DisplayPosition']["Longitude"]
+    end
+
+    def geocode
+      @geocode ||= Geocoder.search(form.address).first
+      @geocode ||= {}
+      @geocode
     end
   end
 end
