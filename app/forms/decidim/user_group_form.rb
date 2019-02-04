@@ -12,7 +12,7 @@ module Decidim
     attribute :about
     attribute :document_number
     attribute :url
-    attribute :scope_id
+    attribute :scope_id, Integer
     attribute :address
     attribute :phone
 
@@ -21,7 +21,6 @@ module Decidim
     validates :nickname, presence: true
     validates :document_number, presence: true
     validates :phone, presence: true
-    validates :url, presence: true
     validates :scope_id, presence: true
     validates :address, presence: true
 
@@ -32,6 +31,7 @@ module Decidim
     validate :unique_email
     validate :unique_name
     validate :unique_nickname
+    validate :valid_url
 
     private
 
@@ -81,6 +81,20 @@ module Decidim
                      .empty?
 
       errors.add :nickname, :taken
+      false
+    end
+
+    def valid_url
+      return unless url
+      errors.add(:url, :invalid) unless uri?(url)
+    end
+
+    def uri?(string)
+      uri = URI.parse(string)
+      %w(http https).include?(uri.scheme)
+    rescue URI::BadURIError
+      false
+    rescue URI::InvalidURIError
       false
     end
   end
