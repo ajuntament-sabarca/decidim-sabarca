@@ -15,6 +15,7 @@ require "decidim/meetings"
 require "decidim/proposals"
 require "decidim/budgets"
 require "decidim/accountability"
+require "decidim/forms"
 
 require "foundation-rails"
 require "foundation_rails_helper"
