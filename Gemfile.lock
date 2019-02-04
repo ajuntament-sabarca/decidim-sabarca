@@ -9,7 +9,6 @@ PATH
       decidim-budgets (= 0.16.0)
       decidim-comments (= 0.16.0)
       decidim-core (= 0.16.0)
-      decidim-forms (= 0.16.0)
       decidim-meetings (= 0.16.0)
       decidim-pages (= 0.16.0)
       decidim-participatory_processes (= 0.16.0)
