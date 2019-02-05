@@ -4,6 +4,9 @@ require "decidim/core"
 require "decidim/system"
 require "decidim/admin"
 require "decidim/api"
+require "decidim/version"
+
+require "decidim/forms"
 
 require "decidim/verifications"
 
@@ -14,8 +17,8 @@ require "decidim/comments"
 require "decidim/meetings"
 require "decidim/proposals"
 require "decidim/budgets"
+require "decidim/surveys"
 require "decidim/accountability"
-require "decidim/forms"
 
 require "foundation-rails"
 require "foundation_rails_helper"
