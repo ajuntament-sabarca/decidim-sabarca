@@ -32,6 +32,7 @@ Gem::Specification.new do |s|
   s.add_dependency "decidim-pages", DECIDIM_VERSION
   s.add_dependency "decidim-participatory_processes", DECIDIM_VERSION
   s.add_dependency "decidim-proposals", DECIDIM_VERSION
+  s.add_dependency "decidim-surveys", DECIDIM_VERSION
   s.add_dependency "decidim-system", DECIDIM_VERSION
   s.add_dependency "decidim-verifications", DECIDIM_VERSION
   s.add_development_dependency "decidim-dev", DECIDIM_VERSION

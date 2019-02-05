@@ -13,6 +13,7 @@ PATH
       decidim-pages (= 0.16.0)
       decidim-participatory_processes (= 0.16.0)
       decidim-proposals (= 0.16.0)
+      decidim-surveys (= 0.16.0)
       decidim-system (= 0.16.0)
       decidim-verifications (= 0.16.0)
 
@@ -217,6 +218,9 @@ GEM
       ransack (~> 2.0)
       redcarpet (>= 3.4)
       social-share-button (~> 1.0)
+    decidim-surveys (0.16.0)
+      decidim-core (= 0.16.0)
+      decidim-forms (= 0.16.0)
     decidim-system (0.16.0)
       active_link_to (~> 1.0)
       decidim-core (= 0.16.0)
