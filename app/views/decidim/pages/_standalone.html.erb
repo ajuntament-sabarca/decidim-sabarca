@@ -1,0 +1,28 @@
+<section class="subhero sabarca-header-section">
+  <div class="row">
+    <div class="main-block block-center">
+      <div class="titles">
+        <h1 class="heading1 page-title"><%= title %></h1>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wrapper">
+    <main>
+      <%= cell "decidim/tos_page", :announcement %>
+
+      <div class="columns small-12">
+        <div class="card">
+          <div class="card__content"><%= decidim_sanitize translated_attribute page.content %></div>
+        </div>
+      </div>
+
+      <%= cell "decidim/tos_page", :sticky_form %>
+    </main>
+</div>
+
+<script>
+$(".announcement").parent().removeClass('row column');
+$(".flex-center").removeClass('row column')
+</script>
