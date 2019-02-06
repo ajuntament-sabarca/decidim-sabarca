@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    decidim-sabarca (0.12.0)
+    decidim-sabarca (0.16.0.pre.0.2)
       acts_as_list (= 0.9.9)
       decidim-accountability (= 0.16.0)
       decidim-admin (= 0.16.0)
@@ -289,7 +289,7 @@ GEM
     htmlentities (4.3.4)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
-    httparty (0.16.3)
+    httparty (0.16.4)
       mime-types (~> 3.0)
       multi_xml (>= 0.5.2)
     i18n (1.2.0)
